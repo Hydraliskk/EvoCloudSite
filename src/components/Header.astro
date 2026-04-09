@@ -1,13 +1,26 @@
-<header class="border-b border-slate-200/80 bg-white/95 backdrop-blur">
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4 md:gap-8">
+---
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { href: "/services", label: "Services" },
+  { href: "/a-propos", label: "Notre équipe" },
+  { href: "/realisations", label: "Réalisations" },
+  { href: "/contact", label: "Contact" },
+];
+
+const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href));
+---
+
+<header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/82 backdrop-blur-xl">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3 md:gap-8 md:py-4">
     <a href="/" class="flex min-w-0 items-center gap-4">
       <img
         src="/images/Logo.png"
         alt="Evolution Cloud"
-        class="h-18 w-auto shrink-0 drop-shadow-sm md:h-20"
+        class="h-14 w-auto shrink-0 drop-shadow-sm md:h-16"
       />
       <div class="min-w-0">
-        <div class="truncate text-xl font-extrabold tracking-tight text-slate-950 md:text-2xl">Evolution Cloud</div>
+        <div class="truncate text-lg font-extrabold tracking-tight text-slate-950 md:text-2xl">Evolution Cloud</div>
         <div class="truncate text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-blue-700 md:text-xs">
           Services TI & cybersécurité
         </div>
@@ -15,15 +28,25 @@
     </a>
 
     <nav class="flex min-w-0 items-center gap-2 text-sm font-semibold text-slate-700 md:gap-3 md:text-[0.95rem]">
-      <a href="/services" class="rounded-full border border-transparent px-3 py-2.5 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 md:px-4">Services</a>
-      <a href="/a-propos" class="rounded-full border border-transparent px-3 py-2.5 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 md:px-4">Notre équipe</a>
-      <a href="/realisations" class="rounded-full border border-transparent px-3 py-2.5 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 md:px-4">Réalisations</a>
-      <a href="/contact" class="rounded-full border border-transparent px-3 py-2.5 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 md:px-4">Contact</a>
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          aria-current={isActive(item.href) ? "page" : undefined}
+          class:list={[
+            "rounded-full px-3 py-2.5 transition md:px-4",
+            isActive(item.href)
+              ? "border border-blue-200 bg-blue-50 text-blue-700 shadow-sm"
+              : "border border-transparent hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
     </nav>
 
     <a
       href="/contact"
-      class="shrink-0 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_22px_-14px_rgba(37,99,235,0.95)] transition hover:-translate-y-0.5 hover:bg-blue-700 md:px-6 md:py-3 md:text-base"
+      class="shrink-0 rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_14px_28px_-16px_rgba(15,23,42,0.8)] transition hover:-translate-y-0.5 hover:bg-blue-700 md:px-6 md:py-3 md:text-base"
     >
       Nous joindre
     </a>
