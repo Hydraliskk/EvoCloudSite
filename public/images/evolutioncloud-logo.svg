@@ -1,0 +1,45 @@
+<svg width="980" height="260" viewBox="0 0 980 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Evolution Cloud">
+  <defs>
+    <linearGradient id="cloudMain" x1="28" y1="20" x2="210" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BFF3FF"/>
+      <stop offset="0.42" stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="cloudAccent" x1="136" y1="24" x2="230" y2="176" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#93C5FD"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="980" height="260" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="8"/>
+      <feGaussianBlur stdDeviation="10"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0196078 0 0 0 0 0.113725 0 0 0 0 0.254902 0 0 0 0.16 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_2"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_2" result="shape"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="4" y="4" width="972" height="252" rx="30" fill="white" fill-opacity="0.02"/>
+  </g>
+
+  <g transform="translate(24 20)">
+    <rect x="0" y="0" width="208" height="208" rx="44" fill="#0F172A" fill-opacity="0.03"/>
+    <path d="M52 146C31.013 146 14 128.987 14 108C14 87.013 31.013 70 52 70C56.043 70 59.944 70.64 63.604 71.86C69.176 47.048 90.474 28 116 28C145.823 28 170 52.177 170 82C170 82.986 169.973 83.966 169.919 84.939C175.645 80.55 182.778 78 190.5 78C207.897 78 222 92.103 222 109.5C222 126.897 207.897 141 190.5 141H52Z" transform="translate(-8 14)" fill="url(#cloudMain)"/>
+    <path d="M92 114L126 50H142L108 114H92Z" fill="#0F172A" opacity="0.96"/>
+    <path d="M128 114L162 50H178L144 114H128Z" fill="#0F172A" opacity="0.96"/>
+    <path d="M120 114L154 50H170L136 114H120Z" fill="url(#cloudAccent)" opacity="0.98"/>
+    <path d="M58 140C58 122.327 72.327 108 90 108H152C169.673 108 184 122.327 184 140V148H58V140Z" fill="#1D4ED8" opacity="0.12"/>
+    <path d="M74 164C77.581 152.557 88.139 144 100.875 144H157.125C169.861 144 180.419 152.557 184 164" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <g transform="translate(286 76)">
+    <text x="0" y="56" fill="#0F172A" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="66" font-weight="800" letter-spacing="-1.8">
+      Evolution Cloud
+    </text>
+    <text x="2" y="102" fill="#2563EB" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="700" letter-spacing="2.4">
+      SERVICES TI &amp; CYBERSÉCURITÉ
+    </text>
+  </g>
+</svg>

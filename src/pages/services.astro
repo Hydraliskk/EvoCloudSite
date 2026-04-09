@@ -1,5 +1,56 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const faqItems = [
+  {
+    question: "Quels types de services offrez-vous?",
+    answer:
+      "Nous offrons des services de cybersécurité, de cloud, de conformité à la Loi 25, de communication unifiée, de support technique et de bâtiments connectés.",
+  },
+  {
+    question: "Comment se déroule un audit de sécurité?",
+    answer:
+      "L’audit de sécurité commence par un tour du parc informatique, des services utilisés, des accès et des équipements en place afin d’identifier les risques, les priorités et les améliorations à apporter.",
+  },
+  {
+    question: "Offrez-vous du support Microsoft 365?",
+    answer:
+      "Oui. Nous pouvons vous accompagner pour Microsoft 365, Windows, les postes de travail, la configuration et le support courant.",
+  },
+  {
+    question: "Pouvez-vous nous aider avec la Loi 25?",
+    answer:
+      "Oui. Nous offrons de l’accompagnement pour la conformité à la Loi 25, avec évaluation des obligations, politiques, procédures et mise en place.",
+  },
+  {
+    question: "Faites-vous de l’installation et de la réparation?",
+    answer:
+      "Oui. Notre volet technique couvre l’installation, la réparation, le dépannage, la mise en service et l’assistance à distance ou sur site.",
+  },
+  {
+    question: "Travaillez-vous aussi en dehors des heures d’ouverture?",
+    answer:
+      "Oui. Nous restons disponibles en dehors des heures aussi selon la nature du besoin et le niveau d’urgence.",
+  },
+  {
+    question: "Offrez-vous des services sur site?",
+    answer:
+      "Oui. Nous pouvons intervenir à distance ou sur site, selon le service et la situation.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
 ---
 
 <BaseLayout title="Services | Evolution Cloud">
@@ -13,6 +64,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <p class="mt-6 text-lg leading-8 text-slate-600">
           Evolution Cloud accompagne les entreprises en cybersécurité, cloud, Loi 25, communication unifiée,
           bâtiments connectés et support technique. L’idée est simple: des services concrets, bien cadrés et utiles au quotidien.
+        </p>
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          Nous desservons principalement le Lac-Saint-Jean et le Saguenay, avec possibilité d’interventions ailleurs selon le besoin.
         </p>
 
         <div class="mt-8 flex flex-wrap gap-3">
@@ -146,5 +200,48 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </ul>
       </article>
     </section>
+
+    <section class="mx-auto mt-16 max-w-6xl">
+      <div class="max-w-3xl px-0">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">FAQ</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950">
+          Questions fréquentes sur nos services.
+        </h2>
+        <p class="mt-4 text-sm leading-7 text-slate-600">
+          Cette section aide vos visiteurs à trouver rapidement l’information la plus importante et renforce la pertinence SEO de la page.
+        </p>
+      </div>
+
+      <div class="mt-8 grid gap-4">
+        {faqItems.map((item) => (
+          <details class="group rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition open:border-blue-200 open:bg-blue-50">
+            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-950">
+              <span class="flex items-center justify-between gap-4">
+                <span>{item.question}</span>
+                <span class="text-blue-700 transition group-open:rotate-45">+</span>
+              </span>
+            </summary>
+            <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-12 rounded-[2.25rem] border border-blue-200 bg-blue-50 p-7 shadow-sm">
+      <div class="grid gap-4 md:grid-cols-[0.9fr_1.1fr] md:items-start">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">Zone desservie</p>
+          <h2 class="mt-4 text-2xl font-semibold text-slate-950">Lac-Saint-Jean, Saguenay et au-delà</h2>
+        </div>
+        <p class="text-sm leading-7 text-slate-600">
+          Nous intervenons principalement au Lac-Saint-Jean et au Saguenay. Selon la nature du mandat, il est aussi possible de
+          travailler en dehors de ces secteurs.
+        </p>
+      </div>
+    </section>
   </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 </BaseLayout>
