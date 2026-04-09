@@ -1,0 +1,150 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Services | Evolution Cloud">
+  <main class="mx-auto max-w-6xl px-6 py-14 md:py-20">
+    <section class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">Nos services</p>
+        <h1 class="mt-4 text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
+          Une offre claire, technique et rassurante pour vos opérations.
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Evolution Cloud accompagne les entreprises en cybersécurité, cloud, Loi 25, communication unifiée,
+          bâtiments connectés et support technique. L’idée est simple: des services concrets, bien cadrés et utiles au quotidien.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <span class="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800">Audit et sécurité</span>
+          <span class="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800">Cloud et sauvegarde</span>
+          <span class="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800">Support Microsoft</span>
+          <span class="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800">Bâtiments connectés</span>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-blue-100 via-sky-50 to-white blur-2xl"></div>
+        <div class="relative overflow-hidden rounded-[2.25rem] border border-blue-200 bg-blue-50 shadow-[0_24px_80px_-36px_rgba(15,23,42,0.25)]">
+          <img src="/images/services-hero.svg" alt="" aria-hidden="true" class="h-full w-full object-cover" />
+          <div class="absolute bottom-0 left-0 right-0 border-t border-blue-200 bg-blue-50/95 p-5 text-slate-900 backdrop-blur-sm">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Une approche intégrée</p>
+            <p class="mt-2 text-sm leading-6 text-slate-700">
+              Protection, support, connectivité et conformité réunis dans une même direction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-12">
+      <article class="rounded-[2rem] border border-blue-200 bg-blue-50 p-6 shadow-sm xl:col-span-6">
+        <div class="flex items-center justify-between gap-4">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Cybersécurité</p>
+          <span class="rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-slate-600">Priorité haute</span>
+        </div>
+        <h2 class="mt-3 text-2xl font-semibold text-slate-950">Protection de vos environnements</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-600">
+          On sécurise vos systèmes avec une approche réaliste, orientée prévention, détection et réponse.
+        </p>
+        <ul class="mt-5 grid gap-2 text-sm leading-6 text-slate-600 sm:grid-cols-2">
+          <li>Audit de sécurité</li>
+          <li>Surveillance 24/7</li>
+          <li>Outils de détection d’intrusion</li>
+          <li>Formations</li>
+          <li>Gestion des accès</li>
+          <li>Recommandations d’amélioration</li>
+        </ul>
+      </article>
+
+      <article class="rounded-[2rem] border border-blue-200 bg-blue-50 p-6 shadow-sm xl:col-span-6">
+        <div class="flex items-center justify-between gap-4">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Cloud</p>
+          <span class="rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-slate-600">Essentiel</span>
+        </div>
+        <h2 class="mt-3 text-2xl font-semibold text-slate-950">Cloud, continuité et mobilité</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-600">
+          Des services qui facilitent l’accès, la sauvegarde et la collaboration sans compliquer l’exploitation.
+        </p>
+        <ul class="mt-5 grid gap-2 text-sm leading-6 text-slate-600 sm:grid-cols-2">
+          <li>Sauvegarde</li>
+          <li>Microsoft 365 / Google</li>
+          <li>Téléphonie IP</li>
+          <li>Migrations et maintien de service</li>
+          <li>Gestion des courriels</li>
+          <li>Collaboration à distance</li>
+        </ul>
+      </article>
+
+      <article class="rounded-[2rem] border border-blue-200 bg-blue-50 p-6 shadow-sm xl:col-span-5">
+        <div class="flex items-center justify-between gap-4">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Loi 25</p>
+          <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-600">Conformité</span>
+        </div>
+        <h2 class="mt-3 text-2xl font-semibold text-slate-950">Conformité à la Loi 25</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-600">
+          Nous vous accompagnons dans la conformité à la Loi 25 avec une démarche simple, structurée et adaptée à votre réalité.
+        </p>
+        <ul class="mt-5 grid gap-2 text-sm leading-6 text-slate-600">
+          <li>Évaluation des obligations</li>
+          <li>Politiques et procédures</li>
+          <li>Sensibilisation des équipes</li>
+          <li>Support à la mise en place</li>
+        </ul>
+      </article>
+
+      <article class="rounded-[2rem] border border-blue-200 bg-blue-50 p-6 shadow-sm xl:col-span-7">
+        <div class="flex items-center justify-between gap-4">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Communication unifiée</p>
+          <span class="rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-slate-600">Voix et vidéo</span>
+        </div>
+        <h2 class="mt-3 text-2xl font-semibold text-slate-950">Voix, vidéo et messagerie dans un seul flux</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-600">
+          On simplifie les communications d’entreprise pour que les équipes restent connectées, peu importe l’endroit.
+        </p>
+        <ul class="mt-5 grid gap-2 text-sm leading-6 text-slate-600 sm:grid-cols-2">
+          <li>Intégration de plateformes de communication</li>
+          <li>Téléphonie IP avancée</li>
+          <li>Système de collaboration en temps réel</li>
+          <li>Messagerie unifiée</li>
+          <li>Mobilité et télétravail</li>
+          <li>Support continu</li>
+        </ul>
+      </article>
+
+      <article class="rounded-[2rem] border border-blue-200 bg-blue-50 p-6 shadow-sm xl:col-span-7">
+        <div class="flex items-center justify-between gap-4">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Technique</p>
+          <span class="rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-slate-600">Terrain</span>
+        </div>
+        <h2 class="mt-3 text-2xl font-semibold text-slate-950">Installation, réparation et support Microsoft</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-600">
+          Nous offrons aussi des services de techniciens pour aider vos équipes au quotidien.
+        </p>
+        <ul class="mt-5 grid gap-2 text-sm leading-6 text-slate-600 sm:grid-cols-2">
+          <li>Support Microsoft 365, Windows et postes de travail</li>
+          <li>Installation de matériel, logiciels et périphériques</li>
+          <li>Réparation, dépannage et mise en service</li>
+          <li>Configuration réseau et assistance sur site ou à distance</li>
+        </ul>
+      </article>
+
+      <article class="rounded-[2rem] border border-blue-200 bg-blue-50 p-6 shadow-sm xl:col-span-5">
+        <div class="flex items-center justify-between gap-4">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Bâtiments</p>
+          <span class="rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-slate-600">Connecté</span>
+        </div>
+        <h2 class="mt-3 text-2xl font-semibold text-slate-950">Infrastructure et surveillance</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-600">
+          Des solutions pour relier votre espace, votre réseau et vos équipements de façon fiable.
+        </p>
+        <ul class="mt-5 grid gap-2 text-sm leading-6 text-slate-600">
+          <li>Câblage</li>
+          <li>Surveillance</li>
+          <li>Objets IoT</li>
+          <li>Internet</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</BaseLayout>
