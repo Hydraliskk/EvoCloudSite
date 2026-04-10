@@ -1,0 +1,91 @@
+﻿<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration de marque Evolution Cloud pour la page d'accueil">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1080" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#060B16"/>
+      <stop offset="0.48" stop-color="#0F2E73"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 390) rotate(90) scale(290 360)">
+      <stop stop-color="#BAE6FD" stop-opacity="0.95"/>
+      <stop offset="0.55" stop-color="#38BDF8" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cloud" x1="320" y1="210" x2="820" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9F7FF"/>
+      <stop offset="0.42" stop-color="#60D2FF"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="strokeGrad" x1="250" y1="220" x2="950" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E0F2FE" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#93C5FD" stop-opacity="0.65"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1200" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="26"/>
+      <feGaussianBlur stdDeviation="26"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0196078 0 0 0 0 0.113725 0 0 0 0 0.254902 0 0 0 0.34 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_2"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_2" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" rx="54" fill="url(#bg)"/>
+  <circle cx="196" cy="150" r="150" fill="#FFFFFF" fill-opacity="0.06"/>
+  <circle cx="1018" cy="174" r="210" fill="#FFFFFF" fill-opacity="0.05"/>
+  <circle cx="952" cy="760" r="220" fill="#FFFFFF" fill-opacity="0.04"/>
+  <circle cx="212" cy="770" r="140" fill="#FFFFFF" fill-opacity="0.05"/>
+
+  <g opacity="0.22" stroke="#E0F2FE" stroke-width="2">
+    <path d="M108 252C256 188 404 154 600 154C796 154 944 188 1092 252"/>
+    <path d="M82 390C230 326 398 294 600 294C802 294 970 326 1118 390"/>
+    <path d="M96 548C244 484 410 454 600 454C790 454 956 484 1104 548"/>
+    <path d="M132 706C272 648 424 620 600 620C776 620 928 648 1068 706"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="168" y="154" width="864" height="620" rx="42" fill="#07111F" fill-opacity="0.18" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  </g>
+
+  <g transform="translate(212 186)">
+    <rect x="0" y="0" width="776" height="556" rx="34" fill="#081120" fill-opacity="0.92" stroke="#93C5FD" stroke-opacity="0.12"/>
+    <circle cx="388" cy="244" r="196" fill="url(#glow)"/>
+
+    <g opacity="0.9">
+      <path d="M232 408C232 292.947 325.947 199 441 199C495.735 199 545.495 220.053 583.123 254.533C594.512 249.46 607.118 246.667 620.333 246.667C671.243 246.667 712.667 288.091 712.667 339C712.667 389.909 671.243 431.333 620.333 431.333H286.333C256.446 431.333 232 406.887 232 377V408Z" fill="url(#cloud)"/>
+      <path d="M358 380L406 288H431L383 380H358Z" fill="#07111F" opacity="0.96"/>
+      <path d="M408 380L456 288H481L433 380H408Z" fill="#07111F" opacity="0.96"/>
+      <path d="M458 380L506 288H531L483 380H458Z" fill="#07111F" opacity="0.96"/>
+      <path d="M512 380L560 288H585L537 380H512Z" fill="#07111F" opacity="0.96"/>
+      <path d="M355 406C366 393 381 387 398 387H553C569 387 583 392 594 402" stroke="#E0F2FE" stroke-width="5" stroke-linecap="round" opacity="0.75"/>
+    </g>
+
+    <g fill="none" stroke="url(#strokeGrad)" stroke-width="4" stroke-linecap="round" opacity="0.95">
+      <path d="M206 196C270 166 334 152 406 152"/>
+      <path d="M370 122C424 96 478 86 546 86"/>
+      <path d="M560 104C628 106 690 126 742 160"/>
+      <path d="M704 228C744 260 768 298 780 344"/>
+      <path d="M196 322C210 372 238 414 284 448"/>
+    </g>
+
+    <g fill="#E0F2FE">
+      <circle cx="406" cy="152" r="8"/>
+      <circle cx="546" cy="86" r="8"/>
+      <circle cx="742" cy="160" r="8"/>
+      <circle cx="780" cy="344" r="8"/>
+      <circle cx="284" cy="448" r="8"/>
+    </g>
+
+    <g opacity="0.95">
+      <rect x="78" y="74" width="176" height="48" rx="16" fill="#FFFFFF" fill-opacity="0.08" stroke="#E0F2FE" stroke-opacity="0.12"/>
+      <rect x="74" y="446" width="182" height="48" rx="16" fill="#FFFFFF" fill-opacity="0.08" stroke="#E0F2FE" stroke-opacity="0.12"/>
+      <rect x="520" y="446" width="182" height="48" rx="16" fill="#FFFFFF" fill-opacity="0.08" stroke="#E0F2FE" stroke-opacity="0.12"/>
+      <rect x="588" y="74" width="122" height="48" rx="16" fill="#FFFFFF" fill-opacity="0.08" stroke="#E0F2FE" stroke-opacity="0.12"/>
+    </g>
+
+    <g transform="translate(220 520)">
+      <text x="0" y="44" fill="#F8FAFC" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="42" font-weight="800" letter-spacing="-1.2">Evolution Cloud</text>
+      <text x="2" y="80" fill="#93C5FD" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700" letter-spacing="3.2">SERVICES TI &amp; CYBERSÉCURITÉ</text>
+    </g>
+  </g>
+</svg>

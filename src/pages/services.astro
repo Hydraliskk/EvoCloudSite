@@ -39,6 +39,17 @@ const faqItems = [
   },
 ];
 
+const serviceTickerItems = [
+  "Cybersécurité",
+  "Cloud",
+  "Loi 25",
+  "Support Microsoft 365",
+  "Téléphonie IP",
+  "Bâtiments connectés",
+  "Sauvegarde",
+  "Audit de sécurité",
+];
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -55,76 +66,32 @@ const faqJsonLd = {
 
 <BaseLayout title="Services | Evolution Cloud">
   <main class="overflow-hidden">
-    <section class="relative isolate mx-auto max-w-6xl px-6 py-16 md:py-24">
+    <section class="relative isolate mx-auto max-w-7xl px-6 py-16 md:py-24">
       <div class="absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-100/70 blur-3xl"></div>
       <div class="absolute right-0 top-0 h-80 w-80 rounded-full bg-sky-100/60 blur-3xl"></div>
+      <div class="absolute inset-x-0 top-20 h-px bg-gradient-to-r from-transparent via-blue-200/70 to-transparent"></div>
 
-      <div class="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-        <div class="max-w-2xl">
+      <div class="relative">
+        <div class="flex flex-col justify-center">
           <p class="inline-flex w-fit rounded-full border border-blue-200 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm backdrop-blur">
             Nos services
           </p>
-          <h1 class="mt-5 text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
+          <h1 class="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
             Une offre claire, structurée et rassurante pour vos opérations.
           </h1>
-          <p class="mt-6 text-lg leading-8 text-slate-600">
+          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
             Evolution Cloud accompagne les entreprises en cybersécurité, cloud, Loi 25, communication unifiée, bâtiments connectés et support technique.
             L’idée est simple: des services concrets, bien cadrés et utiles au quotidien.
           </p>
-          <p class="mt-4 text-sm leading-7 text-slate-600">
+          <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
             Nous desservons principalement le Lac-Saint-Jean et le Saguenay, avec possibilité d’interventions ailleurs selon le besoin.
           </p>
 
-          <div class="mt-8 flex flex-wrap gap-3">
-            <span class="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800">Audit et sécurité</span>
-            <span class="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800">Cloud et sauvegarde</span>
-            <span class="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800">Support Microsoft</span>
-            <span class="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-800">Bâtiments connectés</span>
-          </div>
-        </div>
-
-        <div class="relative">
-          <div class="absolute -inset-5 rounded-[2.75rem] bg-gradient-to-br from-blue-100 via-sky-50 to-white blur-3xl"></div>
-          <div class="relative overflow-hidden rounded-[2.5rem] border border-blue-200 bg-white shadow-[0_34px_100px_-44px_rgba(15,23,42,0.35)]">
-            <img src="/images/services-hero.svg" alt="" aria-hidden="true" class="h-full w-full object-cover" />
-            <div class="absolute inset-x-5 bottom-5 rounded-[1.75rem] border border-white/60 bg-slate-950/82 p-5 text-white backdrop-blur-md">
-              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-200">Une approche intégrée</p>
-              <p class="mt-3 text-sm leading-6 text-slate-300">
-                Protection, support, connectivité et conformité réunis dans une même direction.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-6 pb-6 md:pb-10">
-      <div class="grid gap-6 md:grid-cols-3">
-        <article class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Clarté</p>
-          <h2 class="mt-3 text-xl font-semibold text-slate-950">Une direction lisible</h2>
-          <p class="mt-3 text-sm leading-6 text-slate-600">
-            Chaque service est présenté de façon simple pour que vos équipes comprennent vite ce qui est important.
-          </p>
-        </article>
-        <article class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Rigueur</p>
-          <h2 class="mt-3 text-xl font-semibold text-slate-950">Des bases qui tiennent</h2>
-          <p class="mt-3 text-sm leading-6 text-slate-600">
-            L’approche vise la stabilité, la prévention et la continuité au lieu d’empiler des couches inutiles.
-          </p>
-        </article>
-        <article class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
-          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Proximité</p>
-          <h2 class="mt-3 text-xl font-semibold text-slate-950">Un accompagnement humain</h2>
-          <p class="mt-3 text-sm leading-6 text-slate-600">
-            On privilégie des échanges directs, concrets et faciles à suivre pour rester utile au quotidien.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-6xl px-6 py-14 md:py-20">
+    <section class="mx-auto max-w-6xl px-6 pb-16 md:pb-24">
       <div class="grid gap-6 xl:grid-cols-12">
         <article class="rounded-[2.25rem] border border-blue-100 bg-blue-50 p-7 shadow-sm xl:col-span-7">
           <div class="flex items-center justify-between gap-4">
@@ -214,6 +181,23 @@ const faqJsonLd = {
             <li>Internet</li>
           </ul>
         </article>
+
+        <article class="rounded-[2.25rem] border border-slate-200 bg-slate-950 p-7 text-white shadow-[0_30px_70px_-35px_rgba(15,23,42,0.9)] xl:col-span-12">
+          <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-300">Zone desservie</p>
+              <h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
+                Lac-Saint-Jean, Saguenay et au-delà.
+              </h2>
+              <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
+                Nous intervenons principalement au Lac-Saint-Jean et au Saguenay. Selon la nature du mandat, il est aussi possible de travailler en dehors de ces secteurs.
+              </p>
+            </div>
+            <a href="/contact" class="inline-flex w-fit rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-blue-100">
+              Planifier un échange
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -249,16 +233,16 @@ const faqJsonLd = {
       <div class="rounded-[2.5rem] border border-slate-200 bg-slate-950 px-7 py-10 text-white shadow-[0_30px_70px_-35px_rgba(15,23,42,0.9)] md:px-10">
         <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-300">Zone desservie</p>
+            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-300">Prêt à avancer</p>
             <h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
-              Lac-Saint-Jean, Saguenay et au-delà.
+              Une meilleure présence visuelle, c’est aussi une meilleure impression de maîtrise.
             </h2>
             <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
-              Nous intervenons principalement au Lac-Saint-Jean et au Saguenay. Selon la nature du mandat, il est aussi possible de travailler en dehors de ces secteurs.
+              Si tu veux, on peut maintenant pousser plus loin la page avec des preuves sociales, des témoignages ou un autre polish du contenu.
             </p>
           </div>
           <a href="/contact" class="inline-flex w-fit rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-blue-100">
-            Planifier un échange
+            Lancer une demande
           </a>
         </div>
       </div>
