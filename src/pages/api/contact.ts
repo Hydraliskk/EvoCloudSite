@@ -1,4 +1,7 @@
 import type { APIRoute } from 'astro';
+import { createHash } from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
 import nodemailer from 'nodemailer';
 
 if (typeof process.loadEnvFile === 'function') {
@@ -18,13 +21,41 @@ const MAX_MESSAGE_LENGTH = 4000;
 const MAX_FIELD_LENGTH = 5000;
 const CONTACT_WINDOW_MS = 10 * 60 * 1000;
 const CONTACT_LIMIT_PER_WINDOW = 6;
+const TURNSTILE_SITE_KEY = process.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY ?? process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY ?? '';
+const RATE_LIMIT_STORE_PATH = path.join(process.cwd(), '.astro', 'contact-rate-limit.json');
 
 type ContactBucket = {
   count: number;
   resetAt: number;
 };
 
-const contactBuckets = new Map<string, ContactBucket>();
+const contactBuckets = loadContactBuckets();
+
+function loadContactBuckets() {
+  try {
+    const raw = fs.readFileSync(RATE_LIMIT_STORE_PATH, 'utf8');
+    const parsed = JSON.parse(raw) as Record<string, ContactBucket>;
+    const now = Date.now();
+    const entries = Object.entries(parsed).filter(([, bucket]) => bucket && bucket.resetAt > now);
+    return new Map(entries);
+  } catch {
+    return new Map<string, ContactBucket>();
+  }
+}
+
+function saveContactBuckets() {
+  try {
+    const dir = path.dirname(RATE_LIMIT_STORE_PATH);
+    fs.mkdirSync(dir, { recursive: true });
+    const payload = JSON.stringify(Object.fromEntries(contactBuckets), null, 2);
+    const tempPath = `${RATE_LIMIT_STORE_PATH}.${process.pid}.tmp`;
+    fs.writeFileSync(tempPath, payload, 'utf8');
+    fs.renameSync(tempPath, RATE_LIMIT_STORE_PATH);
+  } catch {
+    // If the store cannot be written, we keep the in-memory bucket as a best-effort fallback.
+  }
+}
 
 function getSmtpTransport() {
   const smtpUrl = process.env.SMTP_URL;
@@ -114,21 +145,59 @@ function getClientKey(request: Request) {
 }
 
 function isRateLimited(request: Request) {
-  const key = getClientKey(request);
+  const key = createHash('sha256').update(getClientKey(request)).digest('hex');
   const now = Date.now();
   const bucket = contactBuckets.get(key);
 
   if (!bucket || bucket.resetAt <= now) {
     contactBuckets.set(key, { count: 1, resetAt: now + CONTACT_WINDOW_MS });
+    saveContactBuckets();
     return false;
   }
 
   if (bucket.count >= CONTACT_LIMIT_PER_WINDOW) {
+    saveContactBuckets();
     return true;
   }
 
   bucket.count += 1;
+  saveContactBuckets();
   return false;
+}
+
+async function verifyTurnstileToken(token: string, request: Request) {
+  if (!TURNSTILE_SITE_KEY) {
+    return { ok: true };
+  }
+
+  if (!TURNSTILE_SECRET_KEY) {
+    return { ok: false, reason: 'captcha-config' as const };
+  }
+
+  if (!token) {
+    return { ok: false, reason: 'captcha' as const };
+  }
+
+  const formData = new FormData();
+  formData.set('secret', TURNSTILE_SECRET_KEY);
+  formData.set('response', token);
+
+  const clientKey = getClientKey(request);
+  if (clientKey !== 'unknown') {
+    formData.set('remoteip', clientKey);
+  }
+
+  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    body: formData
+  });
+
+  if (!response.ok) {
+    return { ok: false, reason: 'captcha' as const };
+  }
+
+  const result = (await response.json()) as { success?: boolean };
+  return result.success ? { ok: true } : { ok: false, reason: 'captcha' as const };
 }
 
 function escapeHtml(value: string) {
@@ -145,10 +214,6 @@ export const POST: APIRoute = async ({ request, url }) => {
     return Response.redirect(new URL('/contact?error=origin', url), 303);
   }
 
-  if (isRateLimited(request)) {
-    return Response.redirect(new URL('/contact?error=rate', url), 303);
-  }
-
   const formData = await request.formData();
   const honeypot = normalize(formData.get('website'));
   const rawName = normalize(formData.get('name'));
@@ -156,6 +221,7 @@ export const POST: APIRoute = async ({ request, url }) => {
   const rawEmail = normalize(formData.get('email'));
   const rawPhone = normalize(formData.get('phone'));
   const rawMessage = normalize(formData.get('message'));
+  const turnstileToken = normalize(formData.get('cf-turnstile-response'));
 
   if (honeypot) {
     return Response.redirect(new URL('/contact?error=spam', url), 303);
@@ -193,6 +259,15 @@ export const POST: APIRoute = async ({ request, url }) => {
 
   if (!isValidEmail(email)) {
     return Response.redirect(new URL('/contact?error=invalid', url), 303);
+  }
+
+  const captcha = await verifyTurnstileToken(turnstileToken, request);
+  if (!captcha.ok) {
+    return Response.redirect(new URL(`/contact?error=${captcha.reason}`, url), 303);
+  }
+
+  if (isRateLimited(request)) {
+    return Response.redirect(new URL('/contact?error=rate', url), 303);
   }
 
   const transport = getSmtpTransport();
