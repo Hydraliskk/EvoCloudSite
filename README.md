@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Astro Starter Kit: Minimal
 
 ```sh
@@ -57,3 +58,6 @@ CONTACT_FROM_EMAIL=
 PUBLIC_TURNSTILE_SITE_KEY=
 TURNSTILE_SECRET_KEY=
 ```
+=======
+# EvoCloudSite
+>>>>>>> 79eac05a8e8b033ec2e64676e28144f3ab3c817b
