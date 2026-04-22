@@ -1,0 +1,33 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration zone desservie">
+  <defs>
+    <linearGradient id="bg" x1="60" y1="50" x2="1140" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06101F"/>
+      <stop offset="0.52" stop-color="#0F2E73"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(620 270) rotate(90) scale(160 240)">
+      <stop stop-color="#BAE6FD" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="600" rx="42" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="110" fill="#FFFFFF" fill-opacity="0.05"/>
+  <circle cx="1010" cy="90" r="120" fill="#FFFFFF" fill-opacity="0.05"/>
+  <circle cx="980" cy="490" r="150" fill="#FFFFFF" fill-opacity="0.04"/>
+  <circle cx="220" cy="500" r="90" fill="#FFFFFF" fill-opacity="0.04"/>
+  <circle cx="620" cy="280" r="220" fill="url(#glow)"/>
+  <g opacity="0.9">
+    <path d="M452 386C452 324.6 501.6 275 563 275C590.3 275 615.4 284.9 634.7 301.4C643.5 298.4 653 296.8 663 296.8C698.3 296.8 727 325.5 727 360.8C727 396.1 698.3 424.8 663 424.8H500.4C473.9 424.8 452 402.9 452 376.4V386Z" fill="#F8FAFC" fill-opacity="0.14"/>
+    <path d="M538 386L586 290H612L564 386H538Z" fill="#38BDF8"/>
+    <path d="M586 386L634 290H660L612 386H586Z" fill="#93C5FD"/>
+    <path d="M476 162C524 134 580 122 652 122C736 122 804 152 852 206" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round"/>
+    <path d="M470 430C522 462 582 478 650 478C730 478 796 450 848 400" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="652" cy="122" r="8" fill="#E0F2FE"/>
+    <circle cx="852" cy="206" r="8" fill="#E0F2FE"/>
+    <circle cx="650" cy="478" r="8" fill="#E0F2FE"/>
+    <circle cx="848" cy="400" r="8" fill="#E0F2FE"/>
+    <rect x="236" y="136" width="152" height="42" rx="15" fill="#38BDF8" fill-opacity="0.16" stroke="#E0F2FE" stroke-opacity="0.18"/>
+    <rect x="812" y="136" width="152" height="42" rx="15" fill="#38BDF8" fill-opacity="0.16" stroke="#E0F2FE" stroke-opacity="0.18"/>
+  </g>
+  <text x="92" y="534" fill="#E0F2FE" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="700" letter-spacing="6">PARTOUT AU QUÉBEC</text>
+</svg>

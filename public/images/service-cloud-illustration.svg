@@ -1,0 +1,30 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration cloud">
+  <defs>
+    <linearGradient id="bg" x1="70" y1="40" x2="1120" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1630"/>
+      <stop offset="0.5" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(660 250) rotate(90) scale(170 240)">
+      <stop stop-color="#BAE6FD" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="600" rx="42" fill="url(#bg)"/>
+  <circle cx="180" cy="120" r="110" fill="#FFFFFF" fill-opacity="0.05"/>
+  <circle cx="1020" cy="90" r="120" fill="#FFFFFF" fill-opacity="0.05"/>
+  <circle cx="1020" cy="500" r="150" fill="#FFFFFF" fill-opacity="0.04"/>
+  <circle cx="210" cy="500" r="90" fill="#FFFFFF" fill-opacity="0.04"/>
+  <circle cx="640" cy="260" r="220" fill="url(#glow)"/>
+  <g opacity="0.92">
+    <path d="M424 340C424 285.3 468.3 241 523 241C552.3 241 578.6 253.6 596.6 274.5C607.8 268.1 620.8 264.4 634.7 264.4C676.7 264.4 711 298.7 711 340.7C711 382.7 676.7 417 634.7 417H463.2C441.8 417 424 399.2 424 377.8V340Z" fill="#F8FAFC" fill-opacity="0.14"/>
+    <path d="M492 340C492 320.1 508.1 304 528 304C547.9 304 564 320.1 564 340C564 359.9 547.9 376 528 376C508.1 376 492 359.9 492 340Z" fill="#38BDF8"/>
+    <path d="M528 340V290" stroke="#E0F2FE" stroke-width="10" stroke-linecap="round"/>
+    <path d="M510 304L528 286L546 304" stroke="#E0F2FE" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="250" y="128" width="148" height="44" rx="16" fill="#38BDF8" fill-opacity="0.16" stroke="#E0F2FE" stroke-opacity="0.18"/>
+    <rect x="820" y="128" width="144" height="44" rx="16" fill="#38BDF8" fill-opacity="0.16" stroke="#E0F2FE" stroke-opacity="0.18"/>
+    <rect x="236" y="428" width="160" height="44" rx="16" fill="#38BDF8" fill-opacity="0.16" stroke="#E0F2FE" stroke-opacity="0.18"/>
+    <rect x="808" y="428" width="172" height="44" rx="16" fill="#38BDF8" fill-opacity="0.16" stroke="#E0F2FE" stroke-opacity="0.18"/>
+  </g>
+  <text x="92" y="534" fill="#E0F2FE" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="700" letter-spacing="6">CLOUD</text>
+</svg>

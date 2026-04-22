@@ -1,0 +1,28 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration technique">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="1120" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08111F"/>
+      <stop offset="0.55" stop-color="#334155"/>
+      <stop offset="1" stop-color="#60A5FA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" rx="42" fill="url(#bg)"/>
+  <circle cx="160" cy="120" r="100" fill="#FFFFFF" fill-opacity="0.05"/>
+  <circle cx="1020" cy="100" r="120" fill="#FFFFFF" fill-opacity="0.05"/>
+  <circle cx="980" cy="500" r="150" fill="#FFFFFF" fill-opacity="0.04"/>
+  <g opacity="0.9">
+    <rect x="380" y="140" width="440" height="280" rx="28" fill="#F8FAFC" fill-opacity="0.12" stroke="#E0F2FE" stroke-opacity="0.14"/>
+    <rect x="436" y="188" width="328" height="164" rx="22" fill="#0F172A" fill-opacity="0.25" stroke="#E0F2FE" stroke-opacity="0.12"/>
+    <rect x="470" y="220" width="120" height="12" rx="6" fill="#93C5FD"/>
+    <rect x="470" y="248" width="220" height="10" rx="5" fill="#E2E8F0" fill-opacity="0.9"/>
+    <rect x="470" y="270" width="180" height="10" rx="5" fill="#E2E8F0" fill-opacity="0.7"/>
+    <circle cx="720" cy="270" r="34" fill="#38BDF8"/>
+    <path d="M706 270H734" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <path d="M720 256V284" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <path d="M260 410C320 360 380 342 446 342" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round"/>
+    <path d="M754 342C808 342 860 360 920 410" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round"/>
+    <rect x="286" y="410" width="146" height="36" rx="14" fill="#38BDF8" fill-opacity="0.2" stroke="#E0F2FE" stroke-opacity="0.16"/>
+    <rect x="774" y="410" width="156" height="36" rx="14" fill="#38BDF8" fill-opacity="0.2" stroke="#E0F2FE" stroke-opacity="0.16"/>
+  </g>
+  <text x="92" y="534" fill="#E0F2FE" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="700" letter-spacing="6">TECHNIQUE</text>
+</svg>

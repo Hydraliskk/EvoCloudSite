@@ -1,0 +1,33 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration cybersécurité">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="1120" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08111F"/>
+      <stop offset="0.52" stop-color="#0F2E73"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 260) rotate(90) scale(180 260)">
+      <stop stop-color="#BAE6FD" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="600" rx="42" fill="url(#bg)"/>
+  <circle cx="150" cy="110" r="100" fill="#FFFFFF" fill-opacity="0.05"/>
+  <circle cx="1020" cy="96" r="130" fill="#FFFFFF" fill-opacity="0.05"/>
+  <circle cx="1020" cy="510" r="160" fill="#FFFFFF" fill-opacity="0.04"/>
+  <circle cx="210" cy="500" r="92" fill="#FFFFFF" fill-opacity="0.04"/>
+  <circle cx="600" cy="250" r="220" fill="url(#glow)"/>
+  <g opacity="0.9">
+    <path d="M386 334C386 256.2 449.2 193 527 193H668C727.2 193 775 240.8 775 300C775 359.2 727.2 407 668 407H444C412.5 407 386 380.5 386 349V334Z" fill="#F8FAFC" fill-opacity="0.12"/>
+    <path d="M470 335C470 293.6 503.6 260 545 260C586.4 260 620 293.6 620 335C620 376.4 586.4 410 545 410C503.6 410 470 376.4 470 335Z" fill="#38BDF8"/>
+    <path d="M540 334L559 353L591 321" stroke="#F8FAFC" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="236" y="126" width="150" height="44" rx="16" fill="#38BDF8" fill-opacity="0.18" stroke="#E0F2FE" stroke-opacity="0.2"/>
+    <rect x="814" y="126" width="150" height="44" rx="16" fill="#38BDF8" fill-opacity="0.18" stroke="#E0F2FE" stroke-opacity="0.2"/>
+    <rect x="220" y="432" width="170" height="44" rx="16" fill="#38BDF8" fill-opacity="0.18" stroke="#E0F2FE" stroke-opacity="0.2"/>
+    <rect x="812" y="432" width="170" height="44" rx="16" fill="#38BDF8" fill-opacity="0.18" stroke="#E0F2FE" stroke-opacity="0.2"/>
+    <path d="M340 170C402 146 462 132 532 132" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round"/>
+    <path d="M668 132C740 132 802 146 862 170" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round"/>
+    <path d="M300 402C356 430 414 444 476 444" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round"/>
+    <path d="M724 444C788 444 846 430 902 402" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <text x="92" y="534" fill="#E0F2FE" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="700" letter-spacing="6">CYBERSÉCURITÉ</text>
+</svg>
