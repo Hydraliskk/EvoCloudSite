@@ -3,19 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const sent = Astro.url.searchParams.get("sent") === "1";
 const error = Astro.url.searchParams.get("error");
-const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
-
-const errorMessages = {
-  missing: "Merci de remplir au minimum votre nom, votre courriel et votre message.",
-  smtp: "Le courriel n’est pas encore configuré côté serveur. Il faut ajouter les variables SMTP avant de mettre le site en ligne.",
-  send: "Une erreur est survenue pendant l’envoi. Réessayez dans un instant.",
-  origin: "La demande a été bloquée pour des raisons de sécurité.",
-  spam: "La demande a été bloquée pour des raisons de sécurité.",
-  rate: "Trop de messages ont été envoyés en peu de temps. Réessayez plus tard.",
-  invalid: "Certains champs ne respectent pas le format attendu.",
-  captcha: "La vérification anti-spam a échoué. Réessayez.",
-  "captcha-config": "La vérification anti-spam n’est pas encore configurée côté serveur."
-} as const;
 ---
 
 <BaseLayout title="Contact | Evolution Cloud">
@@ -46,73 +33,36 @@ const errorMessages = {
         )}
         {error === "missing" && (
           <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-            {errorMessages.missing}
+            Merci de remplir au minimum votre nom, votre courriel et votre message.
           </div>
         )}
         {error === "smtp" && (
           <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-            {errorMessages.smtp}
+            Le courriel n’est pas encore configuré côté serveur. Il faut ajouter les variables SMTP avant de mettre le site en ligne.
           </div>
         )}
         {error === "send" && (
           <div class="mb-5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
-            {errorMessages.send}
-          </div>
-        )}
-        {error === "origin" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-            {errorMessages.origin}
-          </div>
-        )}
-        {error === "spam" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-            {errorMessages.spam}
-          </div>
-        )}
-        {error === "rate" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-            {errorMessages.rate}
-          </div>
-        )}
-        {error === "invalid" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-            {errorMessages.invalid}
-          </div>
-        )}
-        {error === "captcha" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-            {errorMessages.captcha}
-          </div>
-        )}
-        {error === "captcha-config" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-            {errorMessages["captcha-config"]}
+            Une erreur est survenue pendant l’envoi. Réessayez dans un instant.
           </div>
         )}
 
         <div class="grid gap-5 sm:grid-cols-2">
           <label class="grid gap-2 text-sm font-medium text-slate-700">
             Nom
-            <input type="text" name="name" autocomplete="name" maxlength="100" required class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
+            <input type="text" name="name" autocomplete="name" required class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
           </label>
           <label class="grid gap-2 text-sm font-medium text-slate-700">
             Entreprise
-            <input type="text" name="company" autocomplete="organization" maxlength="120" class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
+            <input type="text" name="company" autocomplete="organization" class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
           </label>
           <label class="grid gap-2 text-sm font-medium text-slate-700">
             Courriel
-            <input type="email" name="email" autocomplete="email" maxlength="254" required class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
+            <input type="email" name="email" autocomplete="email" required class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
           </label>
           <label class="grid gap-2 text-sm font-medium text-slate-700">
             Téléphone
-            <input type="tel" name="phone" autocomplete="tel" maxlength="40" class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
-          </label>
-        </div>
-
-        <div class="sr-only" aria-hidden="true">
-          <label>
-            Site web
-            <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+            <input type="tel" name="phone" autocomplete="tel" class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
           </label>
         </div>
 
@@ -121,22 +71,10 @@ const errorMessages = {
           <textarea
             name="message"
             rows="6"
-            maxlength="4000"
             required
             class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400"
           ></textarea>
         </label>
-
-        {turnstileSiteKey && (
-          <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <div
-              class="cf-turnstile"
-              data-sitekey={turnstileSiteKey}
-              data-theme="light"
-              data-language="fr"
-            ></div>
-          </div>
-        )}
 
         <button
           type="submit"
@@ -162,7 +100,4 @@ const errorMessages = {
       </aside>
     </section>
   </main>
-  {turnstileSiteKey && (
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-  )}
 </BaseLayout>
