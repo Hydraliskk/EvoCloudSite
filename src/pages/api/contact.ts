@@ -314,3 +314,11 @@ export const POST: APIRoute = async ({ request, url }) => {
     return Response.redirect(new URL('/contact?error=send', url), 303);
   }
 };
+
+export const GET: APIRoute = async () =>
+  new Response('Method Not Allowed', {
+    status: 405,
+    headers: {
+      Allow: 'POST'
+    }
+  });

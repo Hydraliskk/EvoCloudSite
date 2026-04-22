@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const sent = Astro.url.searchParams.get("sent") === "1";
 const error = Astro.url.searchParams.get("error");
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
 <BaseLayout title="Contact | Evolution Cloud">
@@ -36,6 +37,36 @@ const error = Astro.url.searchParams.get("error");
             Merci de remplir au minimum votre nom, votre courriel et votre message.
           </div>
         )}
+        {error === "invalid" && (
+          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+            Le formulaire contient une valeur invalide. Vérifiez vos champs et réessayez.
+          </div>
+        )}
+        {error === "origin" && (
+          <div class="mb-5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+            La soumission a été refusée pour des raisons de sécurité.
+          </div>
+        )}
+        {error === "spam" && (
+          <div class="mb-5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+            La soumission a été bloquée par la protection anti-spam.
+          </div>
+        )}
+        {error === "captcha" && (
+          <div class="mb-5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+            La vérification de sécurité a échoué. Réessayez dans un instant.
+          </div>
+        )}
+        {error === "captcha-config" && (
+          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+            La vérification de sécurité n’est pas encore configurée côté serveur.
+          </div>
+        )}
+        {error === "rate" && (
+          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+            Trop de messages ont été envoyés depuis cette connexion. Réessayez plus tard.
+          </div>
+        )}
         {error === "smtp" && (
           <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
             Le courriel n’est pas encore configuré côté serveur. Il faut ajouter les variables SMTP avant de mettre le site en ligne.
@@ -66,6 +97,13 @@ const error = Astro.url.searchParams.get("error");
           </label>
         </div>
 
+        <div class="sr-only" aria-hidden="true">
+          <label>
+            Site web
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+          </label>
+        </div>
+
         <label class="mt-5 grid gap-2 text-sm font-medium text-slate-700">
           Message
           <textarea
@@ -75,6 +113,17 @@ const error = Astro.url.searchParams.get("error");
             class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400"
           ></textarea>
         </label>
+
+        {turnstileSiteKey && (
+          <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <div
+              class="cf-turnstile"
+              data-sitekey={turnstileSiteKey}
+              data-theme="light"
+              data-language="fr"
+            ></div>
+          </div>
+        )}
 
         <button
           type="submit"
@@ -100,4 +149,7 @@ const error = Astro.url.searchParams.get("error");
       </aside>
     </section>
   </main>
+  {turnstileSiteKey && (
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  )}
 </BaseLayout>
