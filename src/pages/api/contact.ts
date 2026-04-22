@@ -116,17 +116,26 @@ function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function getPublicOrigin(request: Request, url: URL) {
+  const forwardedProto = request.headers.get('x-forwarded-proto');
+  const forwardedHost = request.headers.get('x-forwarded-host');
+  const host = forwardedHost || request.headers.get('host') || url.host;
+  const proto = forwardedProto || url.protocol.replace(':', '');
+  return `${proto}://${host}`;
+}
+
 function isSameOrigin(request: Request, url: URL) {
+  const expectedOrigin = getPublicOrigin(request, url);
   const origin = request.headers.get('origin');
   const referer = request.headers.get('referer');
 
   if (origin) {
-    return origin === url.origin;
+    return origin === expectedOrigin;
   }
 
   if (referer) {
     try {
-      return new URL(referer).origin === url.origin;
+      return new URL(referer).origin === expectedOrigin;
     } catch {
       return false;
     }
