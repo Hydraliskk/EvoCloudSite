@@ -108,13 +108,13 @@ const projects = [
         >
           {projects.map((project, index) => (
             <article
-              class="carousel-card group relative min-w-[84vw] overflow-hidden rounded-[2.5rem] border border-cyan-300/50 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] shadow-[0_30px_84px_-38px_rgba(14,165,233,0.5)] ring-1 ring-cyan-200/26 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/70 md:min-w-[34rem] lg:min-w-[38rem]"
+              class="carousel-card group relative min-w-[84vw] overflow-hidden rounded-[2.5rem] border border-cyan-300/35 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] shadow-[0_30px_84px_-38px_rgba(14,165,233,0.5)] ring-1 ring-cyan-200/18 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_34px_96px_-34px_rgba(34,211,238,0.58)] md:min-w-[34rem] lg:min-w-[38rem]"
               data-carousel-card
               data-carousel-index={index}
               style={`--card-delay:${index * 120}ms;`}
             >
               <div class="relative">
-                <img src={project.image} alt={project.alt} class="aspect-[16/10] w-full object-cover object-center transition duration-500 group-hover:scale-105" />
+                <img src={project.image} alt={project.alt} class="block aspect-[16/10] w-full object-cover object-center transition duration-500 group-hover:scale-105" />
                 <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.16),rgba(2,6,23,0.72))]"></div>
               </div>
               <div class="p-6 md:p-7">

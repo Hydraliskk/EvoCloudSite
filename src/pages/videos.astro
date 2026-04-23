@@ -20,7 +20,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </p>
       </div>
 
-      <div class="mt-10 rounded-[2.5rem] border border-cyan-300/50 bg-[linear-gradient(180deg,rgba(4,10,24,0.96),rgba(2,6,23,1))] p-8 shadow-[0_38px_118px_-36px_rgba(14,165,233,0.48)] ring-1 ring-cyan-200/26 md:p-10">
+      <div class="videos-frame mt-10 rounded-[2.5rem] border border-cyan-300/50 bg-[linear-gradient(180deg,rgba(4,10,24,0.96),rgba(2,6,23,1))] p-8 shadow-[0_38px_118px_-36px_rgba(14,165,233,0.48)] ring-1 ring-cyan-200/26 md:p-10">
         <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">En développement</p>
         <h2 class="mt-4 text-2xl font-semibold text-white md:text-3xl">
           On prépare quelque chose de plus visuel.
@@ -28,10 +28,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
           Les vidéos arriveront ici lorsque la section sera prête. En attendant, vous pouvez consulter les services, les réalisations ou nous contacter directement.
         </p>
-        <a href="/contact" class="mt-6 inline-flex w-fit rounded-full border border-cyan-300/30 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cyan-300/12">
+        <a
+          href="/contact"
+          class="mt-6 inline-flex w-fit rounded-full border border-cyan-300/30 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cyan-300/12"
+        >
           Nous joindre
         </a>
       </div>
     </section>
   </main>
+
+  <style>
+    .videos-frame {
+      position: relative;
+      overflow: visible;
+    }
+  </style>
 </BaseLayout>
