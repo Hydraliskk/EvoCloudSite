@@ -16,7 +16,7 @@
       radial-gradient(circle at top left, rgba(34, 211, 238, 0.14), transparent 22%),
       radial-gradient(circle at 86% 8%, rgba(59, 130, 246, 0.12), transparent 24%),
       radial-gradient(circle at 56% 112%, rgba(16, 185, 129, 0.06), transparent 18%),
-      linear-gradient(180deg, #06101d 0%, #0a1628 24%, #0f1b32 58%, #081221 100%);
+      linear-gradient(180deg, #071220 0%, #0b1730 24%, #112044 58%, #0a1526 100%);
   }
 
   body::before {
@@ -28,7 +28,7 @@
       linear-gradient(rgba(125, 211, 252, 0.06) 1px, transparent 1px),
       linear-gradient(90deg, rgba(125, 211, 252, 0.06) 1px, transparent 1px);
     background-size: 48px 48px;
-    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 82%);
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 82%);
   }
 
   a {
