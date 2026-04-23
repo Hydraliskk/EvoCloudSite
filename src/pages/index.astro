@@ -5,16 +5,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout title="Accueil | Evolution Cloud">
   <main class="overflow-hidden">
     <section class="relative isolate">
-      <div class="absolute inset-x-0 top-0 h-[760px] bg-[radial-gradient(circle_at_top,rgba(37,99,235,0.22),transparent_46%),radial-gradient(circle_at_80%_15%,rgba(14,165,233,0.18),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.15))]"></div>
+      <div class="absolute inset-x-0 top-0 h-[760px] bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_46%),radial-gradient(circle_at_80%_15%,rgba(59,130,246,0.18),transparent_28%),linear-gradient(180deg,rgba(4,10,24,0.96),rgba(10,18,38,0.18))]"></div>
       <div class="relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-center px-6 py-20 md:py-28">
         <div class="flex max-w-4xl flex-col justify-center">
-          <p class="inline-flex w-fit rounded-full border border-blue-200 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm backdrop-blur">
+          <p class="inline-flex w-fit rounded-full border border-cyan-300/25 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200 shadow-sm backdrop-blur">
             Services TI et cybersécurité
           </p>
-          <h1 class="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
+          <h1 class="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl">
             Des solutions technologiques plus claires, plus solides et plus simples à faire vivre.
           </h1>
-          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Evolution Cloud accompagne les entreprises avec la cybersécurité, le cloud, la conformité et le support technique.
             On met en place des bases solides, humaines et faciles à maintenir dans le temps.
           </p>
@@ -22,31 +22,52 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <div class="mt-8 flex flex-wrap gap-4">
             <a
               href="/services"
-              class="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_32px_-18px_rgba(15,23,42,0.9)] transition hover:-translate-y-0.5 hover:bg-blue-700"
+              class="rounded-full border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(34,211,238,0.22),rgba(59,130,246,0.22))] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_32px_-18px_rgba(14,165,233,0.55)] transition hover:-translate-y-0.5 hover:border-cyan-200/40 hover:bg-[linear-gradient(135deg,rgba(34,211,238,0.3),rgba(59,130,246,0.32))]"
             >
               Découvrir les services
             </a>
             <a
               href="/contact"
-              class="rounded-full border border-slate-300 bg-white/70 px-6 py-3 text-sm font-semibold text-slate-700 backdrop-blur transition hover:border-blue-300 hover:text-blue-700"
+              class="rounded-full border border-cyan-300/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 backdrop-blur transition hover:border-cyan-200/40 hover:text-cyan-100"
             >
               Nous contacter
             </a>
           </div>
 
           <div class="mt-12 grid gap-4 sm:grid-cols-3">
-            <div class="min-h-[148px] rounded-[1.5rem] border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur md:p-6">
-              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">Cybersécurité</p>
-              <p class="mt-3 text-sm leading-6 text-slate-600">Audit, détection et accompagnement concret.</p>
-            </div>
-            <div class="min-h-[148px] rounded-[1.5rem] border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur md:p-6">
-              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">Cloud</p>
-              <p class="mt-3 text-sm leading-6 text-slate-600">Sauvegarde, mobilité et continuité de service.</p>
-            </div>
-            <div class="min-h-[148px] rounded-[1.5rem] border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur md:p-6">
-              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">Loi 25</p>
-              <p class="mt-3 text-sm leading-6 text-slate-600">Une conformité structurée, sans lourdeur.</p>
-            </div>
+            <a href="/services#service-cybersecurite" class="group relative block w-full min-h-[148px] overflow-hidden rounded-[1.5rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(10,18,38,0.92))] p-5 shadow-[0_26px_64px_-38px_rgba(14,165,233,0.42)] ring-1 ring-cyan-200/15 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-cyan-200/45 hover:shadow-[0_30px_74px_-36px_rgba(34,211,238,0.48)] md:p-6">
+              <div class="absolute inset-0">
+                <img src="/images/service-cyber-photo.png" alt="" aria-hidden="true" class="h-full w-full object-cover object-[center_28%] transition duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.36),rgba(2,6,23,0.84))]"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_32%),linear-gradient(135deg,rgba(34,211,238,0.12),transparent_42%,rgba(59,130,246,0.08))] mix-blend-screen opacity-80"></div>
+              </div>
+              <div class="relative z-10">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300 transition group-hover:text-cyan-200">Cybersécurité</p>
+                <p class="mt-3 text-sm leading-6 text-slate-300 transition group-hover:text-slate-200">Audit, détection et accompagnement concret.</p>
+              </div>
+            </a>
+            <a href="/services#service-cloud" class="group relative block w-full min-h-[148px] overflow-hidden rounded-[1.5rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(10,18,38,0.92))] p-5 shadow-[0_26px_64px_-38px_rgba(14,165,233,0.42)] ring-1 ring-cyan-200/15 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-cyan-200/45 hover:shadow-[0_30px_74px_-36px_rgba(34,211,238,0.48)] md:p-6">
+              <div class="absolute inset-0">
+                <img src="/images/service-cloud-photo.png" alt="" aria-hidden="true" class="h-full w-full object-cover object-[center_34%] transition duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.36),rgba(2,6,23,0.84))]"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_32%),linear-gradient(135deg,rgba(34,211,238,0.12),transparent_42%,rgba(59,130,246,0.08))] mix-blend-screen opacity-80"></div>
+              </div>
+              <div class="relative z-10">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300 transition group-hover:text-cyan-200">Cloud</p>
+                <p class="mt-3 text-sm leading-6 text-slate-300 transition group-hover:text-slate-200">Sauvegarde, mobilité et continuité de service.</p>
+              </div>
+            </a>
+            <a href="/services#service-loi-25" class="group relative block w-full min-h-[148px] overflow-hidden rounded-[1.5rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(10,18,38,0.92))] p-5 shadow-[0_26px_64px_-38px_rgba(14,165,233,0.42)] ring-1 ring-cyan-200/15 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-cyan-200/45 hover:shadow-[0_30px_74px_-36px_rgba(34,211,238,0.48)] md:p-6">
+              <div class="absolute inset-0">
+                <img src="/images/service-law25-photo.png" alt="" aria-hidden="true" class="h-full w-full object-cover object-[center_22%] transition duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.36),rgba(2,6,23,0.84))]"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_32%),linear-gradient(135deg,rgba(34,211,238,0.12),transparent_42%,rgba(59,130,246,0.08))] mix-blend-screen opacity-80"></div>
+              </div>
+              <div class="relative z-10">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300 transition group-hover:text-cyan-200">Loi 25</p>
+                <p class="mt-3 text-sm leading-6 text-slate-300 transition group-hover:text-slate-200">Une conformité structurée, sans lourdeur.</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -54,34 +75,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     <section class="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
       <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <div class="rounded-[2.25rem] border border-slate-200 bg-white p-7 shadow-sm">
-          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">Découvrez notre équipe</p>
-          <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950">
+        <div class="rounded-[2.25rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-7 shadow-[0_30px_76px_-40px_rgba(14,165,233,0.38)] ring-1 ring-cyan-200/15">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Découvrez notre équipe</p>
+          <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white">
             Une équipe proche, impliquée et orientée vers vos besoins réels.
           </h2>
-          <p class="mt-4 text-sm leading-7 text-slate-600">
+          <p class="mt-4 text-sm leading-7 text-slate-300">
             Derrière Evolution Cloud, il y a des gens qui travaillent avec vous, pas seulement pour vous. 
           </p>
           <div class="mt-6">
             <a
               href="/a-propos"
-              class="inline-flex rounded-full border border-blue-200 bg-blue-50 px-5 py-3 text-sm font-semibold text-blue-700 transition hover:border-blue-300 hover:bg-blue-100"
+              class="inline-flex rounded-full border border-cyan-300/15 bg-white/5 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:border-cyan-200/40 hover:bg-cyan-300/10"
             >
               Découvrir notre équipe
             </a>
           </div>
         </div>
 
-        <div class="rounded-[2.25rem] border border-slate-200 bg-white p-7 shadow-sm">
-          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">Services</p>
-          <h3 class="mt-4 text-2xl font-semibold tracking-tight text-slate-950">Ce qu’on fait, au bon endroit.</h3>
-          <p class="mt-4 text-sm leading-7 text-slate-600">
+        <div class="rounded-[2.25rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-7 shadow-[0_30px_76px_-40px_rgba(14,165,233,0.38)] ring-1 ring-cyan-200/15">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Services</p>
+          <h3 class="mt-4 text-2xl font-semibold tracking-tight text-white">Ce qu’on fait, au bon endroit.</h3>
+          <p class="mt-4 text-sm leading-7 text-slate-300">
             Découvrez nos nombreux services
           </p>
           <div class="mt-6">
             <a
               href="/services"
-              class="inline-flex rounded-full border border-blue-200 bg-blue-50 px-5 py-3 text-sm font-semibold text-blue-700 transition hover:border-blue-300 hover:bg-blue-100"
+              class="inline-flex rounded-full border border-cyan-300/15 bg-white/5 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:border-cyan-200/40 hover:bg-cyan-300/10"
             >
               Voir tous les services
             </a>
@@ -91,10 +112,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </section>
 
     <section class="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
-      <div class="rounded-[2.5rem] border border-slate-200 bg-slate-950 px-7 py-10 text-white shadow-[0_30px_70px_-35px_rgba(15,23,42,0.9)] md:px-10">
+      <div class="rounded-[2.5rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(4,10,24,0.96),rgba(2,6,23,1))] px-7 py-10 text-white shadow-[0_36px_110px_-38px_rgba(14,165,233,0.42)] ring-1 ring-cyan-200/15 md:px-10">
         <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-300">Prêt à avancer</p>
+            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Prêt à avancer</p>
             <h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
               Vous avez un besoin clair? On peut vous aider à passer à l’action.
             </h2>
@@ -104,7 +125,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
           <a
             href="/contact"
-            class="inline-flex w-fit rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-blue-100"
+            class="inline-flex w-fit rounded-full border border-cyan-300/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cyan-300/12"
           >
             Nous contacter
           </a>

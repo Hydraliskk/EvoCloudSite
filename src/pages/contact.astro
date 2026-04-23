@@ -9,91 +9,91 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 <BaseLayout title="Contact | Evolution Cloud">
   <main class="overflow-hidden">
     <section class="relative isolate mx-auto max-w-6xl px-6 py-16 md:py-24">
-      <div class="absolute -left-16 top-8 h-64 w-64 rounded-full bg-blue-100/60 blur-3xl"></div>
-      <div class="absolute right-0 top-16 h-72 w-72 rounded-full bg-sky-100/50 blur-3xl"></div>
+      <div class="absolute -left-16 top-8 h-64 w-64 rounded-full bg-cyan-400/12 blur-3xl"></div>
+      <div class="absolute right-0 top-16 h-72 w-72 rounded-full bg-blue-500/12 blur-3xl"></div>
 
       <div class="relative max-w-3xl">
-        <p class="inline-flex w-fit rounded-full border border-blue-200 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm backdrop-blur">
+        <p class="inline-flex w-fit rounded-full border border-cyan-300/25 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200 shadow-sm backdrop-blur">
           Contact
         </p>
-        <h1 class="mt-5 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
+        <h1 class="mt-5 text-4xl font-semibold tracking-tight text-white md:text-5xl">
           Parlons de vos besoins technologiques.
         </h1>
-        <p class="mt-6 text-lg leading-8 text-slate-600">
+        <p class="mt-6 text-lg leading-8 text-slate-300">
           Décrivez votre besoin et nous vous répondrons rapidement avec une proposition claire ou les prochaines étapes à suivre.
         </p>
       </div>
     </section>
 
     <section class="mx-auto grid max-w-6xl gap-8 px-6 pb-20 lg:grid-cols-[1.05fr_0.95fr] md:pb-28">
-      <form method="post" action="/api/contact" class="rounded-[2.5rem] border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+      <form method="post" action="/api/contact" class="rounded-[2.5rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-6 shadow-[0_28px_76px_-40px_rgba(14,165,233,0.42)] ring-1 ring-cyan-200/15 md:p-8">
         {sent && (
-          <div class="mb-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+          <div class="mb-5 rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-3 text-sm text-emerald-200">
             Merci. Votre message a bien été envoyé.
           </div>
         )}
         {error === "missing" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          <div class="mb-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-200">
             Merci de remplir au minimum votre nom, votre courriel et votre message.
           </div>
         )}
         {error === "invalid" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          <div class="mb-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-200">
             Le formulaire contient une valeur invalide. Vérifiez vos champs et réessayez.
           </div>
         )}
         {error === "origin" && (
-          <div class="mb-5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+          <div class="mb-5 rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-200">
             La soumission a été refusée pour des raisons de sécurité.
           </div>
         )}
         {error === "spam" && (
-          <div class="mb-5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+          <div class="mb-5 rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-200">
             La soumission a été bloquée par la protection anti-spam.
           </div>
         )}
         {error === "captcha" && (
-          <div class="mb-5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+          <div class="mb-5 rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-200">
             La vérification de sécurité a échoué. Réessayez dans un instant.
           </div>
         )}
         {error === "captcha-config" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          <div class="mb-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-200">
             La vérification de sécurité n’est pas encore configurée côté serveur.
           </div>
         )}
         {error === "rate" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          <div class="mb-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-200">
             Trop de messages ont été envoyés depuis cette connexion. Réessayez plus tard.
           </div>
         )}
         {error === "smtp" && (
-          <div class="mb-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          <div class="mb-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-200">
             Le courriel n’est pas encore configuré côté serveur. Il faut ajouter les variables SMTP avant de mettre le site en ligne.
           </div>
         )}
         {error === "send" && (
-          <div class="mb-5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800">
+          <div class="mb-5 rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-200">
             Une erreur est survenue pendant l’envoi. Réessayez dans un instant.
           </div>
         )}
 
         <div class="grid gap-5 sm:grid-cols-2">
-          <label class="grid gap-2 text-sm font-medium text-slate-700">
+          <label class="grid gap-2 text-sm font-medium text-slate-200">
             Nom
-            <input type="text" name="name" autocomplete="name" required class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
+            <input type="text" name="name" autocomplete="name" required class="rounded-xl border border-cyan-300/15 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40" />
           </label>
-          <label class="grid gap-2 text-sm font-medium text-slate-700">
+          <label class="grid gap-2 text-sm font-medium text-slate-200">
             Entreprise
-            <input type="text" name="company" autocomplete="organization" class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
+            <input type="text" name="company" autocomplete="organization" class="rounded-xl border border-cyan-300/15 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40" />
           </label>
-          <label class="grid gap-2 text-sm font-medium text-slate-700">
+          <label class="grid gap-2 text-sm font-medium text-slate-200">
             Courriel
-            <input type="email" name="email" autocomplete="email" required class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
+            <input type="email" name="email" autocomplete="email" required class="rounded-xl border border-cyan-300/15 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40" />
           </label>
-          <label class="grid gap-2 text-sm font-medium text-slate-700">
+          <label class="grid gap-2 text-sm font-medium text-slate-200">
             Téléphone
-            <input type="tel" name="phone" autocomplete="tel" class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400" />
+            <input type="tel" name="phone" autocomplete="tel" class="rounded-xl border border-cyan-300/15 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40" />
           </label>
         </div>
 
@@ -104,22 +104,22 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
           </label>
         </div>
 
-        <label class="mt-5 grid gap-2 text-sm font-medium text-slate-700">
+        <label class="mt-5 grid gap-2 text-sm font-medium text-slate-200">
           Message
           <textarea
             name="message"
             rows="6"
             required
-            class="rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-blue-400"
+            class="rounded-xl border border-cyan-300/15 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/40"
           ></textarea>
         </label>
 
         {turnstileSiteKey && (
-          <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div class="mt-5 rounded-2xl border border-cyan-300/12 bg-white/5 p-4">
             <div
               class="cf-turnstile"
               data-sitekey={turnstileSiteKey}
-              data-theme="light"
+              data-theme="dark"
               data-language="fr"
             ></div>
           </div>
@@ -127,15 +127,15 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
         <button
           type="submit"
-          class="mt-6 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_32px_-18px_rgba(15,23,42,0.9)] transition hover:-translate-y-0.5 hover:bg-blue-700"
+          class="mt-6 rounded-full border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(34,211,238,0.22),rgba(59,130,246,0.22))] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_32px_-18px_rgba(14,165,233,0.55)] transition hover:-translate-y-0.5 hover:border-cyan-200/40 hover:bg-[linear-gradient(135deg,rgba(34,211,238,0.3),rgba(59,130,246,0.32))]"
         >
           Envoyer la demande
         </button>
       </form>
 
       <aside class="space-y-6">
-        <div class="rounded-[2.5rem] border border-slate-200 bg-slate-950 p-7 text-white shadow-[0_30px_70px_-35px_rgba(15,23,42,0.9)]">
-          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-300">Comment nous aider</p>
+        <div class="rounded-[2.5rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(4,10,24,0.96),rgba(2,6,23,1))] p-7 text-white shadow-[0_36px_110px_-38px_rgba(14,165,233,0.42)] ring-1 ring-cyan-200/15">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Comment nous aider</p>
           <p class="mt-4 text-sm leading-7 text-slate-300">
             Plus vous nous donnez de contexte, plus nous pouvons vous revenir avec une réponse précise.
           </p>

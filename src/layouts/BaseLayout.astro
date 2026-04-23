@@ -5,21 +5,21 @@ import Footer from "../components/Footer.astro";
 
 const { title = "Evolution Cloud" } = Astro.props;
 const description =
-  "Evolution Cloud accompagne les entreprises avec des solutions TI, de cybersécurité, de cloud, de conformité et de support technique.";
+  "Evolution Cloud accompagne les entreprises avec des solutions TI, de cybersÃ©curitÃ©, de cloud, de conformitÃ© et de support technique.";
 ---
 
 <!doctype html>
-<html lang="fr" class="bg-slate-50">
+<html lang="fr" class="bg-slate-950">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f8fafc" />
+    <meta name="theme-color" content="#09111f" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="min-h-dvh text-slate-900 antialiased">
+  <body class="min-h-dvh text-slate-100 antialiased">
     <Header />
     <slot />
     <Footer />

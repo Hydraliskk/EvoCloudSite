@@ -50,6 +50,64 @@ const serviceTickerItems = [
   "Audit de sécurité",
 ];
 
+const hoverServices = [
+  {
+    eyebrow: "Cybersécurité",
+    slug: "cybersecurite",
+    title: "Protection de vos environnements",
+    description:
+      "On sécurise vos postes, vos accès et vos données avec une approche concrète: prévention, détection et réponse.",
+    points: ["Audit de sécurité", "Surveillance", "Gestion des accès", "Recommandations d’amélioration"],
+    media: "/images/service-cyber-photo.png",
+    mediaPosition: "center 28%",
+    ring: "ring-cyan-300/40",
+  },
+  {
+    eyebrow: "Loi 25",
+    slug: "loi-25",
+    title: "Conformité accompagnée",
+    description:
+      "Nous vous aidons à structurer les obligations, les politiques et les démarches pour avancer sans complexifier vos opérations.",
+    points: ["Évaluation des obligations", "Politiques et procédures", "Sensibilisation", "Mise en place"],
+    media: "/images/service-law25-photo.png",
+    mediaPosition: "center 22%",
+    ring: "ring-fuchsia-300/35",
+  },
+  {
+    eyebrow: "Cloud",
+    slug: "cloud",
+    title: "Mobilité et continuité de service",
+    description:
+      "Sauvegarde, collaboration et accès à distance prennent de la place seulement quand vous en avez besoin.",
+    points: ["Microsoft 365", "Google Workspace", "Sauvegarde", "Migration et maintien de service"],
+    media: "/images/service-cloud-photo.png",
+    mediaPosition: "center 34%",
+    ring: "ring-emerald-300/35",
+  },
+  {
+    eyebrow: "Technique",
+    slug: "technique",
+    title: "Support et mise en service",
+    description:
+      "On prend en charge l’installation, le dépannage et le support quotidien pour garder vos équipes en mouvement.",
+    points: ["Postes de travail", "Réseau", "Réparation", "Assistance à distance ou sur site"],
+    media: "/images/service-tech-photo.png",
+    mediaPosition: "center 25%",
+    ring: "ring-lime-300/35",
+  },
+  {
+    eyebrow: "Bâtiments",
+    slug: "batiments",
+    title: "Infrastructure connectée",
+    description:
+      "On relie vos espaces, vos équipements et votre réseau avec des solutions fiables et faciles à maintenir.",
+    points: ["Câblage", "Surveillance", "Objets IoT", "Internet"],
+    media: "/images/service-buildings-photo.png",
+    mediaPosition: "center 20%",
+    ring: "ring-cyan-300/35",
+  },
+];
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -66,274 +124,137 @@ const faqJsonLd = {
 
 <BaseLayout title="Services | Evolution Cloud">
   <main class="overflow-hidden">
-    <section class="relative isolate mx-auto max-w-7xl px-6 py-16 md:py-24">
-      <div class="absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-100/70 blur-3xl"></div>
-      <div class="absolute right-0 top-0 h-80 w-80 rounded-full bg-sky-100/60 blur-3xl"></div>
-      <div class="absolute inset-x-0 top-20 h-px bg-gradient-to-r from-transparent via-blue-200/70 to-transparent"></div>
+    <section class="relative isolate mx-auto max-w-[100rem] px-2 py-10 md:px-4 md:py-16">
+      <div class="relative overflow-hidden rounded-[2.8rem] border border-cyan-300/25 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.16),transparent_24%),radial-gradient(circle_at_88%_6%,rgba(59,130,246,0.16),transparent_22%),radial-gradient(circle_at_58%_112%,rgba(16,185,129,0.08),transparent_18%),linear-gradient(180deg,rgba(4,10,24,0.96),rgba(10,18,38,0.94))] px-6 py-10 shadow-[0_36px_120px_-44px_rgba(14,165,233,0.5)] ring-1 ring-cyan-200/15 md:px-10 md:py-14">
+        <div class="absolute -left-24 top-10 h-72 w-72 rounded-full bg-cyan-400/18 blur-3xl"></div>
+        <div class="absolute right-0 top-0 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl"></div>
+        <div class="absolute inset-x-0 top-20 h-px bg-gradient-to-r from-transparent via-cyan-200/50 to-transparent"></div>
 
-      <div class="relative">
-        <div class="flex flex-col justify-center">
-          <p class="inline-flex w-fit rounded-full border border-blue-200 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm backdrop-blur">
-            Nos services
-          </p>
-          <h1 class="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
-            Une offre claire, structurée et rassurante pour vos opérations.
-          </h1>
-          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-            Evolution Cloud accompagne les entreprises en cybersécurité, cloud, Loi 25, communication unifiée, bâtiments connectés et support technique.
-            L’idée est simple: des services concrets, bien cadrés et utiles au quotidien.
-          </p>
-          <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
-            Nous desservons principalement le Lac-Saint-Jean et le Saguenay, avec possibilité d’interventions ailleurs selon le besoin.
-          </p>
+        <div class="relative">
+          <div class="flex flex-col justify-center">
+            <p class="inline-flex w-fit rounded-full border border-cyan-300/30 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200 shadow-sm backdrop-blur">
+              Nos services
+            </p>
+            <h1 class="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl">
+              Une offre claire, structurée et rassurante pour vos opérations.
+            </h1>
+            <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+              Evolution Cloud accompagne les entreprises en cybersécurité, cloud, Loi 25, communication unifiée, bâtiments connectés et support technique.
+              L’idée est simple: des services concrets, bien cadrés et utiles au quotidien.
+            </p>
+            <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-400">
+              Nous desservons principalement le Lac-Saint-Jean et le Saguenay, avec possibilité d’interventions ailleurs selon le besoin.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="relative mx-auto max-w-6xl px-6 pb-16 md:pb-24">
-      <div class="pointer-events-none absolute inset-x-8 top-10 h-44 rounded-full bg-blue-100/30 blur-3xl"></div>
-      <div class="grid gap-4 xl:grid-cols-12 xl:auto-rows-fr">
-        <article class="group relative overflow-hidden rounded-[2.1rem] border border-blue-100 bg-gradient-to-br from-blue-50/70 via-white to-white shadow-[0_18px_48px_-38px_rgba(37,99,235,0.32)] xl:col-span-7">
-          <div class="absolute inset-x-0 top-0 h-1 bg-transparent"></div>
-          <div class="px-6 pb-6 pt-7 md:px-7 md:pb-7">
-            <div class="flex items-start gap-4">
-              <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-white shadow-[0_12px_25px_-18px_rgba(37,99,235,0.4)]">
-                <svg viewBox="0 0 24 24" class="h-7 w-7 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 3l7 3v5c0 4.2-2.7 7.8-7 10-4.3-2.2-7-5.8-7-10V6l7-3Z" />
-                  <path d="M9.5 12.5 11.4 14.4 15.2 10.6" />
-                </svg>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center justify-between gap-4">
-                  <p class="text-[0.66rem] font-semibold uppercase tracking-[0.34em] text-blue-700">Cybersécurité</p>
-                  <span class="rounded-full bg-white/80 px-3 py-1 text-[0.72rem] font-semibold text-blue-700 shadow-sm">Priorité haute</span>
-                </div>
-                <h2 class="mt-3 max-w-xl text-[2.15rem] leading-[1.04] font-semibold tracking-tight text-slate-950">
-                  Protection de vos environnements
-                </h2>
-              </div>
-            </div>
-            <p class="mt-5 max-w-2xl text-[0.96rem] leading-7 text-slate-600">
-              On sécurise vos systèmes avec une approche réaliste, orientée prévention, détection et réponse.
-            </p>
-            <div class="mt-7 grid gap-3 sm:grid-cols-2 sm:auto-rows-fr">
-              <div class="flex min-h-20 items-center justify-center rounded-2xl border border-slate-100 bg-white/90 px-4 py-3 text-center text-sm leading-6 text-slate-700 shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">Audit de sécurité</div>
-              <div class="flex min-h-20 items-center justify-center rounded-2xl border border-slate-100 bg-white/90 px-4 py-3 text-center text-sm leading-6 text-slate-700 shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">Surveillance 24/7</div>
-              <div class="flex min-h-20 items-center justify-center rounded-2xl border border-slate-100 bg-white/90 px-4 py-3 text-center text-sm leading-6 text-slate-700 shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">Outils de détection d’intrusion</div>
-              <div class="flex min-h-20 items-center justify-center rounded-2xl border border-slate-100 bg-white/90 px-4 py-3 text-center text-sm leading-6 text-slate-700 shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">Formations</div>
-              <div class="flex min-h-20 items-center justify-center rounded-2xl border border-slate-100 bg-white/90 px-4 py-3 text-center text-sm leading-6 text-slate-700 shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">Gestion des accès</div>
-              <div class="flex min-h-20 items-center justify-center rounded-2xl border border-slate-100 bg-white/90 px-4 py-3 text-center text-sm leading-6 text-slate-700 shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">Recommandations d’amélioration</div>
-            </div>
-          </div>
-        </article>
+    <section class="mx-auto max-w-[100rem] px-2 pb-16 md:px-4 md:pb-24">
+      <div class="rounded-[2.8rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] px-5 py-8 shadow-[0_32px_110px_-44px_rgba(14,165,233,0.38)] ring-1 ring-cyan-200/15 md:px-8 md:py-10">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">Services</p>
+          <h2 class="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+            La qualité et la diversité de nos services sont nos forces motrices
+          </h2>
+          <p class="mt-3 text-xs leading-6 text-slate-400 md:text-sm">
+            Nous sommes le partenaire de choix pour vous accompagner dans votre transformation ou votre continuité numérique
+          </p>
+        </div>
 
-        <article class="group relative overflow-hidden rounded-[2.1rem] border border-blue-100 bg-white shadow-[0_18px_48px_-38px_rgba(15,23,42,0.24)] xl:col-span-5">
-          <div class="px-6 pb-6 pt-7 md:px-7 md:pb-7">
-            <div class="flex items-start gap-4">
-              <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-blue-50 shadow-[0_12px_25px_-18px_rgba(37,99,235,0.35)]">
-                <svg viewBox="0 0 24 24" class="h-7 w-7 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5.5 15.5A4.5 4.5 0 1 1 8 7h1.2A5 5 0 1 1 14 15.5" />
-                  <path d="M8 15.5h8.8A3.2 3.2 0 0 0 16.4 9H16" />
-                </svg>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center justify-between gap-4">
-                  <p class="text-[0.66rem] font-semibold uppercase tracking-[0.34em] text-blue-700">Cloud</p>
-                  <span class="rounded-full bg-blue-50 px-3 py-1 text-[0.72rem] font-semibold text-blue-700">Essentiel</span>
+        <div class="services-expander mt-7" data-service-expander>
+          {hoverServices.map((service, index) => (
+            <button
+              type="button"
+              id={`service-${service.slug}`}
+              class="service-panel group scroll-mt-28 md:scroll-mt-32"
+              data-service-panel
+              data-index={index}
+              aria-label={`${service.eyebrow}: ${service.title}`}
+            >
+              <div class={`service-panel-shell ${index === 0 ? "is-default" : ""}`}>
+                <div class="service-panel-media" aria-hidden="true">
+                  <img src={service.media} alt="" loading="lazy" decoding="async" style={`--service-media-position:${service.mediaPosition};`} />
                 </div>
-                <h2 class="mt-3 max-w-sm text-[2.15rem] leading-[1.04] font-semibold tracking-tight text-slate-950">
-                  Cloud, continuité et mobilité
-                </h2>
-              </div>
-            </div>
-            <p class="mt-5 max-w-md text-[0.96rem] leading-7 text-slate-600">
-              Des services qui facilitent l’accès, la sauvegarde et la collaboration sans compliquer l’exploitation.
-            </p>
-            <div class="mt-7 grid gap-3 sm:grid-cols-2 sm:auto-rows-fr">
-              <div class="flex min-h-20 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-3 text-center text-sm leading-6 text-slate-700">Sauvegarde</div>
-              <div class="flex min-h-20 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-3 text-center text-sm leading-6 text-slate-700">Microsoft 365 / Google</div>
-              <div class="flex min-h-20 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-3 text-center text-sm leading-6 text-slate-700">Téléphonie IP</div>
-              <div class="flex min-h-20 items-center justify-center rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-3 text-center text-sm leading-6 text-slate-700">Migrations et maintien de service</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="group relative overflow-hidden rounded-[2.1rem] border border-blue-100 bg-white shadow-[0_18px_48px_-38px_rgba(15,23,42,0.2)] xl:col-span-4">
-          <div class="px-6 pb-6 pt-7 md:px-7 md:pb-7">
-            <div class="flex items-start gap-4">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-white shadow-[0_12px_25px_-18px_rgba(37,99,235,0.28)]">
-                <svg viewBox="0 0 24 24" class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M6 3h9l3 3v15H6z" />
-                  <path d="M15 3v4h4" />
-                  <path d="M8 11h8" />
-                  <path d="M8 15h8" />
-                </svg>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center justify-between gap-4">
-                  <p class="text-[0.66rem] font-semibold uppercase tracking-[0.34em] text-blue-700">Loi 25</p>
-                  <span class="rounded-full bg-blue-50 px-3 py-1 text-[0.72rem] font-semibold text-blue-700">Conformité</span>
+                <div class="service-panel-top bg-[linear-gradient(180deg,rgba(2,6,23,0.38),rgba(2,6,23,0.84))]">
+                  <div class="flex items-start justify-between gap-4">
+                    <p class="text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-white/95 drop-shadow-[0_2px_8px_rgba(2,6,23,0.75)]">
+                      {service.eyebrow}
+                    </p>
+                    <span class={`inline-flex h-2.5 w-2.5 rounded-full bg-white/95 ring-4 ${service.ring} ring-white/15`}></span>
+                  </div>
+                  <h3 class="mt-3 max-w-none text-2xl font-extrabold leading-[0.98] tracking-tight text-white text-balance drop-shadow-[0_2px_12px_rgba(2,6,23,0.8)] md:text-[2.1rem]">
+                    {service.eyebrow}
+                  </h3>
+                  <p class="mt-2 max-w-md text-[0.7rem] font-medium uppercase tracking-[0.22em] text-cyan-50/90 drop-shadow-[0_2px_10px_rgba(2,6,23,0.72)] md:text-[0.82rem]">
+                    {service.description}
+                  </p>
                 </div>
-                <h2 class="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
-                  Conformité à la Loi 25
-                </h2>
-              </div>
-            </div>
-            <p class="mt-4 text-sm leading-6 text-slate-600">
-              Nous vous accompagnons avec une démarche simple, structurée et adaptée à votre réalité.
-            </p>
-            <ul class="mt-5 space-y-2 text-sm leading-6 text-slate-600">
-              <li class="rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-3 text-center">Évaluation des obligations</li>
-              <li class="rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-3 text-center">Politiques et procédures</li>
-              <li class="rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-3 text-center">Sensibilisation des équipes</li>
-              <li class="rounded-2xl border border-slate-100 bg-slate-50/80 px-4 py-3 text-center">Support à la mise en place</li>
-            </ul>
-          </div>
-        </article>
 
-        <article class="group relative overflow-hidden rounded-[2.1rem] border border-blue-100 bg-gradient-to-br from-white to-slate-50 shadow-[0_18px_48px_-38px_rgba(15,23,42,0.24)] xl:col-span-8">
-          <div class="px-6 pb-6 pt-7 md:px-7 md:pb-7">
-            <div class="flex items-start gap-4">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-blue-50 shadow-[0_12px_25px_-18px_rgba(37,99,235,0.28)]">
-                <svg viewBox="0 0 24 24" class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="4" y="5" width="16" height="11" rx="1.8" />
-                  <path d="M8 19h8" />
-                  <path d="M10 16v3" />
-                  <path d="M14 16v3" />
-                </svg>
-              </div>
-              <div class="flex-1 text-center">
-                <div class="flex items-center justify-center gap-4">
-                  <p class="text-[0.66rem] font-semibold uppercase tracking-[0.34em] text-blue-700">Technique</p>
-                  <span class="rounded-full bg-blue-50 px-3 py-1 text-[0.72rem] font-semibold text-blue-700">Terrain</span>
+                <div class="service-panel-body">
+                  <div class="rounded-[1.6rem] border border-cyan-300/28 bg-[linear-gradient(180deg,rgba(2,6,23,0.88),rgba(8,15,35,0.92))] p-4 shadow-[0_20px_48px_-28px_rgba(14,165,233,0.42)] ring-1 ring-cyan-200/15 backdrop-blur md:p-5">
+                    <p class="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-cyan-300">
+                      Ce que ça couvre
+                    </p>
+                    <ul class="mt-3 grid gap-2.5 sm:grid-cols-2">
+                      {service.points.map((point) => (
+                        <li class="rounded-2xl border border-cyan-200/25 bg-slate-950/75 px-4 py-2.5 text-sm leading-6 text-slate-100 shadow-[0_10px_18px_-16px_rgba(14,165,233,0.46)] ring-1 ring-cyan-200/8">
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <h2 class="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
-                  Installation, réparation et support Microsoft
-                </h2>
               </div>
-            </div>
-            <p class="mt-4 max-w-2xl text-center text-sm leading-6 text-slate-600">
-              Nous offrons aussi des services de techniciens pour aider vos équipes au quotidien.
-            </p>
-            <div class="mt-6 grid gap-3 md:grid-cols-2 md:auto-rows-fr">
-              <div class="flex min-h-24 items-center justify-center rounded-2xl border border-white/90 bg-white/85 px-4 py-4 text-center text-sm leading-6 text-slate-700 shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">
-                Support Microsoft 365, Windows et postes de travail
-              </div>
-              <div class="flex min-h-24 items-center justify-center rounded-2xl border border-white/90 bg-white/85 px-4 py-4 text-center text-sm leading-6 text-slate-700 shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">
-                Installation de matériel, logiciels et périphériques
-              </div>
-              <div class="flex min-h-24 items-center justify-center rounded-2xl border border-white/90 bg-white/85 px-4 py-4 text-center text-sm leading-6 text-slate-700 shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">
-                Réparation, dépannage et mise en service
-              </div>
-              <div class="flex min-h-24 items-center justify-center rounded-2xl border border-white/90 bg-white/85 px-4 py-4 text-center text-sm leading-6 text-slate-700 shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">
-                Configuration réseau et assistance sur site ou à distance
-              </div>
-            </div>
-          </div>
-        </article>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
 
-        <article class="group relative overflow-hidden rounded-[2.1rem] border border-blue-100 bg-gradient-to-br from-blue-50 to-white shadow-[0_18px_48px_-38px_rgba(37,99,235,0.22)] xl:col-span-4">
-          <div class="px-6 pb-6 pt-7 md:px-7 md:pb-7">
-            <div class="flex items-start gap-4">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-blue-100 bg-white shadow-[0_12px_25px_-18px_rgba(37,99,235,0.26)]">
-                <svg viewBox="0 0 24 24" class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4 7h16v10H4z" />
-                  <path d="M10 17v3" />
-                  <path d="M7 20h10" />
-                  <path d="M8 10h8" />
-                </svg>
-              </div>
-              <div class="flex-1">
-                <div class="flex items-center justify-between gap-4">
-                  <p class="text-[0.66rem] font-semibold uppercase tracking-[0.34em] text-blue-700">Bâtiments</p>
-                  <span class="rounded-full bg-white/80 px-3 py-1 text-[0.72rem] font-semibold text-slate-600">Connecté</span>
-                </div>
-                <h2 class="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
-                  Infrastructure et surveillance
-                </h2>
-              </div>
-            </div>
-            <p class="mt-4 text-sm leading-6 text-slate-600">
-              Des solutions pour relier votre espace, votre réseau et vos équipements de façon fiable.
-            </p>
-            <ul class="mt-5 space-y-2 text-sm leading-6 text-slate-600">
-              <li class="rounded-2xl border border-white/90 bg-white/85 px-4 py-3 text-center shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">Câblage</li>
-              <li class="rounded-2xl border border-white/90 bg-white/85 px-4 py-3 text-center shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">Surveillance</li>
-              <li class="rounded-2xl border border-white/90 bg-white/85 px-4 py-3 text-center shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">Objets IoT</li>
-              <li class="rounded-2xl border border-white/90 bg-white/85 px-4 py-3 text-center shadow-[0_8px_20px_-18px_rgba(15,23,42,0.35)]">Internet</li>
-            </ul>
-          </div>
-        </article>
+    <section class="mx-auto max-w-[100rem] px-2 pb-16 md:px-4 md:pb-24">
+      <div class="rounded-[2.8rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] px-5 py-7 shadow-[0_32px_110px_-44px_rgba(14,165,233,0.4)] ring-1 ring-cyan-200/15 md:px-8 md:py-9">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">FAQ</p>
+          <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white">
+            Questions fréquentes sur nos services.
+          </h2>
+          <p class="mt-3 text-sm leading-7 text-slate-400">
+            Cette section aide vos visiteurs à trouver rapidement l’information la plus importante et renforce la pertinence SEO de la page.
+          </p>
+        </div>
 
-        <article class="relative overflow-hidden rounded-[2.1rem] border border-slate-200 bg-slate-950 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.9)] xl:col-span-8">
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.14),transparent_28%),radial-gradient(circle_at_right,rgba(14,165,233,0.09),transparent_22%)]"></div>
-          <div class="relative px-6 py-8 text-white md:px-10 md:py-10">
-            <div class="max-w-4xl">
-              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.34em] text-blue-300">Zone desservie</p>
-              <h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-                Lac-Saint-Jean, Saguenay et au-delà.
-              </h2>
-              <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
-                Nous intervenons principalement au Lac-Saint-Jean et au Saguenay. Selon la nature du mandat, il est aussi possible de travailler en dehors de ces secteurs.
+        <div class="mt-6 grid gap-3">
+          {faqItems.map((item) => (
+            <details class="group rounded-[1.75rem] border border-cyan-300/25 bg-[linear-gradient(180deg,rgba(2,6,23,0.9),rgba(8,15,35,0.94))] p-5 shadow-[0_24px_64px_-34px_rgba(14,165,233,0.34)] ring-1 ring-cyan-200/15 transition open:border-cyan-300/45 open:bg-[linear-gradient(180deg,rgba(2,6,23,0.96),rgba(8,15,35,0.98))]">
+              <summary class="cursor-pointer list-none text-base font-semibold text-white md:text-lg">
+                <span class="flex items-center justify-between gap-4">
+                  <span>{item.question}</span>
+                  <span class="text-cyan-300 transition group-open:rotate-45">+</span>
+                </span>
+              </summary>
+              <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
+                {item.answer}
               </p>
-            </div>
-            <div class="mt-8 flex flex-col gap-4 rounded-[1.6rem] border border-white/10 bg-white/5 p-5 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p class="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-blue-300">Parlons de vos besoins</p>
-                <p class="mt-2 text-sm leading-6 text-slate-300">
-                  On vous revient avec une réponse claire et adaptée à votre réalité.
-                </p>
-              </div>
-              <a href="/contact" class="inline-flex w-fit rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-blue-100">
-                Obtenez une évaluation gratuite
-              </a>
-            </div>
-          </div>
-        </article>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-6 pb-16 md:pb-24">
-      <div class="max-w-3xl">
-        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">FAQ</p>
-        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950">
-          Questions fréquentes sur nos services.
-        </h2>
-        <p class="mt-4 text-sm leading-7 text-slate-600">
-          Cette section aide vos visiteurs à trouver rapidement l’information la plus importante et renforce la pertinence SEO de la page.
-        </p>
-      </div>
-
-      <div class="mt-8 grid gap-4">
-        {faqItems.map((item) => (
-          <details class="group rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition open:border-blue-200 open:bg-blue-50">
-            <summary class="cursor-pointer list-none text-lg font-semibold text-slate-950">
-              <span class="flex items-center justify-between gap-4">
-                <span>{item.question}</span>
-                <span class="text-blue-700 transition group-open:rotate-45">+</span>
-              </span>
-            </summary>
-            <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-600">
-              {item.answer}
-            </p>
-          </details>
-        ))}
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
-      <div class="rounded-[2.5rem] border border-slate-200 bg-slate-950 px-7 py-10 text-white shadow-[0_30px_70px_-35px_rgba(15,23,42,0.9)] md:px-10">
-        <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+    <section class="mx-auto max-w-[100rem] px-2 pb-20 md:px-4 md:pb-28">
+      <div class="rounded-[2.8rem] border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] px-7 py-8 text-white shadow-[0_36px_120px_-38px_rgba(14,165,233,0.42)] ring-1 ring-cyan-200/15 md:px-10 md:py-9">
+        <div class="grid gap-5 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blue-300">Prêt à avancer</p>
-            <h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
+            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Prêt à avancer</p>
+            <h2 class="mt-3 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
               Besoin d’un accompagnement clair en cybersécurité, cloud ou support technique?
             </h2>
-            <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
+            <p class="mt-3 max-w-2xl text-sm leading-7 text-slate-400">
               On peut vous aider à structurer vos besoins, prioriser les actions et mettre en place une solution adaptée à votre réalité.
             </p>
           </div>
-          <a href="/contact" class="inline-flex w-fit rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-blue-100">
+          <a href="/contact" class="inline-flex w-fit rounded-full border border-cyan-300/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cyan-300/15">
             Parler à un expert
           </a>
         </div>
@@ -342,4 +263,291 @@ const faqJsonLd = {
   </main>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+  <script>
+    const expander = document.querySelector("[data-service-expander]");
+
+    if (expander) {
+      const panels = Array.from(expander.querySelectorAll("[data-service-panel]"));
+      const clearActive = () => {
+        expander.removeAttribute("data-active");
+      };
+
+      const setActive = (index) => {
+        expander.setAttribute("data-active", String(index));
+      };
+
+      panels.forEach((panel) => {
+        const index = panel.getAttribute("data-index");
+
+        panel.addEventListener("pointerenter", () => {
+          if (index !== null) setActive(index);
+        });
+
+        panel.addEventListener("focus", () => {
+          if (index !== null) setActive(index);
+        });
+      });
+
+      expander.addEventListener("mouseleave", clearActive);
+      expander.addEventListener("focusout", (event) => {
+        if (!expander.contains(event.relatedTarget)) {
+          clearActive();
+        }
+      });
+    }
+  </script>
+  <style>
+    .services-expander {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .service-panel {
+      border: 0;
+      background: transparent;
+      text-align: left;
+      padding: 0;
+      width: 100%;
+      cursor: pointer;
+      color: inherit;
+      min-width: 0;
+      transition: flex-grow 420ms cubic-bezier(0.16, 1, 0.3, 1), opacity 280ms ease;
+    }
+
+    .service-panel-shell {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-rows: minmax(23rem, 1fr) 0fr;
+      gap: 0;
+      height: 100%;
+      border-radius: 2.2rem;
+      overflow: hidden;
+      transform: translateY(0);
+      border: 1px solid rgba(125, 211, 252, 0.24);
+      background:
+        radial-gradient(circle at top left, rgba(34, 211, 238, 0.14), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.12), transparent 28%),
+        linear-gradient(180deg, rgba(2, 6, 23, 0.86), rgba(8, 15, 35, 0.92));
+      backdrop-filter: blur(16px);
+      transition:
+        grid-template-rows 360ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 360ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 360ms cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 280ms ease,
+        border-color 280ms ease;
+      box-shadow: 0 26px 70px -40px rgba(14, 165, 233, 0.3);
+      opacity: 0.94;
+    }
+
+    .service-panel-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .service-panel-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--service-media-position, center);
+      transform: scale(1.08);
+      filter: saturate(1.18) contrast(1.08) brightness(0.86);
+      transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1), filter 280ms ease;
+    }
+
+    .service-panel-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(125, 211, 252, 0.16), transparent 24%),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.06), transparent 30%, transparent 70%, rgba(59, 130, 246, 0.08));
+      opacity: 0.72;
+      pointer-events: none;
+      transition: opacity 280ms ease;
+    }
+
+    .service-panel-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.16), transparent 28%, transparent 72%, rgba(59, 130, 246, 0.14));
+      opacity: 0.42;
+      pointer-events: none;
+      transition: opacity 280ms ease;
+      mix-blend-mode: screen;
+    }
+
+    .service-panel-top {
+      position: relative;
+      z-index: 1;
+      padding: 0.85rem;
+      min-height: 23rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      text-shadow: 0 2px 12px rgba(2, 6, 23, 0.82);
+    }
+
+    .service-panel-body {
+      position: relative;
+      z-index: 1;
+      min-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(0.75rem);
+      transition:
+        opacity 280ms ease,
+        transform 280ms ease;
+      background: linear-gradient(180deg, rgba(34, 211, 238, 0.08), transparent);
+      padding: 0 1.1rem 1.1rem;
+    }
+
+    .service-panel:hover .service-panel-shell,
+    .service-panel:focus-visible .service-panel-shell,
+    .services-expander[data-active] .service-panel-shell {
+      opacity: 1;
+      border-color: rgba(125, 211, 252, 0.45);
+    }
+
+    .service-panel:hover .service-panel-shell::before,
+    .service-panel:focus-visible .service-panel-shell::before,
+    .services-expander[data-active] .service-panel-shell::before {
+      opacity: 0.92;
+    }
+
+    .service-panel:hover .service-panel-shell::after,
+    .service-panel:focus-visible .service-panel-shell::after,
+    .services-expander[data-active] .service-panel-shell::after {
+      opacity: 0.58;
+    }
+
+    .service-panel:hover .service-panel-media img,
+    .service-panel:focus-visible .service-panel-media img,
+    .services-expander[data-active] .service-panel-media img {
+      transform: scale(1.16);
+      filter: saturate(1.24) contrast(1.1) brightness(0.8);
+    }
+
+    .service-panel:hover .service-panel-shell,
+    .service-panel:focus-visible .service-panel-shell {
+      grid-template-rows: minmax(26rem, 1fr) 1fr;
+      transform: translateY(-7px) scale(1.01);
+      box-shadow:
+        0 40px 110px -44px rgba(14, 165, 233, 0.52),
+        0 0 0 1px rgba(125, 211, 252, 0.28) inset,
+        0 0 0 1px rgba(125, 211, 252, 0.1),
+        0 0 28px rgba(34, 211, 238, 0.08),
+        0 0 42px rgba(34, 211, 238, 0.06);
+      border-color: rgba(125, 211, 252, 0.5);
+    }
+
+    .services-expander[data-active="0"] .service-panel[data-index="0"] .service-panel-shell,
+    .services-expander[data-active="1"] .service-panel[data-index="1"] .service-panel-shell,
+    .services-expander[data-active="2"] .service-panel[data-index="2"] .service-panel-shell,
+    .services-expander[data-active="3"] .service-panel[data-index="3"] .service-panel-shell,
+    .services-expander[data-active="4"] .service-panel[data-index="4"] .service-panel-shell {
+      grid-template-rows: minmax(23rem, 1fr) 1fr;
+      transform: translateY(-7px) scale(1.01);
+      opacity: 1;
+      box-shadow:
+        0 40px 110px -44px rgba(14, 165, 233, 0.52),
+        0 0 0 1px rgba(125, 211, 252, 0.28) inset,
+        0 0 0 1px rgba(125, 211, 252, 0.1),
+        0 0 28px rgba(34, 211, 238, 0.08),
+        0 0 42px rgba(34, 211, 238, 0.06);
+      border-color: rgba(125, 211, 252, 0.5);
+    }
+
+    .services-expander[data-active="0"] .service-panel:not([data-index="0"]) .service-panel-shell,
+    .services-expander[data-active="1"] .service-panel:not([data-index="1"]) .service-panel-shell,
+    .services-expander[data-active="2"] .service-panel:not([data-index="2"]) .service-panel-shell,
+    .services-expander[data-active="3"] .service-panel:not([data-index="3"]) .service-panel-shell,
+    .services-expander[data-active="4"] .service-panel:not([data-index="4"]) .service-panel-shell {
+      opacity: 0.72;
+    }
+
+    .services-expander[data-active="0"] .service-panel[data-index="0"] .service-panel-body,
+    .services-expander[data-active="1"] .service-panel[data-index="1"] .service-panel-body,
+    .services-expander[data-active="2"] .service-panel[data-index="2"] .service-panel-body,
+    .services-expander[data-active="3"] .service-panel[data-index="3"] .service-panel-body,
+    .services-expander[data-active="4"] .service-panel[data-index="4"] .service-panel-body,
+    .service-panel:hover .service-panel-body,
+    .service-panel:focus-visible .service-panel-body {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-panel:focus-visible {
+      outline: none;
+    }
+
+    @media (min-width: 1024px) {
+      .services-expander {
+        display: flex;
+        align-items: stretch;
+        gap: 0.8rem;
+      }
+
+      .service-panel {
+        flex: 1 1 0%;
+      }
+
+      .service-panel-shell {
+        min-height: 100%;
+      }
+
+      .service-panel:hover,
+      .service-panel:focus-visible {
+        z-index: 2;
+      }
+
+      .services-expander[data-active="0"] .service-panel[data-index="0"],
+      .services-expander[data-active="1"] .service-panel[data-index="1"],
+      .services-expander[data-active="2"] .service-panel[data-index="2"],
+      .services-expander[data-active="3"] .service-panel[data-index="3"],
+      .services-expander[data-active="4"] .service-panel[data-index="4"] {
+        flex: 3 1 0%;
+      }
+
+      .services-expander[data-active="0"] .service-panel:not([data-index="0"]),
+      .services-expander[data-active="1"] .service-panel:not([data-index="1"]),
+      .services-expander[data-active="2"] .service-panel:not([data-index="2"]),
+      .services-expander[data-active="3"] .service-panel:not([data-index="3"]),
+      .services-expander[data-active="4"] .service-panel:not([data-index="4"]) {
+        flex: 0.72 1 0%;
+      }
+
+      .service-panel:hover .service-panel-shell,
+      .service-panel:focus-visible .service-panel-shell,
+      .services-expander[data-active="0"] .service-panel[data-index="0"] .service-panel-shell,
+      .services-expander[data-active="1"] .service-panel[data-index="1"] .service-panel-shell,
+      .services-expander[data-active="2"] .service-panel[data-index="2"] .service-panel-shell,
+      .services-expander[data-active="3"] .service-panel[data-index="3"] .service-panel-shell,
+      .services-expander[data-active="4"] .service-panel[data-index="4"] .service-panel-shell {
+        transform: translateY(-7px) scale(1.01);
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .service-panel-shell {
+        grid-template-rows: auto auto;
+        opacity: 1;
+      }
+
+      .service-panel-top {
+        min-height: 0;
+      }
+
+      .service-panel-body {
+        opacity: 1;
+        transform: none;
+        padding-top: 0;
+      }
+
+    }
+  </style>
 </BaseLayout>

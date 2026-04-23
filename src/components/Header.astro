@@ -11,32 +11,32 @@ const navItems = [
 const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href));
 ---
 
-<header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/82 backdrop-blur-xl">
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3 md:gap-8 md:py-4">
-    <a href="/" class="flex min-w-0 items-center gap-4">
+<header class="sticky top-0 z-50 border-b border-cyan-300/10 bg-[linear-gradient(180deg,rgba(4,10,24,0.78),rgba(10,18,38,0.58))] backdrop-blur-xl">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-5 px-[1.15rem] py-2 md:gap-8 md:px-7 md:py-3">
+    <a href="/" class="flex min-w-0 items-center gap-3 md:gap-3.5">
       <img
         src="/images/Logo.png"
         alt="Evolution Cloud"
-        class="h-14 w-auto shrink-0 drop-shadow-sm md:h-16"
+        class="h-[2.75rem] w-auto shrink-0 drop-shadow-sm md:h-[3.2rem]"
       />
       <div class="min-w-0">
-        <div class="truncate text-lg font-extrabold tracking-tight text-slate-950 md:text-2xl">Evolution Cloud</div>
-        <div class="truncate text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-blue-700 md:text-xs">
+        <div class="truncate text-[1.02rem] font-extrabold tracking-tight text-white md:text-xl lg:text-[1.65rem]">Evolution Cloud</div>
+        <div class="truncate text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-cyan-300 md:text-xs">
           Services TI & cybersécurité
         </div>
       </div>
     </a>
 
-    <nav class="flex min-w-0 items-center gap-2 text-sm font-semibold text-slate-700 md:gap-3 md:text-[0.95rem]">
+    <nav class="flex min-w-0 items-center gap-1 text-sm font-semibold text-slate-200 md:gap-1.5 md:text-[0.9rem]">
       {navItems.map((item) => (
         <a
           href={item.href}
           aria-current={isActive(item.href) ? "page" : undefined}
           class:list={[
-            "rounded-full px-3 py-2.5 transition md:px-4",
+            "whitespace-nowrap rounded-full px-2.5 py-[0.45rem] transition md:px-3 md:py-[0.52rem]",
             isActive(item.href)
-              ? "border border-blue-200 bg-blue-50 text-blue-700 shadow-sm"
-              : "border border-transparent hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700",
+              ? "border border-cyan-300/25 bg-cyan-300/12 text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.12)_inset]"
+              : "border border-transparent hover:border-cyan-300/20 hover:bg-cyan-300/10 hover:text-cyan-100",
           ]}
         >
           {item.label}
@@ -46,9 +46,9 @@ const isActive = (href: string) => pathname === href || (href !== "/" && pathnam
 
     <a
       href="/contact"
-      class="shrink-0 rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_14px_28px_-16px_rgba(15,23,42,0.8)] transition hover:-translate-y-0.5 hover:bg-blue-700 md:px-6 md:py-3 md:text-base"
+      class="shrink-0 rounded-full border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(34,211,238,0.22),rgba(59,130,246,0.22))] px-4 py-[0.45rem] text-sm font-semibold text-white shadow-[0_10px_20px_-16px_rgba(14,165,233,0.46)] transition hover:-translate-y-0.5 hover:border-cyan-200/40 hover:bg-[linear-gradient(135deg,rgba(34,211,238,0.3),rgba(59,130,246,0.32))] md:px-[1.15rem] md:py-[0.62rem] md:text-base"
     >
-      Nous joindre
+      Demande de service
     </a>
   </div>
 </header>
