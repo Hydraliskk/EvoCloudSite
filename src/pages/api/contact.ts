@@ -104,6 +104,14 @@ function sanitizeMultiline(value: string) {
     .trim();
 }
 
+function sanitizeSingleLine(value: string) {
+  return value
+    .replace(/\u0000/g, '')
+    .replace(/[\u0001-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function isValidEmail(value: string) {
   if (value.length > MAX_EMAIL_LENGTH) {
     return false;
@@ -229,6 +237,7 @@ export const POST: APIRoute = async ({ request, url }) => {
   const rawCompany = normalize(formData.get('company'));
   const rawEmail = normalize(formData.get('email'));
   const rawPhone = normalize(formData.get('phone'));
+  const rawUrgency = normalize(formData.get('urgency'));
   const rawMessage = normalize(formData.get('message'));
   const turnstileToken = normalize(formData.get('cf-turnstile-response'));
 
@@ -241,6 +250,7 @@ export const POST: APIRoute = async ({ request, url }) => {
     rawCompany.length > MAX_FIELD_LENGTH ||
     rawEmail.length > MAX_FIELD_LENGTH ||
     rawPhone.length > MAX_FIELD_LENGTH ||
+    rawUrgency.length > MAX_FIELD_LENGTH ||
     rawMessage.length > MAX_FIELD_LENGTH
   ) {
     return Response.redirect(new URL('/contact?error=invalid', url), 303);
@@ -250,7 +260,14 @@ export const POST: APIRoute = async ({ request, url }) => {
   const company = stripDangerousControlChars(rawCompany);
   const email = stripDangerousControlChars(rawEmail).toLowerCase();
   const phone = stripDangerousControlChars(rawPhone);
+  const urgency = sanitizeSingleLine(rawUrgency).toLowerCase();
   const message = sanitizeMultiline(rawMessage);
+  const urgencyLabelMap: Record<string, string> = {
+    faible: 'Faible',
+    moyenne: 'Moyenne',
+    elevee: 'Élevée'
+  };
+  const urgencyLabel = urgencyLabelMap[urgency] ?? 'Non précisé';
 
   if (!name || !email || !message) {
     return Response.redirect(new URL('/contact?error=missing', url), 303);
@@ -261,6 +278,7 @@ export const POST: APIRoute = async ({ request, url }) => {
     company.length > MAX_COMPANY_LENGTH ||
     email.length > MAX_EMAIL_LENGTH ||
     phone.length > MAX_PHONE_LENGTH ||
+    urgency.length > MAX_FIELD_LENGTH ||
     message.length > MAX_MESSAGE_LENGTH
   ) {
     return Response.redirect(new URL('/contact?error=invalid', url), 303);
@@ -293,6 +311,7 @@ export const POST: APIRoute = async ({ request, url }) => {
     `Entreprise: ${company || '-'}`,
     `Courriel: ${email}`,
     `Téléphone: ${phone || '-'}`,
+    `Niveau d'urgence: ${urgencyLabel}`,
     '',
     'Message:',
     message
@@ -304,6 +323,7 @@ export const POST: APIRoute = async ({ request, url }) => {
     <p><strong>Entreprise :</strong> ${escapeHtml(company || '-')}</p>
     <p><strong>Courriel :</strong> ${escapeHtml(email)}</p>
     <p><strong>Téléphone :</strong> ${escapeHtml(phone || '-')}</p>
+    <p><strong>Niveau d'urgence :</strong> ${escapeHtml(urgencyLabel)}</p>
     <h3>Message</h3>
     <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
   `;

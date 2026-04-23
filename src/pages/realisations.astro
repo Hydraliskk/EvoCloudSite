@@ -114,8 +114,12 @@ const projects = [
               style={`--card-delay:${index * 120}ms;`}
             >
               <div class="relative">
-                <img src={project.image} alt={project.alt} class="block aspect-[16/10] w-full object-cover object-center transition duration-500 group-hover:scale-105" />
-                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.16),rgba(2,6,23,0.72))]"></div>
+                <img
+                  src={project.image}
+                  alt={project.alt}
+                  class="block aspect-[16/10] w-full object-cover object-center brightness-110 contrast-105 saturate-105 transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.05),rgba(2,6,23,0.34))]"></div>
               </div>
               <div class="p-6 md:p-7">
                 <div class="flex flex-wrap items-center gap-3">

@@ -1,141 +1,222 @@
-﻿---
+---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  {
+    title: "Cybersécurité",
+    description: "Audit, détection et accompagnement concret.",
+    image: "/images/service-cyber-photo.png",
+    anchor: "/services#service-cybersecurite",
+  },
+  {
+    title: "Cloud",
+    description: "Sauvegarde, mobilité et continuité de service.",
+    image: "/images/service-cloud-photo.png",
+    anchor: "/services#service-cloud",
+  },
+  {
+    title: "Loi 25",
+    description: "Une conformité structurée, sans lourdeur.",
+    image: "/images/service-law25-photo.png",
+    anchor: "/services#service-loi-25",
+  },
+  {
+    title: "Technique",
+    description: "Support, réseau et interventions rapides.",
+    image: "/images/service-tech-photo.png",
+    anchor: "/services#service-technique",
+  },
+  {
+    title: "Bâtiment",
+    description: "Infrastructures connectées et fiabilité terrain.",
+    image: "/images/service-buildings-photo.png",
+    anchor: "/services#service-batiments",
+  },
+];
+
+const projects = [
+  {
+    title: "Clinique médicale d’Alma",
+    description: "Soutien à un milieu où la continuité est essentielle.",
+    image: "/images/Clinique_medical.jpg",
+    anchor: "/realisations",
+  },
+  {
+    title: "Alma Toyota",
+    description: "Une présence technique stable et accessible.",
+    image: "/images/Toyota.jpg",
+    anchor: "/realisations",
+  },
+  {
+    title: "Pièces Auto Choc",
+    description: "Un environnement simple à maintenir et à faire évoluer.",
+    image: "/images/PieceAuto.png",
+    anchor: "/realisations",
+  },
+  {
+    title: "BlackBurn et Fils",
+    description: "Des outils robustes pour les opérations quotidiennes.",
+    image: "/images/ConstructionBlackBurn.jpg",
+    anchor: "/realisations",
+  },
+  {
+    title: "Service financier du Lac",
+    description: "Une infrastructure claire, fiable et bien cadrée.",
+    image: "/images/CFDL.png",
+    anchor: "/realisations",
+  },
+];
 ---
 
 <BaseLayout title="Accueil | Evolution Cloud">
   <main class="overflow-hidden">
-    <section class="relative isolate">
-      <div class="absolute inset-x-0 top-0 h-[760px] bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_46%),radial-gradient(circle_at_80%_15%,rgba(59,130,246,0.18),transparent_28%),linear-gradient(180deg,rgba(4,10,24,0.96),rgba(10,18,38,0.18))]"></div>
-      <div class="relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-center px-6 py-20 md:py-28">
-        <div class="flex max-w-4xl flex-col justify-center">
-          <p class="inline-flex w-fit rounded-full border border-cyan-300/35 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200 shadow-sm backdrop-blur">
-            Services TI et cybersécurité
-          </p>
-          <h1 class="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl">
-            Des solutions technologiques plus claires, plus solides et plus simples à faire vivre.
-          </h1>
-          <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Evolution Cloud accompagne les entreprises avec la cybersécurité, le cloud, la conformité et le support technique.
-            On met en place des bases solides, humaines et faciles à maintenir dans le temps.
-          </p>
-
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a
-              href="/services"
-              class="rounded-full border border-cyan-300/30 bg-[linear-gradient(135deg,rgba(34,211,238,0.22),rgba(59,130,246,0.22))] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_32px_-18px_rgba(14,165,233,0.55)] transition hover:-translate-y-0.5 hover:border-cyan-100/60 hover:bg-[linear-gradient(135deg,rgba(34,211,238,0.32),rgba(59,130,246,0.34))]"
-            >
-              Découvrir les services
-            </a>
-            <a
-              href="/contact"
-              class="rounded-full border border-cyan-300/25 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 backdrop-blur transition hover:border-cyan-100/60 hover:text-cyan-100"
-            >
-              Nous contacter
-            </a>
-          </div>
-
-          <div class="mt-12 grid gap-4 sm:grid-cols-3">
-            <a href="/services#service-cybersecurite" class="group relative block w-full min-h-[176px] overflow-hidden rounded-[1.75rem] border border-cyan-300/45 bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(10,18,38,0.92))] p-6 shadow-[0_28px_70px_-38px_rgba(14,165,233,0.5)] ring-1 ring-cyan-200/24 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/70 hover:shadow-[0_34px_82px_-34px_rgba(34,211,238,0.58)] md:min-h-[196px] md:p-7">
-              <div class="absolute inset-0">
-                <img src="/images/service-cyber-photo.png" alt="" aria-hidden="true" class="h-full w-full object-cover object-[center_28%] transition duration-500 group-hover:scale-105" />
-                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.36),rgba(2,6,23,0.84))]"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_32%),linear-gradient(135deg,rgba(34,211,238,0.12),transparent_42%,rgba(59,130,246,0.08))] mix-blend-screen opacity-80"></div>
+    <section class="px-4 pt-4 md:px-6 md:pt-6">
+      <div class="mx-auto max-w-[1360px]">
+        <div class="ec-frame ec-frame-hero relative overflow-hidden rounded-[2.5rem] px-6 py-6 shadow-[0_34px_120px_-36px_rgba(14,165,233,0.45)] md:px-8 md:py-8 lg:min-h-[760px]">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_14%_12%,rgba(34,211,238,0.12),transparent_26%),radial-gradient(circle_at_82%_18%,rgba(59,130,246,0.14),transparent_22%),linear-gradient(180deg,rgba(2,8,23,0.72),rgba(8,17,34,0.9))]"></div>
+          <img
+            src="/images/CloudAlma.png"
+            alt=""
+            aria-hidden="true"
+            class="absolute inset-0 h-full w-full object-cover object-[74%_50%] opacity-92"
+          />
+          <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,8,23,0.99)_0%,rgba(2,8,23,0.88)_20%,rgba(2,8,23,0.5)_46%,rgba(2,8,23,0.16)_74%,rgba(2,8,23,0.08)_100%)]"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_28%,rgba(34,211,238,0.06),transparent_18%),linear-gradient(135deg,rgba(34,211,238,0.045),transparent_34%,rgba(59,130,246,0.03),transparent_68%,rgba(34,211,238,0.045))]"></div>
+          <div class="relative z-10 flex h-full flex-col">
+            <div class="max-w-3xl pt-3 md:pt-6">
+              <p class="inline-flex w-fit rounded-full border border-cyan-300/35 bg-cyan-300/8 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-cyan-200 shadow-[0_0_0_1px_rgba(34,211,238,0.08)] backdrop-blur">
+                Infrastructure numérique et confiance
+              </p>
+              <h1 class="mt-6 max-w-2xl text-4xl font-semibold leading-[1.02] tracking-tight text-white md:text-6xl">
+                Des solutions IT solides pour un avenir <span class="text-cyan-300">sans limites</span>.
+              </h1>
+              <p class="mt-6 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
+                Cybersécurité, cloud, conformité et support technique réunis dans une approche claire,
+                concrète et durable pour vos opérations.
+              </p>
+              <p class="mt-4 max-w-xl text-sm leading-6 text-slate-400 md:text-[0.98rem]">
+                Notre équipe accompagne les entreprises du Saguenay–Lac-Saint-Jean avec des services bien cadrés, utiles et simples à faire vivre.
+              </p>
+              <div class="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="/services"
+                  class="inline-flex rounded-full border border-cyan-300/35 bg-[linear-gradient(135deg,rgba(34,211,238,0.2),rgba(59,130,246,0.18))] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_-18px_rgba(34,211,238,0.58)] transition hover:-translate-y-0.5 hover:border-cyan-100/60 hover:bg-[linear-gradient(135deg,rgba(34,211,238,0.28),rgba(59,130,246,0.28))]"
+                >
+                  Découvrir nos services
+                </a>
+                <a
+                  href="/contact"
+                  class="inline-flex rounded-full border border-cyan-300/25 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 backdrop-blur transition hover:border-cyan-100/60 hover:text-cyan-100"
+                >
+                  Nous contacter
+                </a>
               </div>
-              <div class="relative z-10">
-                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300 transition group-hover:text-cyan-200 md:text-[0.95rem]">Cybersécurité</p>
-                <p class="mt-3 text-base leading-7 text-slate-300 transition group-hover:text-slate-200 md:text-lg">Audit, détection et accompagnement concret.</p>
-              </div>
-            </a>
-            <a href="/services#service-cloud" class="group relative block w-full min-h-[176px] overflow-hidden rounded-[1.75rem] border border-cyan-300/45 bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(10,18,38,0.92))] p-6 shadow-[0_28px_70px_-38px_rgba(14,165,233,0.5)] ring-1 ring-cyan-200/24 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/70 hover:shadow-[0_34px_82px_-34px_rgba(34,211,238,0.58)] md:min-h-[196px] md:p-7">
-              <div class="absolute inset-0">
-                <img src="/images/service-cloud-photo.png" alt="" aria-hidden="true" class="h-full w-full object-cover object-[center_34%] transition duration-500 group-hover:scale-105" />
-                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.36),rgba(2,6,23,0.84))]"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_32%),linear-gradient(135deg,rgba(34,211,238,0.12),transparent_42%,rgba(59,130,246,0.08))] mix-blend-screen opacity-80"></div>
-              </div>
-              <div class="relative z-10">
-                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300 transition group-hover:text-cyan-200 md:text-[0.95rem]">Cloud</p>
-                <p class="mt-3 text-base leading-7 text-slate-300 transition group-hover:text-slate-200 md:text-lg">Sauvegarde, mobilité et continuité de service.</p>
-              </div>
-            </a>
-            <a href="/services#service-loi-25" class="group relative block w-full min-h-[176px] overflow-hidden rounded-[1.75rem] border border-cyan-300/45 bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(10,18,38,0.92))] p-6 shadow-[0_28px_70px_-38px_rgba(14,165,233,0.5)] ring-1 ring-cyan-200/24 backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/70 hover:shadow-[0_34px_82px_-34px_rgba(34,211,238,0.58)] md:min-h-[196px] md:p-7">
-              <div class="absolute inset-0">
-                <img src="/images/service-law25-photo.png" alt="" aria-hidden="true" class="h-full w-full object-cover object-[center_22%] transition duration-500 group-hover:scale-105" />
-                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.36),rgba(2,6,23,0.84))]"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_32%),linear-gradient(135deg,rgba(34,211,238,0.12),transparent_42%,rgba(59,130,246,0.08))] mix-blend-screen opacity-80"></div>
-              </div>
-              <div class="relative z-10">
-                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300 transition group-hover:text-cyan-200 md:text-[0.95rem]">Loi 25</p>
-                <p class="mt-3 text-base leading-7 text-slate-300 transition group-hover:text-slate-200 md:text-lg">Une conformité structurée, sans lourdeur.</p>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
-      <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <a href="/a-propos" class="group relative overflow-hidden rounded-[2.25rem] border border-cyan-300/45 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-7 shadow-[0_32px_82px_-38px_rgba(14,165,233,0.45)] ring-1 ring-cyan-200/24 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/70 hover:shadow-[0_38px_90px_-34px_rgba(34,211,238,0.56)]">
-          <div class="absolute inset-0">
-            <img src="/images/service-tech-photo.png" alt="" aria-hidden="true" class="h-full w-full object-cover object-[center_25%] transition duration-500 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.36),rgba(2,6,23,0.84))]"></div>
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_32%),linear-gradient(135deg,rgba(34,211,238,0.12),transparent_42%,rgba(59,130,246,0.08))] mix-blend-screen opacity-80"></div>
-          </div>
-          <div class="relative z-10">
-            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300 transition group-hover:text-cyan-200">Découvrez notre équipe</p>
-            <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white">
-              Une équipe proche, impliquée et orientée vers vos besoins réels.
-            </h2>
-            <p class="mt-4 text-sm leading-7 text-slate-300">
-              Derrière Evolution Cloud, il y a des gens qui travaillent avec vous, pas seulement pour vous. 
-            </p>
-            <div class="mt-6">
-              <span class="inline-flex rounded-full border border-cyan-300/25 bg-white/5 px-5 py-3 text-sm font-semibold text-cyan-100 transition group-hover:border-cyan-100/60 group-hover:bg-cyan-300/10">
-                Découvrir notre équipe
-              </span>
-            </div>
-          </div>
-        </a>
+    <section class="mx-auto max-w-[1360px] px-4 pb-20 pt-12 md:px-6 md:pb-28 md:pt-14">
+      <div class="text-center">
+        <p class="text-base font-semibold uppercase tracking-[0.32em] text-cyan-300 md:text-lg">
+          Nos services
+        </p>
+        <h2 class="mt-3 text-2xl font-semibold tracking-tight text-white md:text-[2.2rem]">
+          Une expertise complète pour vos opérations.
+        </h2>
+      </div>
 
-        <a href="/services" class="group relative overflow-hidden rounded-[2.25rem] border border-cyan-300/45 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-7 shadow-[0_32px_82px_-38px_rgba(14,165,233,0.45)] ring-1 ring-cyan-200/24 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/70 hover:shadow-[0_38px_90px_-34px_rgba(34,211,238,0.56)]">
-          <div class="absolute inset-0">
-            <img src="/images/service-buildings-photo.png" alt="" aria-hidden="true" class="h-full w-full object-cover object-[center_20%] transition duration-500 group-hover:scale-105" />
-            <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.36),rgba(2,6,23,0.84))]"></div>
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.14),transparent_32%),linear-gradient(135deg,rgba(34,211,238,0.12),transparent_42%,rgba(59,130,246,0.08))] mix-blend-screen opacity-80"></div>
-          </div>
-          <div class="relative z-10">
-            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300 transition group-hover:text-cyan-200">Services</p>
-            <h3 class="mt-4 text-2xl font-semibold tracking-tight text-white">Ce qu’on fait, au bon endroit.</h3>
-            <p class="mt-4 text-sm leading-7 text-slate-300">
-              Découvrez nos nombreux services
-            </p>
-            <div class="mt-6">
-              <span class="inline-flex rounded-full border border-cyan-300/25 bg-white/5 px-5 py-3 text-sm font-semibold text-cyan-100 transition group-hover:border-cyan-100/60 group-hover:bg-cyan-300/10">
-                Voir tous les services
-              </span>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+        {services.map((service) => (
+          <a
+            href={service.anchor}
+            class="ec-card-image group relative min-h-[245px] overflow-hidden rounded-[1.75rem] border border-cyan-300/35 bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(6,14,30,0.98))] shadow-[0_28px_72px_-40px_rgba(14,165,233,0.48)] transition duration-300 hover:-translate-y-1 hover:border-cyan-100/65 hover:shadow-[0_34px_82px_-34px_rgba(34,211,238,0.54)]"
+          >
+            <img src={service.image} alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]" />
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.12),rgba(2,6,23,0.52)_48%,rgba(2,6,23,0.92))]"></div>
+            <div class="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(2,6,23,0.46),transparent)]"></div>
+            <div class="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(180deg,transparent,rgba(2,6,23,0.74)_42%,rgba(2,6,23,0.96))]"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.1),transparent_26%),linear-gradient(135deg,rgba(34,211,238,0.05),transparent_45%,rgba(59,130,246,0.06))] mix-blend-screen opacity-65"></div>
+            <div class="relative z-10 flex h-full flex-col justify-between p-5">
+              <div>
+                <div class="inline-flex rounded-full border border-cyan-100/30 bg-slate-950/55 px-3 py-1 text-[0.67rem] font-semibold uppercase tracking-[0.26em] text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.05)] backdrop-blur">
+                  {service.title}
+                </div>
+                <p class="mt-4 max-w-[12rem] text-[0.96rem] leading-6 text-slate-100 drop-shadow-[0_2px_8px_rgba(2,6,23,0.7)]">
+                  {service.description}
+                </p>
+              </div>
+              <div class="flex justify-end">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-100/28 bg-slate-950/45 text-cyan-100 transition group-hover:border-cyan-100/60 group-hover:bg-cyan-300/12 group-hover:text-white">
+                  →
+                </span>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        ))}
       </div>
     </section>
 
-    <section class="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
-      <div class="rounded-[2.5rem] border border-cyan-300/45 bg-[linear-gradient(180deg,rgba(4,10,24,0.96),rgba(2,6,23,1))] px-7 py-10 text-white shadow-[0_38px_118px_-36px_rgba(14,165,233,0.48)] ring-1 ring-cyan-200/24 md:px-10">
-        <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+    <section class="mx-auto max-w-[1360px] px-4 pb-20 md:px-6 md:pb-28">
+      <div class="text-center">
+        <p class="text-base font-semibold uppercase tracking-[0.32em] text-cyan-300 md:text-lg">
+          Réalisations
+        </p>
+        <h2 class="mt-3 text-2xl font-semibold tracking-tight text-white md:text-[2.2rem]">
+          Des projets concrets. Des résultats réels.
+        </h2>
+      </div>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+        {projects.map((project) => (
+          <a
+            href={project.anchor}
+            class="ec-card-image group relative min-h-[235px] overflow-hidden rounded-[1.75rem] border border-cyan-300/35 bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(6,14,30,0.98))] shadow-[0_28px_72px_-40px_rgba(14,165,233,0.48)] transition duration-300 hover:-translate-y-1 hover:border-cyan-100/65 hover:shadow-[0_34px_82px_-34px_rgba(34,211,238,0.54)]"
+          >
+            <img src={project.image} alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]" />
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.22),rgba(2,6,23,0.9))]"></div>
+            <div class="relative z-10 flex h-full flex-col justify-end p-5">
+              <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">{project.title}</p>
+              <p class="mt-3 text-sm leading-6 text-slate-200">{project.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-[1360px] px-4 pb-20 md:px-6 md:pb-28">
+      <div class="ec-frame-soft grid gap-6 rounded-[2.3rem] p-7 md:p-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-300">Besoin d’un partenaire fiable?</p>
+          <h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white md:text-4xl">
+            On peut vous aider à passer à l’action.
+          </h2>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
+            Parlez-nous de votre contexte, de vos priorités ou de votre échéancier, et on vous répond avec une approche simple, directe et utile.
+          </p>
+          <div class="mt-6">
+            <a
+              href="/contact"
+              class="inline-flex rounded-full border border-cyan-300/30 bg-[linear-gradient(135deg,rgba(34,211,238,0.2),rgba(59,130,246,0.18))] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-cyan-100/60 hover:bg-[linear-gradient(135deg,rgba(34,211,238,0.28),rgba(59,130,246,0.28))]"
+            >
+              Nous contacter
+            </a>
+          </div>
+        </div>
+
+        <div class="ec-card-flat flex flex-col items-start justify-between gap-4 rounded-[2rem] p-6 md:flex-row md:items-center">
           <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Prêt à avancer</p>
-            <h2 class="mt-4 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
-              Vous avez un besoin clair? On peut vous aider à passer à l’action.
-            </h2>
-            <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
-              Parlez-nous de votre contexte, de vos priorités ou de votre échéancier, et on vous répond avec une approche simple, directe et utile.
-            </p>
+            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Nous joindre</p>
+            <a href="tel:+14184769408" class="mt-3 block text-2xl font-semibold tracking-tight text-white md:text-[2rem]">
+              418-476-9408
+            </a>
           </div>
           <a
             href="/contact"
-            class="inline-flex w-fit rounded-full border border-cyan-300/30 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cyan-300/14"
+            class="inline-flex rounded-full border border-cyan-300/28 bg-white/5 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:border-cyan-100/60 hover:bg-cyan-300/10"
           >
-            Nous contacter
+            Nous écrire
           </a>
         </div>
       </div>
