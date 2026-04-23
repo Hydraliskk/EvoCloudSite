@@ -339,8 +339,51 @@ export const POST: APIRoute = async ({ request, url }) => {
     });
 
     return Response.redirect(new URL('/contact?sent=1', url), 303);
-  } catch {
-    return Response.redirect(new URL('/contact?error=send', url), 303);
+  } catch (error) {
+    const errorId = createHash('sha256')
+      .update(
+        [
+          Date.now().toString(),
+          name,
+          email,
+          phone,
+          urgencyLabel,
+          (error as { message?: string; code?: string })?.message ?? '',
+          (error as { message?: string; code?: string })?.code ?? ''
+        ].join('|')
+      )
+      .digest('hex')
+      .slice(0, 10);
+
+    const errorInfo = error as {
+      name?: string;
+      code?: string;
+      message?: string;
+      command?: string;
+      responseCode?: number;
+      response?: string;
+      stack?: string;
+    };
+
+    console.error('Contact form email sending failed', {
+      errorId,
+      to: CONTACT_EMAIL,
+      subject,
+      name,
+      company,
+      email,
+      phone,
+      urgency: urgencyLabel,
+      errorName: errorInfo?.name,
+      errorCode: errorInfo?.code,
+      errorMessage: errorInfo?.message,
+      errorCommand: errorInfo?.command,
+      errorResponseCode: errorInfo?.responseCode,
+      errorResponse: errorInfo?.response,
+      errorStack: errorInfo?.stack,
+      error
+    });
+    return Response.redirect(new URL(`/contact?error=send&errorId=${errorId}`, url), 303);
   }
 };
 

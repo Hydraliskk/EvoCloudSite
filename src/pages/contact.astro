@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const sent = Astro.url.searchParams.get("sent") === "1";
 const error = Astro.url.searchParams.get("error");
+const errorId = Astro.url.searchParams.get("errorId");
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
@@ -74,7 +75,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         )}
         {error === "send" && (
           <div class="mb-5 rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-200">
-            Une erreur est survenue pendant l’envoi. Réessayez dans un instant.
+            Une erreur est survenue pendant l’envoi. Réessayez dans un instant{errorId ? ` (réf. ${errorId})` : ""}.
           </div>
         )}
 
