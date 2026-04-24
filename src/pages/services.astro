@@ -59,7 +59,7 @@ const hoverServices = [
       "On sécurise vos postes, vos accès et vos données avec une approche concrète: prévention, détection et réponse.",
     points: [
       "Audit de sécurité",
-      "Surveillance",
+      "Surveillance 24/7",
       "Gestion des accès",
       "Recommandations d’amélioration",
       "Protection des postes",
@@ -98,7 +98,7 @@ const hoverServices = [
       "Google Workspace",
       "Sauvegarde",
       "Migration et maintien de service",
-      "Partage de fichiers",
+      "Collaboration",
       "Accès à distance",
     ],
     media: "/images/service-cloud-photo.png",
@@ -135,7 +135,7 @@ const hoverServices = [
       "Objets IoT",
       "Internet",
       "Réseautique",
-      "Bâtiments intelligents",
+      "Architecture TI",
     ],
     media: "/images/service-buildings-photo.png",
     mediaPosition: "center 20%",
@@ -349,19 +349,21 @@ const faqJsonLd = {
       border-radius: 2.2rem;
       overflow: hidden;
       transform: translateY(0);
+      will-change: transform, opacity;
+      contain: layout paint style;
       border: 1px solid rgba(125, 211, 252, 0.32);
       background:
         radial-gradient(circle at top left, rgba(34, 211, 238, 0.14), transparent 24%),
         radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.12), transparent 28%),
         linear-gradient(180deg, rgba(2, 6, 23, 0.86), rgba(8, 15, 35, 0.92));
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(10px);
       transition:
-        grid-template-rows 360ms cubic-bezier(0.16, 1, 0.3, 1),
-        transform 360ms cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 360ms cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 280ms ease,
-        border-color 280ms ease;
-      box-shadow: 0 28px 76px -40px rgba(14, 165, 233, 0.36);
+        grid-template-rows 260ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 220ms ease,
+        border-color 220ms ease,
+        box-shadow 220ms ease;
+      box-shadow: 0 18px 44px -28px rgba(14, 165, 233, 0.3);
       opacity: 0.96;
     }
 
@@ -377,9 +379,10 @@ const faqJsonLd = {
       height: 100%;
       object-fit: cover;
       object-position: var(--service-media-position, center);
-      transform: scale(1.08);
-      filter: saturate(1.18) contrast(1.08) brightness(0.86);
-      transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1), filter 280ms ease;
+      transform: scale(1.08) translateZ(0);
+      will-change: transform;
+      backface-visibility: hidden;
+      transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .service-panel-shell::before {
@@ -391,7 +394,7 @@ const faqJsonLd = {
         linear-gradient(90deg, rgba(34, 211, 238, 0.06), transparent 30%, transparent 70%, rgba(59, 130, 246, 0.08));
       opacity: 0.8;
       pointer-events: none;
-      transition: opacity 280ms ease;
+      transition: opacity 220ms ease;
     }
 
     .service-panel-shell::after {
@@ -402,7 +405,7 @@ const faqJsonLd = {
       background: linear-gradient(135deg, rgba(34, 211, 238, 0.16), transparent 28%, transparent 72%, rgba(59, 130, 246, 0.14));
       opacity: 0.42;
       pointer-events: none;
-      transition: opacity 280ms ease;
+      transition: opacity 220ms ease;
       mix-blend-mode: screen;
     }
 
@@ -410,7 +413,7 @@ const faqJsonLd = {
       box-shadow:
         0 0 0 0 rgba(255, 255, 255, 0.18),
         0 0 12px rgba(165, 243, 252, 0.3);
-      animation: service-indicator-pulse 2.25s ease-in-out infinite;
+      animation: service-indicator-pulse 2.5s ease-in-out infinite;
       transform-origin: center;
       will-change: transform, box-shadow, opacity;
     }
@@ -423,7 +426,7 @@ const faqJsonLd = {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      text-shadow: 0 2px 12px rgba(2, 6, 23, 0.82);
+      text-shadow: 0 1px 8px rgba(2, 6, 23, 0.7);
     }
 
     .service-panel-body {
@@ -434,10 +437,11 @@ const faqJsonLd = {
       opacity: 0;
       transform: translateY(0.75rem);
       transition:
-        opacity 280ms ease,
-        transform 280ms ease;
+        opacity 220ms ease,
+        transform 220ms ease;
       background: linear-gradient(180deg, rgba(34, 211, 238, 0.08), transparent);
       padding: 0 1.1rem 1.1rem;
+      will-change: opacity, transform;
     }
 
     .service-panel:hover .service-panel-shell,
@@ -456,14 +460,13 @@ const faqJsonLd = {
     .service-panel:hover .service-panel-shell::after,
     .service-panel:focus-visible .service-panel-shell::after,
     .services-expander[data-active] .service-panel-shell::after {
-      opacity: 0.68;
+      opacity: 0.56;
     }
 
     .service-panel:hover .service-panel-media img,
     .service-panel:focus-visible .service-panel-media img,
     .services-expander[data-active] .service-panel-media img {
-      transform: scale(1.16);
-      filter: saturate(1.24) contrast(1.1) brightness(0.8);
+      transform: scale(1.12) translateZ(0);
     }
 
     .service-panel:hover .service-panel-shell,
@@ -471,11 +474,8 @@ const faqJsonLd = {
       grid-template-rows: minmax(26rem, 1fr) 1fr;
       transform: translateY(-7px) scale(1.01);
       box-shadow:
-        0 42px 116px -42px rgba(14, 165, 233, 0.58),
-        0 0 0 1px rgba(165, 243, 252, 0.38) inset,
-        0 0 0 1px rgba(125, 211, 252, 0.16),
-        0 0 34px rgba(34, 211, 238, 0.1),
-        0 0 52px rgba(34, 211, 238, 0.08);
+        0 28px 72px -30px rgba(14, 165, 233, 0.46),
+        0 0 0 1px rgba(165, 243, 252, 0.24) inset;
       border-color: rgba(165, 243, 252, 0.68);
     }
 
@@ -498,11 +498,8 @@ const faqJsonLd = {
       transform: translateY(-7px) scale(1.01);
       opacity: 1;
       box-shadow:
-        0 42px 116px -42px rgba(14, 165, 233, 0.58),
-        0 0 0 1px rgba(165, 243, 252, 0.38) inset,
-        0 0 0 1px rgba(125, 211, 252, 0.16),
-        0 0 34px rgba(34, 211, 238, 0.1),
-        0 0 52px rgba(34, 211, 238, 0.08);
+        0 28px 72px -30px rgba(14, 165, 233, 0.46),
+        0 0 0 1px rgba(165, 243, 252, 0.24) inset;
       border-color: rgba(165, 243, 252, 0.68);
     }
 
@@ -635,6 +632,19 @@ const faqJsonLd = {
       .service-panel-top p:last-child {
         font-size: 0.68rem;
         line-height: 1.35rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .service-panel,
+      .service-panel-shell,
+      .service-panel-media img,
+      .service-panel-body,
+      .service-panel-shell::before,
+      .service-panel-shell::after,
+      .service-panel-indicator {
+        animation: none !important;
+        transition-duration: 1ms !important;
       }
     }
 
