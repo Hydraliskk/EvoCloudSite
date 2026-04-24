@@ -30,7 +30,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     <section class="mx-auto grid max-w-[82rem] gap-8 px-6 pb-20 lg:grid-cols-[1.06fr_0.94fr] md:pb-28">
       <form
         method="post"
-        action="/api/contact"
+        action="/api/message"
         data-contact-form
         class="rounded-[2.9rem] border border-cyan-300/50 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-8 shadow-[0_34px_96px_-34px_rgba(14,165,233,0.54)] ring-1 ring-cyan-200/26 md:p-11"
       >
@@ -212,8 +212,8 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         submitButton.textContent = "Envoi en cours...";
 
         try {
-          const response = await fetch(form.action, {
-            method: form.method || "POST",
+          const response = await fetch("/api/message", {
+            method: "POST",
             body: new FormData(form),
             credentials: "same-origin",
             redirect: "follow"
