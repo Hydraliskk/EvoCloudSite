@@ -132,6 +132,11 @@ function getPublicOrigin(request: Request, url: URL) {
   return `${proto}://${host}`;
 }
 
+function redirectToContact(request: Request, url: URL, query: string) {
+  const publicOrigin = getPublicOrigin(request, url);
+  return Response.redirect(new URL(`/contact?${query}`, publicOrigin), 303);
+}
+
 function isSameOrigin(request: Request, url: URL) {
   const expectedOrigin = getPublicOrigin(request, url);
   const origin = request.headers.get('origin');
@@ -228,7 +233,7 @@ function escapeHtml(value: string) {
 
 export const POST: APIRoute = async ({ request, url }) => {
   if (!isSameOrigin(request, url)) {
-    return Response.redirect(new URL('/contact?error=origin', url), 303);
+    return redirectToContact(request, url, 'error=origin');
   }
 
   const formData = await request.formData();
@@ -242,7 +247,7 @@ export const POST: APIRoute = async ({ request, url }) => {
   const turnstileToken = normalize(formData.get('cf-turnstile-response'));
 
   if (honeypot) {
-    return Response.redirect(new URL('/contact?error=spam', url), 303);
+    return redirectToContact(request, url, 'error=spam');
   }
 
   if (
@@ -253,7 +258,7 @@ export const POST: APIRoute = async ({ request, url }) => {
     rawUrgency.length > MAX_FIELD_LENGTH ||
     rawMessage.length > MAX_FIELD_LENGTH
   ) {
-    return Response.redirect(new URL('/contact?error=invalid', url), 303);
+    return redirectToContact(request, url, 'error=invalid');
   }
 
   const name = stripDangerousControlChars(rawName);
@@ -270,7 +275,7 @@ export const POST: APIRoute = async ({ request, url }) => {
   const urgencyLabel = urgencyLabelMap[urgency] ?? 'Non précisé';
 
   if (!name || !email || !message) {
-    return Response.redirect(new URL('/contact?error=missing', url), 303);
+    return redirectToContact(request, url, 'error=missing');
   }
 
   if (
@@ -281,26 +286,26 @@ export const POST: APIRoute = async ({ request, url }) => {
     urgency.length > MAX_FIELD_LENGTH ||
     message.length > MAX_MESSAGE_LENGTH
   ) {
-    return Response.redirect(new URL('/contact?error=invalid', url), 303);
+    return redirectToContact(request, url, 'error=invalid');
   }
 
   if (!isValidEmail(email)) {
-    return Response.redirect(new URL('/contact?error=invalid', url), 303);
+    return redirectToContact(request, url, 'error=invalid');
   }
 
   const captcha = await verifyTurnstileToken(turnstileToken, request);
   if (!captcha.ok) {
-    return Response.redirect(new URL(`/contact?error=${captcha.reason}`, url), 303);
+    return redirectToContact(request, url, `error=${captcha.reason}`);
   }
 
   if (isRateLimited(request)) {
-    return Response.redirect(new URL('/contact?error=rate', url), 303);
+    return redirectToContact(request, url, 'error=rate');
   }
 
   const transport = getSmtpTransport();
 
   if (!transport) {
-    return Response.redirect(new URL('/contact?error=smtp', url), 303);
+    return redirectToContact(request, url, 'error=smtp');
   }
 
   const subject = `Nouveau message de contact - ${name}`;
@@ -338,7 +343,7 @@ export const POST: APIRoute = async ({ request, url }) => {
       html
     });
 
-    return Response.redirect(new URL('/contact?sent=1', url), 303);
+    return redirectToContact(request, url, 'sent=1');
   } catch (error) {
     const errorInfo = error as {
       name?: string;
@@ -384,7 +389,7 @@ export const POST: APIRoute = async ({ request, url }) => {
       error
     });
     const errorCode = errorInfo?.code ? String(errorInfo.code) : "";
-    const redirectUrl = new URL('/contact', url);
+    const redirectUrl = new URL('/contact', getPublicOrigin(request, url));
     redirectUrl.searchParams.set('error', 'send');
     redirectUrl.searchParams.set('errorId', errorId);
     if (errorCode) {
