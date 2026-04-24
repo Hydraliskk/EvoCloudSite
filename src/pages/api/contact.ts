@@ -340,21 +340,6 @@ export const POST: APIRoute = async ({ request, url }) => {
 
     return Response.redirect(new URL('/contact?sent=1', url), 303);
   } catch (error) {
-    const errorId = createHash('sha256')
-      .update(
-        [
-          Date.now().toString(),
-          name,
-          email,
-          phone,
-          urgencyLabel,
-          (error as { message?: string; code?: string })?.message ?? '',
-          (error as { message?: string; code?: string })?.code ?? ''
-        ].join('|')
-      )
-      .digest('hex')
-      .slice(0, 10);
-
     const errorInfo = error as {
       name?: string;
       code?: string;
@@ -364,6 +349,21 @@ export const POST: APIRoute = async ({ request, url }) => {
       response?: string;
       stack?: string;
     };
+
+    const errorId = createHash('sha256')
+      .update(
+        [
+          Date.now().toString(),
+          name,
+          email,
+          phone,
+          urgencyLabel,
+          errorInfo?.message ?? '',
+          errorInfo?.code ?? ''
+        ].join('|')
+      )
+      .digest('hex')
+      .slice(0, 10);
 
     console.error('Contact form email sending failed', {
       errorId,
@@ -383,7 +383,14 @@ export const POST: APIRoute = async ({ request, url }) => {
       errorStack: errorInfo?.stack,
       error
     });
-    return Response.redirect(new URL(`/contact?error=send&errorId=${errorId}`, url), 303);
+    const errorCode = errorInfo?.code ? String(errorInfo.code) : "";
+    const redirectUrl = new URL('/contact', url);
+    redirectUrl.searchParams.set('error', 'send');
+    redirectUrl.searchParams.set('errorId', errorId);
+    if (errorCode) {
+      redirectUrl.searchParams.set('errorCode', errorCode);
+    }
+    return Response.redirect(redirectUrl, 303);
   }
 };
 
