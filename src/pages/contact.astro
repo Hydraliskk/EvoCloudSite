@@ -27,7 +27,12 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     </section>
 
     <section class="mx-auto grid max-w-[82rem] gap-8 px-6 pb-20 lg:grid-cols-[1.06fr_0.94fr] md:pb-28">
-      <form method="post" action="/api/contact" class="rounded-[2.9rem] border border-cyan-300/50 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-8 shadow-[0_34px_96px_-34px_rgba(14,165,233,0.54)] ring-1 ring-cyan-200/26 md:p-11">
+      <form
+        method="post"
+        action="/api/contact"
+        data-contact-form
+        class="rounded-[2.9rem] border border-cyan-300/50 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-8 shadow-[0_34px_96px_-34px_rgba(14,165,233,0.54)] ring-1 ring-cyan-200/26 md:p-11"
+      >
         {sent && (
           <div class="mb-5 rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-3 text-sm text-emerald-200">
             Merci. Votre message a bien été envoyé.
@@ -164,6 +169,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
         <button
           type="submit"
+          data-contact-submit
           class="mt-6 rounded-full border border-cyan-300/30 bg-[linear-gradient(135deg,rgba(34,211,238,0.22),rgba(59,130,246,0.22))] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_18px_32px_-18px_rgba(14,165,233,0.55)] transition hover:-translate-y-0.5 hover:border-cyan-100/60 hover:bg-[linear-gradient(135deg,rgba(34,211,238,0.32),rgba(59,130,246,0.34))]"
         >
           Envoyer la demande
@@ -192,4 +198,36 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   {turnstileSiteKey && (
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   )}
+  <script>
+    const form = document.querySelector("[data-contact-form]");
+    const submitButton = document.querySelector("[data-contact-submit]");
+
+    if (form instanceof HTMLFormElement && submitButton instanceof HTMLButtonElement) {
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const originalLabel = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = "Envoi en cours...";
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method || "POST",
+            body: new FormData(form),
+            credentials: "same-origin",
+            redirect: "follow"
+          });
+
+          window.location.assign(response.url || "/contact?error=send");
+        } catch {
+          window.location.assign("/contact?error=send");
+        } finally {
+          submitButton.disabled = false;
+          if (originalLabel) {
+            submitButton.textContent = originalLabel;
+          }
+        }
+      });
+    }
+  </script>
 </BaseLayout>
