@@ -3,12 +3,18 @@ import { defineMiddleware } from "astro:middleware";
 export const onRequest = defineMiddleware(async (_context, next) => {
   const response = await next();
   const headers = new Headers(response.headers);
+  const allowedFormActions = [
+    "'self'",
+    "https://evolutioncloud.net",
+    "https://www.evolutioncloud.net",
+    "https://test.evolutioncloud.net"
+  ];
 
   headers.set("Content-Security-Policy", [
     "default-src 'self'",
     "base-uri 'self'",
     "frame-ancestors 'none'",
-    "form-action 'self'",
+    `form-action ${allowedFormActions.join(" ")}`,
     "object-src 'none'",
     "img-src 'self' data:",
     "font-src 'self' data:",
