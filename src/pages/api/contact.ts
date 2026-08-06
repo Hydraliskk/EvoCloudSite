@@ -244,6 +244,7 @@ export const POST: APIRoute = async ({ request, url }) => {
   const rawPhone = normalize(formData.get('phone'));
   const rawUrgency = normalize(formData.get('urgency'));
   const rawMessage = normalize(formData.get('message'));
+  const rawPrivacyConsent = normalize(formData.get('privacyConsent'));
   const turnstileToken = normalize(formData.get('cf-turnstile-response'));
 
   if (honeypot) {
@@ -256,7 +257,8 @@ export const POST: APIRoute = async ({ request, url }) => {
     rawEmail.length > MAX_FIELD_LENGTH ||
     rawPhone.length > MAX_FIELD_LENGTH ||
     rawUrgency.length > MAX_FIELD_LENGTH ||
-    rawMessage.length > MAX_FIELD_LENGTH
+    rawMessage.length > MAX_FIELD_LENGTH ||
+    rawPrivacyConsent.length > MAX_FIELD_LENGTH
   ) {
     return redirectToContact(request, url, 'error=invalid');
   }
@@ -276,6 +278,10 @@ export const POST: APIRoute = async ({ request, url }) => {
 
   if (!name || !email || !message) {
     return redirectToContact(request, url, 'error=missing');
+  }
+
+  if (rawPrivacyConsent !== '1') {
+    return redirectToContact(request, url, 'error=consent');
   }
 
   if (

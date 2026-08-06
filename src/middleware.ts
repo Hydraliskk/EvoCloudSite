@@ -16,11 +16,11 @@ export const onRequest = defineMiddleware(async (_context, next) => {
     "frame-ancestors 'none'",
     `form-action ${allowedFormActions.join(" ")}`,
     "object-src 'none'",
-    "img-src 'self' data:",
+    "img-src 'self' data: https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net",
     "font-src 'self' data:",
     "style-src 'self' 'unsafe-inline'",
-    "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com",
-    "connect-src 'self' https://challenges.cloudflare.com",
+    "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com",
+    "connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
     "frame-src https://challenges.cloudflare.com",
     "upgrade-insecure-requests"
   ].join("; "));
