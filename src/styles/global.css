@@ -4,6 +4,30 @@
 @layer base {
   :root {
     color-scheme: dark;
+    --page-bg-top: #071220;
+    --page-bg-mid: #0b1730;
+    --page-bg-bottom: #0a1526;
+    --page-glow-a: rgba(34, 211, 238, 0.14);
+    --page-glow-b: rgba(59, 130, 246, 0.12);
+    --page-glow-c: rgba(16, 185, 129, 0.06);
+    --page-grid: rgba(125, 211, 252, 0.06);
+    --focus-ring: rgb(37, 99, 235);
+    --selection-bg: rgba(14, 165, 233, 0.18);
+    --selection-color: rgb(15, 23, 42);
+  }
+
+  html[data-palette="light-test"] {
+    color-scheme: dark;
+    --page-bg-top: #0a1424;
+    --page-bg-mid: #0f1c33;
+    --page-bg-bottom: #0b1627;
+    --page-glow-a: rgba(34, 211, 238, 0.11);
+    --page-glow-b: rgba(59, 130, 246, 0.1);
+    --page-glow-c: rgba(16, 185, 129, 0.05);
+    --page-grid: rgba(125, 211, 252, 0.045);
+    --focus-ring: rgb(14, 116, 144);
+    --selection-bg: rgba(37, 99, 235, 0.18);
+    --selection-color: rgb(15, 23, 42);
   }
 
   html {
@@ -13,10 +37,10 @@
   body {
     font-family: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
     background:
-      radial-gradient(circle at top left, rgba(34, 211, 238, 0.14), transparent 22%),
-      radial-gradient(circle at 86% 8%, rgba(59, 130, 246, 0.12), transparent 24%),
-      radial-gradient(circle at 56% 112%, rgba(16, 185, 129, 0.06), transparent 18%),
-      linear-gradient(180deg, #071220 0%, #0b1730 24%, #112044 58%, #0a1526 100%);
+      radial-gradient(circle at top left, var(--page-glow-a), transparent 22%),
+      radial-gradient(circle at 86% 8%, var(--page-glow-b), transparent 24%),
+      radial-gradient(circle at 56% 112%, var(--page-glow-c), transparent 18%),
+      linear-gradient(180deg, var(--page-bg-top) 0%, var(--page-bg-mid) 24%, #112044 58%, var(--page-bg-bottom) 100%);
   }
 
   body::before {
@@ -25,8 +49,8 @@
     inset: 0;
     pointer-events: none;
     background-image:
-      linear-gradient(rgba(125, 211, 252, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(125, 211, 252, 0.06) 1px, transparent 1px);
+      linear-gradient(var(--page-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--page-grid) 1px, transparent 1px);
     background-size: 48px 48px;
     mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 82%);
   }
@@ -48,15 +72,15 @@
   }
 
   :focus-visible {
-    outline: 2px solid rgb(37, 99, 235);
+    outline: 2px solid var(--focus-ring);
     outline-offset: 3px;
   }
 }
 
 @layer base {
   ::selection {
-    background: rgba(14, 165, 233, 0.18);
-    color: rgb(15, 23, 42);
+    background: var(--selection-bg);
+    color: var(--selection-color);
   }
 }
 

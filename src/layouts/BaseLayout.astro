@@ -18,6 +18,20 @@ const description =
     <meta name="theme-color" content="#09111f" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <script is:inline>
+      const paletteKey = "ec_palette";
+      const params = new URLSearchParams(window.location.search);
+      const paletteParam = params.get("palette");
+
+      if (paletteParam === "light") {
+        localStorage.setItem(paletteKey, "light-test");
+      } else if (paletteParam === "dark" || paletteParam === "default") {
+        localStorage.setItem(paletteKey, "original");
+      }
+
+      const palette = localStorage.getItem(paletteKey) || "original";
+      document.documentElement.dataset.palette = palette;
+    </script>
     <title>{title}</title>
   </head>
   <body class="min-h-dvh text-slate-100 antialiased">
