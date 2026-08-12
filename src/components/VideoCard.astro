@@ -1,0 +1,58 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  youtubeId: string;
+  duration: string;
+}
+
+const { title, description, youtubeId, duration } = Astro.props;
+---
+
+<article
+  class="video-card group min-w-[84vw] snap-center overflow-hidden rounded-[2rem] border border-cyan-300/20 bg-[linear-gradient(180deg,rgba(4,10,24,0.96),rgba(2,6,23,0.98))] shadow-[0_30px_84px_-38px_rgba(14,165,233,0.42)] ring-1 ring-cyan-200/12 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-200/40 md:min-w-[48%] xl:min-w-[31.5%]"
+  data-video-card
+>
+  <div class="relative">
+    <div class="relative aspect-video overflow-hidden bg-slate-950" data-video-stage>
+      <button
+        type="button"
+        class="group absolute inset-0 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+        aria-label={`Lire la vidéo: ${title}`}
+        data-video-play
+        data-youtube-id={youtubeId}
+        data-video-title={title}
+      >
+        <img
+          src={`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`}
+          alt={`Miniature de la vidéo ${title}`}
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+        />
+        <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.12),rgba(2,6,23,0.56))]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.14),transparent_58%)]"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <span class="flex h-16 w-16 items-center justify-center rounded-full border border-cyan-100/40 bg-[linear-gradient(135deg,rgba(34,211,238,0.84),rgba(59,130,246,0.8))] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.16)_inset,0_0_30px_rgba(34,211,238,0.4)] transition duration-300 group-hover:scale-110">
+            <svg viewBox="0 0 24 24" class="ml-0.5 h-7 w-7" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <div class="space-y-3 p-5 md:p-6">
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="rounded-full border border-cyan-300/20 bg-cyan-300/8 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-cyan-200">
+        Vidéo
+      </span>
+      <span class="rounded-full border border-slate-700 bg-white/5 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-slate-300">
+        {duration}
+      </span>
+    </div>
+    <h3 class="text-xl font-semibold tracking-tight text-white md:text-[1.4rem]">{title}</h3>
+    <p class="text-sm leading-6 text-slate-300">{description}</p>
+  </div>
+</article>

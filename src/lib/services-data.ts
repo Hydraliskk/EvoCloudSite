@@ -184,6 +184,38 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
+    slug: "securite-batiment",
+    name: "Sécurité du bâtiment",
+    title: "Sécurité du bâtiment pour mieux surveiller et protéger vos installations",
+    description: "Caméras de surveillance, timelapse, géotracking et alarme pour renforcer le contrôle sur vos sites.",
+    intro:
+      "Nous vous aidons à mettre en place des outils de sécurité physique qui complètent votre environnement TI: surveillance, alarme, suivi visuel et contrôle des installations.",
+    problem:
+      "Un bâtiment, un chantier ou un parc d’équipements mal surveillé peut subir des pertes, des incidents ou des déplacements non autorisés. Des outils de sécurité bien intégrés aident à mieux voir, mieux réagir et mieux documenter.",
+    whyEvolution:
+      "Nous cherchons des solutions simples à exploiter, utiles au quotidien et faciles à faire évoluer avec vos besoins.",
+    seoTitle: "Sécurité du bâtiment et surveillance | Evolution Cloud",
+    seoDescription:
+      "Caméras de surveillance, timelapse, géotracking et systèmes d’alarme pour mieux protéger vos installations.",
+    icon: "shield",
+    accent: "orange",
+    summaryPoints: ["Caméras de surveillance", "Timelapse", "Géotracking", "Alarme", "Surveillance", "Protection"],
+    solutions: [
+      "Caméras de surveillance intérieures et extérieures",
+      "Solutions de timelapse pour chantier ou projet",
+      "Géotracking pour certains équipements ou actifs",
+      "Intégration de systèmes d’alarme",
+      "Accès centralisé aux images et alertes",
+      "Aide au choix d’une solution adaptée à votre contexte"
+    ],
+    benefits: [
+      "Meilleure visibilité sur les installations",
+      "Surveillance plus simple à opérer",
+      "Réaction plus rapide en cas d’incident",
+      "Protection complémentaire pour les sites physiques"
+    ]
+  },
+  {
     slug: "cloud-infrastructure",
     name: "Cloud & Infrastructure",
     title: "Cloud et infrastructure pour moderniser votre environnement TI",
@@ -245,6 +277,38 @@ export const serviceCategories: ServiceCategory[] = [
       "Meilleur contrôle des accès",
       "Réseau plus facile à faire évoluer",
       "Support plus efficace quand un problème survient"
+    ]
+  },
+  {
+    slug: "securite-batiment",
+    name: "Sécurité du bâtiment",
+    title: "Sécurité du bâtiment pour mieux surveiller et protéger vos installations",
+    description: "Caméras de surveillance, timelapse, géotracking et alarme pour renforcer le contrôle sur vos sites.",
+    intro:
+      "Nous vous aidons à mettre en place des outils de sécurité physique qui complètent votre environnement TI: surveillance, alarme, suivi visuel et contrôle des installations.",
+    problem:
+      "Un bâtiment, un chantier ou un parc d’équipements mal surveillé peut subir des pertes, des incidents ou des déplacements non autorisés. Des outils de sécurité bien intégrés aident à mieux voir, mieux réagir et mieux documenter.",
+    whyEvolution:
+      "Nous cherchons des solutions simples à exploiter, utiles au quotidien et faciles à faire évoluer avec vos besoins.",
+    seoTitle: "Sécurité du bâtiment et surveillance | Evolution Cloud",
+    seoDescription:
+      "Caméras de surveillance, timelapse, géotracking et systèmes d’alarme pour mieux protéger vos installations.",
+    icon: "shield",
+    accent: "orange",
+    summaryPoints: ["Caméras de surveillance", "Timelapse", "Géotracking", "Alarme", "Surveillance", "Protection"],
+    solutions: [
+      "Caméras de surveillance intérieures et extérieures",
+      "Solutions de timelapse pour chantier ou projet",
+      "Géotracking pour certains équipements ou actifs",
+      "Intégration de systèmes d’alarme",
+      "Accès centralisé aux images et alertes",
+      "Aide au choix d’une solution adaptée à votre contexte"
+    ],
+    benefits: [
+      "Meilleure visibilité sur les installations",
+      "Surveillance plus simple à opérer",
+      "Réaction plus rapide en cas d’incident",
+      "Protection complémentaire pour les sites physiques"
     ]
   },
   {
@@ -318,6 +382,13 @@ export const servicesOverview = [
     points: ["3-2-1", "NAS", "Restauration"]
   },
   {
+    slug: "securite-batiment",
+    title: "Sécurité du bâtiment",
+    description: "Caméras, alarme, timelapse et géotracking pour protéger vos installations.",
+    icon: "shield",
+    points: ["Caméras", "Alarme", "Géotracking"]
+  },
+  {
     slug: "cloud-infrastructure",
     title: "Cloud & Infrastructure",
     description: "Serveurs, virtualisation et modernisation des fondations TI.",
@@ -330,6 +401,13 @@ export const servicesOverview = [
     description: "Wi-Fi, VPN, téléphonie IP et connectivité sécurisée.",
     icon: "network",
     points: ["Wi-Fi", "VPN", "Téléphonie IP"]
+  },
+  {
+    slug: "securite-batiment",
+    title: "Sécurité du bâtiment",
+    description: "Caméras, alarme, timelapse et géotracking pour protéger vos installations.",
+    icon: "shield",
+    points: ["Caméras", "Alarme", "Géotracking"]
   },
   {
     slug: "loi-25",
@@ -347,6 +425,7 @@ export const servicesNavLinks = [
   { href: "/services/materiel-licences/", label: "Matériel informatique & licences" },
   { href: "/services/cybersecurite/", label: "Cybersécurité" },
   { href: "/services/sauvegarde-continuite/", label: "Sauvegarde & Continuité" },
+  { href: "/services/securite-batiment/", label: "Sécurité du bâtiment" },
   { href: "/services/cloud-infrastructure/", label: "Cloud & Infrastructure" },
   { href: "/services/reseau-telecommunications/", label: "Réseau & Télécommunications" },
   { href: "/services/loi-25/", label: "Loi 25 & Conformité" }
