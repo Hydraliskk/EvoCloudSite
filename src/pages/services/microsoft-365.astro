@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ServiceDetailPage from "../../components/ServiceDetailPage.astro";
+import { serviceCategories } from "../../lib/services-data";
+
+const service = serviceCategories.find((item) => item.slug === "microsoft-365")!;
+---
+
+<BaseLayout title={service.seoTitle} description={service.seoDescription}>
+  <ServiceDetailPage service={service} />
+</BaseLayout>

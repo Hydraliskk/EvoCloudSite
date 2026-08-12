@@ -1,43 +1,58 @@
 ---
-import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CookieBanner from "../components/CookieBanner.astro";
+import "../styles/global.css";
 
-const { title = "Evolution Cloud" } = Astro.props;
-const description =
-  "Evolution Cloud accompagne les entreprises avec des solutions TI, de cybersÃ©curitÃ©, de cloud, de conformitÃ© et de support technique.";
+const {
+  title = "Evolution Cloud",
+  description = "Services TI, cybersécurité et accompagnement pour les entreprises."
+} = Astro.props;
+
+const isLightPalette = Astro.url.searchParams.get("palette") === "light";
 ---
 
 <!doctype html>
-<html lang="fr" class="bg-slate-950">
+<html lang="fr" data-palette={isLightPalette ? "light-test" : undefined}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <meta name="theme-color" content="#09111f" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <script is:inline>
-      const paletteKey = "ec_palette";
-      const params = new URLSearchParams(window.location.search);
-      const paletteParam = params.get("palette");
-
-      if (paletteParam === "light") {
-        localStorage.setItem(paletteKey, "light-test");
-      } else if (paletteParam === "dark" || paletteParam === "default") {
-        localStorage.setItem(paletteKey, "original");
-      }
-
-      const palette = localStorage.getItem(paletteKey) || "original";
-      document.documentElement.dataset.palette = palette;
-    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" />
+    <script is:inline>
+      (() => {
+        try {
+          const url = new URL(window.location.href);
+          const palette = url.searchParams.get("palette");
+
+          if (palette === "light") {
+            localStorage.setItem("ec_palette", "light-test");
+            document.documentElement.setAttribute("data-palette", "light-test");
+            return;
+          }
+
+          const stored = localStorage.getItem("ec_palette");
+
+          if (stored) {
+            document.documentElement.setAttribute("data-palette", stored);
+          }
+        } catch {}
+      })();
+    </script>
   </head>
-  <body class="min-h-dvh text-slate-100 antialiased">
+  <body class="min-h-screen text-slate-100 antialiased">
     <Header />
     <slot />
     <Footer />
     <CookieBanner />
+    <script>
+      if (window.location.search.includes("palette=light")) {
+        try {
+          localStorage.setItem("ec_palette", "light-test");
+        } catch {}
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,128 @@
+---
+import type { ServiceCategory } from "../lib/services-data";
+
+const { service } = Astro.props as { service: ServiceCategory };
+
+const accentMap: Record<ServiceCategory["accent"], { border: string; text: string; soft: string }> = {
+  blue: {
+    border: "border-blue-300/45",
+    text: "text-blue-300",
+    soft: "bg-blue-300/12"
+  },
+  emerald: {
+    border: "border-emerald-300/45",
+    text: "text-emerald-300",
+    soft: "bg-emerald-300/12"
+  },
+  rose: {
+    border: "border-rose-300/45",
+    text: "text-rose-300",
+    soft: "bg-rose-300/12"
+  },
+  orange: {
+    border: "border-orange-300/45",
+    text: "text-orange-300",
+    soft: "bg-orange-300/12"
+  },
+  violet: {
+    border: "border-violet-300/45",
+    text: "text-violet-300",
+    soft: "bg-violet-300/12"
+  },
+  sky: {
+    border: "border-sky-300/45",
+    text: "text-sky-300",
+    soft: "bg-sky-300/12"
+  },
+  cyan: {
+    border: "border-cyan-300/45",
+    text: "text-cyan-300",
+    soft: "bg-cyan-300/12"
+  }
+};
+---
+
+<main class="overflow-hidden">
+  <section class="relative isolate mx-auto max-w-6xl px-6 py-16 md:py-24">
+    <div class="absolute -left-16 top-8 h-64 w-64 rounded-full bg-cyan-400/12 blur-3xl"></div>
+    <div class="absolute right-0 top-16 h-72 w-72 rounded-full bg-blue-500/12 blur-3xl"></div>
+
+    <div class="relative max-w-3xl">
+      <p class={`inline-flex w-fit rounded-full border bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] shadow-sm backdrop-blur ${accentMap[service.accent].border} ${accentMap[service.accent].text}`}>
+        {service.name}
+      </p>
+      <h1 class={`mt-5 text-4xl font-semibold tracking-tight md:text-5xl ${accentMap[service.accent].text}`}>
+        {service.title}
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-slate-300">
+        {service.intro}
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="/contact" class={`inline-flex rounded-full border px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 ${accentMap[service.accent].border} ${accentMap[service.accent].soft}`}>
+          Parler avec notre équipe
+        </a>
+        <a href="/services/" class="inline-flex rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-cyan-100/40 hover:text-white">
+          Retour aux services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 pb-16 md:pb-24">
+    <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr] lg:items-start">
+      <article class={`rounded-[2.4rem] border bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-7 shadow-[0_32px_84px_-38px_rgba(14,165,233,0.46)] ring-1 ring-cyan-200/24 ${accentMap[service.accent].border}`}>
+        <p class={`text-sm font-semibold uppercase tracking-[0.24em] ${accentMap[service.accent].text}`}>Présentation</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white">Le problème que ce service résout</h2>
+        <p class="mt-4 text-sm leading-7 text-slate-300">
+          {service.problem}
+        </p>
+        <h3 class="mt-8 text-lg font-semibold text-white">Ce que nous faisons</h3>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          {service.solutions.map((solution) => (
+            <div class={`rounded-[1.35rem] border bg-white/5 px-4 py-3 text-sm leading-6 text-slate-200 ${accentMap[service.accent].border}`}>
+              {solution}
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article class={`rounded-[2.4rem] border bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-7 shadow-[0_32px_84px_-38px_rgba(14,165,233,0.46)] ring-1 ring-cyan-200/24 ${accentMap[service.accent].border}`}>
+        <p class={`text-sm font-semibold uppercase tracking-[0.24em] ${accentMap[service.accent].text}`}>Pourquoi Evolution Cloud</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white">Une approche claire et utile</h2>
+        <p class="mt-4 text-sm leading-7 text-slate-300">
+          {service.whyEvolution}
+        </p>
+        <div class={`mt-8 rounded-[1.6rem] border bg-white/5 p-5 ${accentMap[service.accent].border}`}>
+          <h3 class={`text-sm font-semibold uppercase tracking-[0.2em] ${accentMap[service.accent].text}`}>Bénéfices</h3>
+          <ul class="mt-4 grid gap-3 text-sm leading-6 text-slate-200">
+            {service.benefits.map((benefit) => (
+              <li class="flex items-start gap-2">
+                <span class={`mt-1 inline-block h-1.5 w-1.5 shrink-0 rounded-full ${accentMap[service.accent].soft}`}></span>
+                <span>{benefit}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
+    <div class={`rounded-[2.5rem] border bg-[linear-gradient(180deg,rgba(4,10,24,0.96),rgba(2,6,23,1))] px-7 py-10 text-white shadow-[0_38px_118px_-36px_rgba(14,165,233,0.48)] ring-1 ring-cyan-200/24 md:px-10 ${accentMap[service.accent].border}`}>
+      <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+        <div>
+          <p class={`text-sm font-semibold uppercase tracking-[0.24em] ${accentMap[service.accent].text}`}>Besoin d’avancer?</p>
+          <h2 class={`mt-4 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl ${accentMap[service.accent].text}`}>
+            Besoin d’améliorer votre environnement TI?
+          </h2>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300">
+            Parlez-nous de votre contexte et on vous reviendra avec une approche simple, concrète et adaptée à votre réalité.
+          </p>
+        </div>
+        <a href="/contact" class={`inline-flex w-fit rounded-full border bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 ${accentMap[service.accent].border} ${accentMap[service.accent].soft}`}>
+          Parler avec notre équipe
+        </a>
+      </div>
+    </div>
+  </section>
+</main>

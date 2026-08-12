@@ -1,664 +1,118 @@
-﻿---
+---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { servicesOverview } from "../lib/services-data";
 
-const faqItems = [
-  {
-    question: "Quels types de services offrez-vous?",
-    answer:
-      "Nous offrons des services de cybersécurité, de cloud, de conformité à la Loi 25, de communication unifiée, de support technique et de bâtiments connectés.",
-  },
-  {
-    question: "Comment se déroule un audit de sécurité?",
-    answer:
-      "L’audit de sécurité commence par un tour du parc informatique, des services utilisés, des accès et des équipements en place afin d’identifier les risques, les priorités et les améliorations à apporter.",
-  },
-  {
-    question: "Offrez-vous du support Microsoft 365?",
-    answer:
-      "Oui. Nous pouvons vous accompagner pour Microsoft 365, Windows, les postes de travail, la configuration et le support courant.",
-  },
-  {
-    question: "Pouvez-vous nous aider avec la Loi 25?",
-    answer:
-      "Oui. Nous offrons de l’accompagnement pour la conformité à la Loi 25, avec évaluation des obligations, politiques, procédures et mise en place.",
-  },
-  {
-    question: "Faites-vous de l’installation et de la réparation?",
-    answer:
-      "Oui. Notre volet technique couvre l’installation, la réparation, le dépannage, la mise en service et l’assistance à distance ou sur site.",
-  },
-  {
-    question: "Travaillez-vous aussi en dehors des heures d’ouverture?",
-    answer:
-      "Oui. Nous restons disponibles en dehors des heures aussi selon la nature du besoin et le niveau d’urgence.",
-  },
-  {
-    question: "Offrez-vous des services sur site?",
-    answer:
-      "Oui. Nous pouvons intervenir à distance ou sur site, selon le service et la situation.",
-  },
-];
+const iconLabels: Record<string, string> = {
+  monitor: "Gestion TI",
+  shield: "Protection",
+  cloud: "Collaboration",
+  backup: "Continuité",
+  server: "Infrastructure",
+  network: "Connectivité"
+};
 
-const serviceTickerItems = [
-  "Cybersécurité",
-  "Cloud",
-  "Loi 25",
-  "Support Microsoft 365",
-  "Téléphonie IP",
-  "Bâtiments connectés",
-  "Sauvegarde",
-  "Audit de sécurité",
-];
-
-const hoverServices = [
-  {
-    eyebrow: "Cybersécurité",
-    slug: "cybersecurite",
-    title: "Protection de vos environnements",
-    description:
-      "On sécurise vos postes, vos accès et vos données avec une approche concrète: prévention, détection et réponse.",
-    points: [
-      "Audit de sécurité",
-      "Surveillance 24/7",
-      "Gestion des accès",
-      "Recommandations d’amélioration",
-      "Protection des postes",
-      "Sensibilisation des équipes",
-    ],
-    media: "/images/service-cyber-photo.png",
-    mediaPosition: "center 28%",
-    ring: "ring-cyan-300/40",
+const accentBySlug: Record<
+  string,
+  { border: string; text: string; hoverBorder: string; soft: string }
+> = {
+  "services-ti-geres": {
+    border: "border-blue-300/45",
+    text: "text-blue-300",
+    hoverBorder: "hover:border-blue-100/60",
+    soft: "bg-blue-300/12"
   },
-  {
-    eyebrow: "Loi 25",
-    slug: "loi-25",
-    title: "Conformité accompagnée",
-    description:
-      "Nous vous aidons à structurer les obligations, les politiques et les démarches pour avancer sans complexifier vos opérations.",
-    points: [
-      "Évaluation des obligations",
-      "Politiques et procédures",
-      "Sensibilisation",
-      "Mise en place",
-      "Gestion des incidents",
-      "Documentation de conformité",
-    ],
-    media: "/images/service-law25-photo.png",
-    mediaPosition: "center 22%",
-    ring: "ring-fuchsia-300/35",
+  "microsoft-365": {
+    border: "border-sky-300/45",
+    text: "text-sky-300",
+    hoverBorder: "hover:border-sky-100/60",
+    soft: "bg-sky-300/12"
   },
-  {
-    eyebrow: "Cloud",
-    slug: "cloud",
-    title: "Mobilité et continuité de service",
-    description:
-      "Sauvegarde, collaboration et accès à distance prennent de la place seulement quand vous en avez besoin.",
-    points: [
-      "Microsoft 365",
-      "Google Workspace",
-      "Sauvegarde",
-      "Migration et maintien de service",
-      "Collaboration",
-      "Accès à distance",
-    ],
-    media: "/images/service-cloud-photo.png",
-    mediaPosition: "center 34%",
-    ring: "ring-emerald-300/35",
+  "materiel-licences": {
+    border: "border-orange-300/45",
+    text: "text-orange-300",
+    hoverBorder: "hover:border-orange-100/60",
+    soft: "bg-orange-300/12"
   },
-  {
-    eyebrow: "Technique",
-    slug: "technique",
-    title: "Support et mise en service",
-    description:
-      "On prend en charge l’installation, le dépannage et le support quotidien pour garder vos équipes en mouvement.",
-    points: [
-      "Postes de travail",
-      "Réseau",
-      "Réparation",
-      "Assistance à distance ou sur site",
-      "Téléphonie IP",
-      "Maintenance préventive",
-    ],
-    media: "/images/service-tech-photo.png",
-    mediaPosition: "center 25%",
-    ring: "ring-lime-300/35",
+  cybersecurite: {
+    border: "border-emerald-300/45",
+    text: "text-emerald-300",
+    hoverBorder: "hover:border-emerald-100/60",
+    soft: "bg-emerald-300/12"
   },
-  {
-    eyebrow: "Bâtiments",
-    slug: "batiments",
-    title: "Infrastructure connectée",
-    description:
-      "On relie vos espaces, vos équipements et votre réseau avec des solutions fiables et faciles à maintenir.",
-    points: [
-      "Câblage",
-      "Surveillance",
-      "Objets IoT",
-      "Internet",
-      "Réseautique",
-      "Architecture TI",
-    ],
-    media: "/images/service-buildings-photo.png",
-    mediaPosition: "center 20%",
-    ring: "ring-cyan-300/35",
+  "sauvegarde-continuite": {
+    border: "border-rose-300/45",
+    text: "text-rose-300",
+    hoverBorder: "hover:border-rose-100/60",
+    soft: "bg-rose-300/12"
   },
-];
-
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
+  "cloud-infrastructure": {
+    border: "border-violet-300/45",
+    text: "text-violet-300",
+    hoverBorder: "hover:border-violet-100/60",
+    soft: "bg-violet-300/12"
+  },
+  "reseau-telecommunications": {
+    border: "border-cyan-300/45",
+    text: "text-cyan-300",
+    hoverBorder: "hover:border-cyan-100/60",
+    soft: "bg-cyan-300/12"
+  }
 };
 ---
 
-<BaseLayout title="Services | Evolution Cloud">
+<BaseLayout title="Services | Evolution Cloud" description="Découvrez nos services TI, cybersécurité, Microsoft 365, sauvegarde, infrastructure et réseau.">
   <main class="overflow-hidden">
-    <section class="relative isolate mx-auto max-w-[100rem] px-2 py-10 md:px-4 md:py-16">
-      <div class="relative overflow-hidden rounded-[2.8rem] border border-cyan-200/70 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_24%),radial-gradient(circle_at_88%_6%,rgba(59,130,246,0.18),transparent_22%),radial-gradient(circle_at_58%_112%,rgba(16,185,129,0.1),transparent_18%),linear-gradient(180deg,rgba(4,10,24,0.96),rgba(10,18,38,0.94))] px-6 py-10 shadow-[0_42px_136px_-40px_rgba(14,165,233,0.62)] ring-1 ring-cyan-100/36 md:px-10 md:py-14">
-        <div class="absolute -left-24 top-10 h-72 w-72 rounded-full bg-cyan-400/18 blur-3xl"></div>
-        <div class="absolute right-0 top-0 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl"></div>
-        <div class="absolute inset-x-0 top-20 h-px bg-gradient-to-r from-transparent via-cyan-200/50 to-transparent"></div>
+    <section class="relative isolate mx-auto max-w-6xl px-6 py-16 md:py-24">
+      <div class="absolute -left-16 top-8 h-64 w-64 rounded-full bg-cyan-400/12 blur-3xl"></div>
+      <div class="absolute right-0 top-16 h-72 w-72 rounded-full bg-blue-500/12 blur-3xl"></div>
 
-        <div class="relative">
-          <div class="flex flex-col justify-center">
-            <p class="inline-flex w-fit rounded-full border border-cyan-300/40 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200 shadow-sm backdrop-blur">
-              Nos services
-            </p>
-            <h1 class="mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl">
-              Une offre claire, structurée et rassurante pour vos opérations.
-            </h1>
-            <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              Evolution Cloud accompagne les entreprises en cybersécurité, cloud, Loi 25, communication unifiée, bâtiments connectés et support technique.
-              L’idée est simple: des services concrets, bien cadrés et utiles au quotidien.
-            </p>
-            <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-400">
-              Nous desservons principalement le Lac-Saint-Jean et le Saguenay, avec possibilité d’interventions ailleurs selon le besoin.
-            </p>
-          </div>
-        </div>
+      <div class="relative max-w-3xl">
+        <p class="inline-flex w-fit rounded-full border border-cyan-300/50 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200 shadow-sm backdrop-blur">
+          Services
+        </p>
+        <h1 class="mt-5 text-4xl font-semibold tracking-tight text-white md:text-5xl">
+          Une structure claire pour vos besoins TI.
+        </h1>
+        <p class="mt-6 text-lg leading-8 text-slate-300">
+          Voici nos grands volets de service. Chaque bloc mène vers une page détaillée pour vous aider à comprendre ce que nous faisons et comment nous pouvons vous accompagner.
+        </p>
       </div>
     </section>
 
-    <section class="mx-auto max-w-[100rem] px-2 pb-16 md:px-4 md:pb-24">
-      <div class="rounded-[2.8rem] border border-cyan-200/55 bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(8,15,35,0.92))] px-3 py-3 shadow-[0_34px_110px_-42px_rgba(14,165,233,0.5)] ring-1 ring-cyan-100/24 md:px-4 md:py-4">
-        <div class="services-expander" data-service-expander>
-          {hoverServices.map((service, index) => (
-            <button
-              type="button"
-              id={`service-${service.slug}`}
-              class="service-panel group scroll-mt-28 md:scroll-mt-32"
-              data-service-panel
-              data-index={index}
-              aria-label={`${service.eyebrow}: ${service.title}`}
+    <section class="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
+      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {servicesOverview.map((service) => {
+          const accent = accentBySlug[service.slug] ?? accentBySlug["services-ti-geres"];
+
+          return (
+            <a
+              href={`/services/${service.slug}/`}
+              class:list={[
+                "group rounded-[2rem] border bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-6 shadow-[0_28px_72px_-36px_rgba(14,165,233,0.48)] ring-1 ring-cyan-200/20 transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_82px_-34px_rgba(34,211,238,0.54)]",
+                accent.border,
+                accent.hoverBorder
+              ]}
             >
-              <div class={`service-panel-shell ${index === 0 ? "is-default" : ""}`}>
-                <div class="service-panel-media" aria-hidden="true">
-                  <img src={service.media} alt="" loading="lazy" decoding="async" style={`--service-media-position:${service.mediaPosition};`} />
-                </div>
-                <div class="service-panel-top bg-[linear-gradient(180deg,rgba(2,6,23,0.38),rgba(2,6,23,0.84))]">
-                  <div class="flex items-start justify-between gap-4">
-                    <p class="text-[0.72rem] font-semibold uppercase tracking-[0.34em] text-white/95 drop-shadow-[0_2px_8px_rgba(2,6,23,0.75)]">
-                      {service.eyebrow}
-                    </p>
-                    <span class={`service-panel-indicator inline-flex h-2.5 w-2.5 rounded-full bg-white/95 ring-4 ${service.ring} ring-white/15`}></span>
-                  </div>
-                  <h3 class="mt-3 max-w-none text-2xl font-extrabold leading-[0.98] tracking-tight text-white text-balance drop-shadow-[0_2px_12px_rgba(2,6,23,0.8)] md:text-[2.1rem]">
-                    {service.title}
-                  </h3>
-                  <p class="mt-2 max-w-md text-sm leading-6 text-cyan-50/95 drop-shadow-[0_2px_10px_rgba(2,6,23,0.72)] md:text-[0.95rem]">
-                    {service.description}
-                  </p>
-                </div>
-
-                <div class="service-panel-body">
-                  <div class="rounded-[1.6rem] border border-cyan-200/72 bg-[linear-gradient(180deg,rgba(2,6,23,0.88),rgba(8,15,35,0.92))] p-4 shadow-[0_24px_60px_-24px_rgba(14,165,233,0.58)] ring-1 ring-cyan-100/36 backdrop-blur md:p-5">
-                    <p class="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-cyan-200">
-                      Ce que ça couvre
-                    </p>
-                    <ul class="mt-3 grid gap-2.5 sm:grid-cols-2">
-                      {service.points.map((point) => (
-                        <li class="rounded-2xl border border-cyan-100/55 bg-slate-950/78 px-4 py-2.5 text-[0.92rem] leading-6 text-slate-50 shadow-[0_10px_18px_-16px_rgba(14,165,233,0.46)] ring-1 ring-cyan-100/20">
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-[100rem] px-2 pb-16 md:px-4 md:pb-24">
-      <div class="rounded-[2.8rem] border border-cyan-200/70 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] px-5 py-7 shadow-[0_38px_126px_-40px_rgba(14,165,233,0.54)] ring-1 ring-cyan-100/36 md:px-8 md:py-9">
-        <div class="max-w-3xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">FAQ</p>
-          <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white">
-            Questions fréquentes sur nos services.
-          </h2>
-          <p class="mt-3 text-sm leading-7 text-slate-400">
-            Cette section aide vos visiteurs à trouver rapidement l’information la plus importante et renforce la pertinence SEO de la page.
-          </p>
-        </div>
-
-        <div class="mt-6 grid gap-3">
-          {faqItems.map((item) => (
-            <details class="group rounded-[1.75rem] border border-cyan-200/72 bg-[linear-gradient(180deg,rgba(2,6,23,0.9),rgba(8,15,35,0.94))] p-5 shadow-[0_28px_76px_-30px_rgba(14,165,233,0.5)] ring-1 ring-cyan-100/36 transition open:border-cyan-100/85 open:bg-[linear-gradient(180deg,rgba(2,6,23,0.96),rgba(8,15,35,0.98))]">
-              <summary class="cursor-pointer list-none text-base font-semibold text-white md:text-lg">
-                <span class="flex items-center justify-between gap-4">
-                  <span>{item.question}</span>
-                  <span class="text-cyan-300 transition group-open:rotate-45">+</span>
-                </span>
-              </summary>
-              <p class="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
-                {item.answer}
+              <p class={`text-xs font-semibold uppercase tracking-[0.24em] ${accent.text}`}>
+                {iconLabels[service.icon]}
               </p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-[100rem] px-2 pb-20 md:px-4 md:pb-28">
-      <div class="rounded-[2.8rem] border border-cyan-200/70 bg-[linear-gradient(135deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] px-7 py-8 text-white shadow-[0_42px_136px_-34px_rgba(14,165,233,0.56)] ring-1 ring-cyan-100/36 md:px-10 md:py-9">
-        <div class="grid gap-5 md:grid-cols-[1fr_auto] md:items-end">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Prêt à avancer</p>
-            <h2 class="mt-3 max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
-              Besoin d’un accompagnement clair en cybersécurité, cloud ou support technique?
-            </h2>
-            <p class="mt-3 max-w-2xl text-sm leading-7 text-slate-400">
-              On peut vous aider à structurer vos besoins, prioriser les actions et mettre en place une solution adaptée à votre réalité.
-            </p>
-          </div>
-          <a href="/contact" class="inline-flex w-fit rounded-full border border-cyan-300/30 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cyan-300/15">
-            Parler à un expert
-          </a>
-        </div>
+              <h2 class={`mt-3 text-2xl font-semibold tracking-tight ${accent.text}`}>
+                {service.title}
+              </h2>
+              <p class="mt-3 text-sm leading-7 text-slate-300">
+                {service.description}
+              </p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                {service.points.map((point) => (
+                  <span class={`rounded-full border px-3 py-1 text-xs font-medium text-slate-200 ${accent.border} ${accent.soft}`}>
+                    {point}
+                  </span>
+                ))}
+              </div>
+            </a>
+          );
+        })}
       </div>
     </section>
   </main>
-
-  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
-  <script>
-    const expander = document.querySelector("[data-service-expander]");
-
-    if (expander) {
-      const panels = Array.from(expander.querySelectorAll("[data-service-panel]"));
-      const clearActive = () => {
-        expander.removeAttribute("data-active");
-      };
-
-      const setActive = (index) => {
-        expander.setAttribute("data-active", String(index));
-      };
-
-      panels.forEach((panel) => {
-        const index = panel.getAttribute("data-index");
-
-        panel.addEventListener("pointerenter", () => {
-          if (index !== null) setActive(index);
-        });
-
-        panel.addEventListener("focus", () => {
-          if (index !== null) setActive(index);
-        });
-      });
-
-      expander.addEventListener("mouseleave", clearActive);
-      expander.addEventListener("focusout", (event) => {
-        if (!expander.contains(event.relatedTarget)) {
-          clearActive();
-        }
-      });
-    }
-  </script>
-  <style>
-    .services-expander {
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    .service-panel {
-      border: 0;
-      background: transparent;
-      text-align: left;
-      padding: 0;
-      width: 100%;
-      cursor: pointer;
-      color: inherit;
-      min-width: 0;
-      transition: flex-grow 420ms cubic-bezier(0.16, 1, 0.3, 1), opacity 280ms ease;
-    }
-
-    .service-panel-shell {
-      position: relative;
-      isolation: isolate;
-      display: grid;
-      grid-template-rows: minmax(23rem, 1fr) 0fr;
-      gap: 0;
-      height: 100%;
-      border-radius: 2.2rem;
-      overflow: hidden;
-      transform: translateY(0);
-      will-change: transform, opacity;
-      contain: layout paint style;
-      border: 1px solid rgba(125, 211, 252, 0.32);
-      background:
-        radial-gradient(circle at top left, rgba(34, 211, 238, 0.14), transparent 24%),
-        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.12), transparent 28%),
-        linear-gradient(180deg, rgba(2, 6, 23, 0.86), rgba(8, 15, 35, 0.92));
-      backdrop-filter: blur(10px);
-      transition:
-        grid-template-rows 260ms cubic-bezier(0.16, 1, 0.3, 1),
-        transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 220ms ease,
-        border-color 220ms ease,
-        box-shadow 220ms ease;
-      box-shadow: 0 18px 44px -28px rgba(14, 165, 233, 0.3);
-      opacity: 0.96;
-    }
-
-    .service-panel-media {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .service-panel-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: var(--service-media-position, center);
-      transform: scale(1.08) translateZ(0);
-      will-change: transform;
-      backface-visibility: hidden;
-      transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .service-panel-shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(125, 211, 252, 0.16), transparent 24%),
-        linear-gradient(90deg, rgba(34, 211, 238, 0.06), transparent 30%, transparent 70%, rgba(59, 130, 246, 0.08));
-      opacity: 0.8;
-      pointer-events: none;
-      transition: opacity 220ms ease;
-    }
-
-    .service-panel-shell::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: linear-gradient(135deg, rgba(34, 211, 238, 0.16), transparent 28%, transparent 72%, rgba(59, 130, 246, 0.14));
-      opacity: 0.42;
-      pointer-events: none;
-      transition: opacity 220ms ease;
-      mix-blend-mode: screen;
-    }
-
-    .service-panel-indicator {
-      box-shadow:
-        0 0 0 0 rgba(255, 255, 255, 0.18),
-        0 0 12px rgba(165, 243, 252, 0.3);
-      animation: service-indicator-pulse 2.5s ease-in-out infinite;
-      transform-origin: center;
-      will-change: transform, box-shadow, opacity;
-    }
-
-    .service-panel-top {
-      position: relative;
-      z-index: 1;
-      padding: 0.85rem;
-      min-height: 23rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      text-shadow: 0 1px 8px rgba(2, 6, 23, 0.7);
-    }
-
-    .service-panel-body {
-      position: relative;
-      z-index: 1;
-      min-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(0.75rem);
-      transition:
-        opacity 220ms ease,
-        transform 220ms ease;
-      background: linear-gradient(180deg, rgba(34, 211, 238, 0.08), transparent);
-      padding: 0 1.1rem 1.1rem;
-      will-change: opacity, transform;
-    }
-
-    .service-panel:hover .service-panel-shell,
-    .service-panel:focus-visible .service-panel-shell,
-    .services-expander[data-active] .service-panel-shell {
-      opacity: 1;
-      border-color: rgba(125, 211, 252, 0.62);
-    }
-
-    .service-panel:hover .service-panel-shell::before,
-    .service-panel:focus-visible .service-panel-shell::before,
-    .services-expander[data-active] .service-panel-shell::before {
-      opacity: 1;
-    }
-
-    .service-panel:hover .service-panel-shell::after,
-    .service-panel:focus-visible .service-panel-shell::after,
-    .services-expander[data-active] .service-panel-shell::after {
-      opacity: 0.56;
-    }
-
-    .service-panel:hover .service-panel-media img,
-    .service-panel:focus-visible .service-panel-media img,
-    .services-expander[data-active] .service-panel-media img {
-      transform: scale(1.12) translateZ(0);
-    }
-
-    .service-panel:hover .service-panel-shell,
-    .service-panel:focus-visible .service-panel-shell {
-      grid-template-rows: minmax(26rem, 1fr) 1fr;
-      transform: translateY(-7px) scale(1.01);
-      box-shadow:
-        0 28px 72px -30px rgba(14, 165, 233, 0.46),
-        0 0 0 1px rgba(165, 243, 252, 0.24) inset;
-      border-color: rgba(165, 243, 252, 0.68);
-    }
-
-    .service-panel:hover .service-panel-indicator,
-    .service-panel:focus-visible .service-panel-indicator,
-    .services-expander[data-active] .service-panel-indicator {
-      animation-duration: 1.1s;
-      box-shadow:
-        0 0 0 0 rgba(255, 255, 255, 0.32),
-        0 0 18px rgba(165, 243, 252, 0.55),
-        0 0 34px rgba(34, 211, 238, 0.24);
-    }
-
-    .services-expander[data-active="0"] .service-panel[data-index="0"] .service-panel-shell,
-    .services-expander[data-active="1"] .service-panel[data-index="1"] .service-panel-shell,
-    .services-expander[data-active="2"] .service-panel[data-index="2"] .service-panel-shell,
-    .services-expander[data-active="3"] .service-panel[data-index="3"] .service-panel-shell,
-    .services-expander[data-active="4"] .service-panel[data-index="4"] .service-panel-shell {
-      grid-template-rows: minmax(23rem, 1fr) 1fr;
-      transform: translateY(-7px) scale(1.01);
-      opacity: 1;
-      box-shadow:
-        0 28px 72px -30px rgba(14, 165, 233, 0.46),
-        0 0 0 1px rgba(165, 243, 252, 0.24) inset;
-      border-color: rgba(165, 243, 252, 0.68);
-    }
-
-    .services-expander[data-active="0"] .service-panel:not([data-index="0"]) .service-panel-shell,
-    .services-expander[data-active="1"] .service-panel:not([data-index="1"]) .service-panel-shell,
-    .services-expander[data-active="2"] .service-panel:not([data-index="2"]) .service-panel-shell,
-    .services-expander[data-active="3"] .service-panel:not([data-index="3"]) .service-panel-shell,
-    .services-expander[data-active="4"] .service-panel:not([data-index="4"]) .service-panel-shell {
-      opacity: 0.72;
-    }
-
-    .services-expander[data-active="0"] .service-panel[data-index="0"] .service-panel-body,
-    .services-expander[data-active="1"] .service-panel[data-index="1"] .service-panel-body,
-    .services-expander[data-active="2"] .service-panel[data-index="2"] .service-panel-body,
-    .services-expander[data-active="3"] .service-panel[data-index="3"] .service-panel-body,
-    .services-expander[data-active="4"] .service-panel[data-index="4"] .service-panel-body,
-    .service-panel:hover .service-panel-body,
-    .service-panel:focus-visible .service-panel-body {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .service-panel:focus-visible {
-      outline: none;
-    }
-
-    @media (min-width: 1024px) {
-      .services-expander {
-        display: flex;
-        align-items: stretch;
-        gap: 0.8rem;
-      }
-
-      .service-panel {
-        flex: 1 1 0%;
-      }
-
-      .service-panel-shell {
-        min-height: 100%;
-      }
-
-      .service-panel:hover,
-      .service-panel:focus-visible {
-        z-index: 2;
-      }
-
-      .services-expander[data-active="0"] .service-panel[data-index="0"],
-      .services-expander[data-active="1"] .service-panel[data-index="1"],
-      .services-expander[data-active="2"] .service-panel[data-index="2"],
-      .services-expander[data-active="3"] .service-panel[data-index="3"],
-      .services-expander[data-active="4"] .service-panel[data-index="4"] {
-        flex: 3 1 0%;
-      }
-
-      .services-expander[data-active="0"] .service-panel:not([data-index="0"]),
-      .services-expander[data-active="1"] .service-panel:not([data-index="1"]),
-      .services-expander[data-active="2"] .service-panel:not([data-index="2"]),
-      .services-expander[data-active="3"] .service-panel:not([data-index="3"]),
-      .services-expander[data-active="4"] .service-panel:not([data-index="4"]) {
-        flex: 0.72 1 0%;
-      }
-
-      .service-panel:hover .service-panel-shell,
-      .service-panel:focus-visible .service-panel-shell,
-      .services-expander[data-active="0"] .service-panel[data-index="0"] .service-panel-shell,
-      .services-expander[data-active="1"] .service-panel[data-index="1"] .service-panel-shell,
-      .services-expander[data-active="2"] .service-panel[data-index="2"] .service-panel-shell,
-      .services-expander[data-active="3"] .service-panel[data-index="3"] .service-panel-shell,
-      .services-expander[data-active="4"] .service-panel[data-index="4"] .service-panel-shell {
-        transform: translateY(-7px) scale(1.01);
-      }
-    }
-
-    @media (max-width: 1023px) {
-      .service-panel-shell {
-        grid-template-rows: auto auto;
-        opacity: 1;
-        min-height: 0;
-      }
-
-      .service-panel-top {
-        min-height: 0;
-        padding: 0.8rem;
-      }
-
-      .service-panel-body {
-        opacity: 1;
-        transform: none;
-        padding-top: 0;
-        padding-left: 0.85rem;
-        padding-right: 0.85rem;
-        padding-bottom: 0.85rem;
-      }
-
-      .service-panel-shell {
-        border-radius: 1.75rem;
-      }
-
-      .service-panel-media img {
-        transform: scale(1.04);
-      }
-
-      .service-panel-shell::before {
-        opacity: 0.82;
-      }
-
-      .service-panel-shell::after {
-        opacity: 0.48;
-      }
-
-      .service-panel-body .rounded-\[1\.6rem\] {
-        border-radius: 1.15rem;
-      }
-
-      .service-panel-body ul {
-        gap: 0.55rem;
-      }
-
-      .service-panel-body li {
-        padding-top: 0.55rem;
-        padding-bottom: 0.55rem;
-        font-size: 0.8rem;
-        line-height: 1.45rem;
-      }
-
-      .service-panel-top h3 {
-        font-size: 1.35rem;
-      }
-
-      .service-panel-top p:last-child {
-        font-size: 0.68rem;
-        line-height: 1.35rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .service-panel,
-      .service-panel-shell,
-      .service-panel-media img,
-      .service-panel-body,
-      .service-panel-shell::before,
-      .service-panel-shell::after,
-      .service-panel-indicator {
-        animation: none !important;
-        transition-duration: 1ms !important;
-      }
-    }
-
-    @keyframes service-indicator-pulse {
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: 0.88;
-      }
-
-      50% {
-        transform: scale(0.72);
-        opacity: 0.42;
-      }
-    }
-  </style>
 </BaseLayout>

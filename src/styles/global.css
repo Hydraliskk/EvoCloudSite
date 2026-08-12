@@ -12,8 +12,8 @@
     --page-glow-c: rgba(16, 185, 129, 0.06);
     --page-grid: rgba(125, 211, 252, 0.06);
     --focus-ring: rgb(37, 99, 235);
-    --selection-bg: rgba(14, 165, 233, 0.18);
-    --selection-color: rgb(15, 23, 42);
+    --selection-bg: rgba(34, 211, 238, 0.42);
+    --selection-color: rgb(255, 255, 255);
   }
 
   html[data-palette="light-test"] {
@@ -26,8 +26,8 @@
     --page-glow-c: rgba(16, 185, 129, 0.05);
     --page-grid: rgba(125, 211, 252, 0.045);
     --focus-ring: rgb(14, 116, 144);
-    --selection-bg: rgba(37, 99, 235, 0.18);
-    --selection-color: rgb(15, 23, 42);
+    --selection-bg: rgba(34, 211, 238, 0.38);
+    --selection-color: rgb(255, 255, 255);
   }
 
   html {
@@ -79,6 +79,11 @@
 
 @layer base {
   ::selection {
+    background: var(--selection-bg);
+    color: var(--selection-color);
+  }
+
+  ::-moz-selection {
     background: var(--selection-bg);
     color: var(--selection-color);
   }
