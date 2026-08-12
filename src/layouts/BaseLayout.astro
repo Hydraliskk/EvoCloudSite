@@ -6,10 +6,20 @@ import "../styles/global.css";
 
 const {
   title = "Evolution Cloud",
-  description = "Services TI, cybersécurité et accompagnement pour les entreprises."
+  description = "Services TI, cybersécurité et accompagnement pour les entreprises.",
+  canonical,
+  noindex = false,
+  ogImage = "/images/Logo.png",
+  ogType = "website",
+  siteName = "Evolution Cloud"
 } = Astro.props;
 
 const isLightPalette = Astro.url.searchParams.get("palette") === "light";
+const canonicalUrl =
+  canonical ??
+  (Astro.url.origin
+    ? new URL(Astro.url.pathname, Astro.url.origin).href
+    : Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -20,6 +30,18 @@ const isLightPalette = Astro.url.searchParams.get("palette") === "light";
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL(ogImage, Astro.url.origin).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.url.origin).href} />
     <link rel="icon" href="/favicon.svg" />
     <script is:inline>
       (() => {

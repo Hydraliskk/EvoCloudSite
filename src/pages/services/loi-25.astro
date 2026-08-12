@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ServiceDetailPage from "../../components/ServiceDetailPage.astro";
+import { serviceCategories } from "../../lib/services-data";
+
+const service = serviceCategories.find((item) => item.slug === "loi-25");
+
+if (!service) {
+  throw new Error("Service Loi 25 introuvable.");
+}
+---
+
+<BaseLayout title={service.seoTitle} description={service.seoDescription}>
+  <ServiceDetailPage service={service} />
+</BaseLayout>

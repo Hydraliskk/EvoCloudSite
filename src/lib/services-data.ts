@@ -9,7 +9,7 @@ export type ServiceCategory = {
   seoTitle: string;
   seoDescription: string;
   icon: "monitor" | "shield" | "cloud" | "backup" | "server" | "network" | "devices";
-  accent: "blue" | "emerald" | "rose" | "orange" | "violet" | "sky" | "cyan";
+  accent: "blue" | "emerald" | "rose" | "orange" | "violet" | "sky" | "cyan" | "fuchsia";
   summaryPoints: string[];
   solutions: string[];
   benefits: string[];
@@ -38,7 +38,7 @@ export const serviceCategories: ServiceCategory[] = [
       "Supervision proactive",
       "Gestion des utilisateurs",
       "Maintenance informatique",
-      "Gestion des incidents",
+      "Gestion des incidents"
     ],
     solutions: [
       "Support utilisateur à distance et sur site",
@@ -46,14 +46,14 @@ export const serviceCategories: ServiceCategory[] = [
       "Mises à jour et maintenance régulière",
       "Traitement structuré des incidents",
       "Accompagnement MSP adapté à la réalité de l’entreprise",
-      "Suivi des comptes et des accès",
+      "Suivi des comptes et des accès"
     ],
     benefits: [
       "Réduction du temps perdu à gérer les problèmes récurrents",
       "Vision plus claire des priorités TI",
       "Environnement plus stable pour vos équipes",
-      "Accompagnement simple à suivre et à maintenir",
-    ],
+      "Accompagnement simple à suivre et à maintenir"
+    ]
   },
   {
     slug: "cybersecurite",
@@ -78,14 +78,14 @@ export const serviceCategories: ServiceCategory[] = [
       "Sécurité Microsoft 365 et gestion des identités",
       "Pare-feu et protection réseau",
       "Sensibilisation au phishing",
-      "Audits de sécurité et recommandations",
+      "Audits de sécurité et recommandations"
     ],
     benefits: [
       "Réduction du risque d’incident majeur",
       "Mise en place progressive et compréhensible",
       "Meilleure visibilité sur les accès et les alertes",
-      "Protection adaptée aux PME",
-    ],
+      "Protection adaptée aux PME"
+    ]
   },
   {
     slug: "microsoft-365",
@@ -110,14 +110,14 @@ export const serviceCategories: ServiceCategory[] = [
       "Configuration d’Exchange Online, Teams et SharePoint",
       "Organisation des espaces collaboratifs",
       "Sécurité et accès aux données",
-      "Formation et accompagnement des équipes",
+      "Formation et accompagnement des équipes"
     ],
     benefits: [
       "Collaboration plus fluide",
       "Mise en place plus propre et plus cohérente",
       "Réduction des erreurs de configuration",
-      "Meilleur contrôle des accès et des licences",
-    ],
+      "Meilleur contrôle des accès et des licences"
+    ]
   },
   {
     slug: "materiel-licences",
@@ -142,14 +142,14 @@ export const serviceCategories: ServiceCategory[] = [
       "Licences logicielles et abonnements",
       "Équipements réseau et postes de travail",
       "Standardisation du parc informatique",
-      "Aide au renouvellement et au déploiement",
+      "Aide au renouvellement et au déploiement"
     ],
     benefits: [
       "Parc plus cohérent et plus simple à soutenir",
       "Achat plus clair pour les équipes",
       "Meilleure compatibilité entre les postes et les outils",
-      "Gestion plus efficace des licences et des remplacements",
-    ],
+      "Gestion plus efficace des licences et des remplacements"
+    ]
   },
   {
     slug: "sauvegarde-continuite",
@@ -174,14 +174,14 @@ export const serviceCategories: ServiceCategory[] = [
       "Stratégie 3-2-1 adaptée à l’entreprise",
       "Restauration documentée et testée",
       "Solution de continuité et de reprise",
-      "Encadrement des sauvegardes Microsoft 365",
+      "Encadrement des sauvegardes Microsoft 365"
     ],
     benefits: [
       "Réduction de l’impact d’un incident",
       "Restauration plus simple et plus rapide",
       "Protection des données essentielles",
-      "Approche claire pour les décideurs",
-    ],
+      "Approche claire pour les décideurs"
+    ]
   },
   {
     slug: "cloud-infrastructure",
@@ -206,14 +206,14 @@ export const serviceCategories: ServiceCategory[] = [
       "Migration vers des fondations plus flexibles",
       "Gestion du stockage et des ressources",
       "Architecture hybride selon les besoins",
-      "Accompagnement pour faire évoluer l’infrastructure",
+      "Accompagnement pour faire évoluer l’infrastructure"
     ],
     benefits: [
       "Base technique plus robuste",
       "Meilleure capacité d’évolution",
       "Ressources mieux utilisées",
-      "Planification plus simple pour l’entreprise",
-    ],
+      "Planification plus simple pour l’entreprise"
+    ]
   },
   {
     slug: "reseau-telecommunications",
@@ -238,15 +238,47 @@ export const serviceCategories: ServiceCategory[] = [
       "Pare-feu, VPN et accès distant",
       "Téléphonie IP et communications unifiées",
       "Maintenance et documentation réseau",
-      "Optimisation de la connectivité des sites",
+      "Optimisation de la connectivité des sites"
     ],
     benefits: [
       "Connexions plus stables",
       "Meilleur contrôle des accès",
       "Réseau plus facile à faire évoluer",
-      "Support plus efficace quand un problème survient",
-    ],
+      "Support plus efficace quand un problème survient"
+    ]
   },
+  {
+    slug: "loi-25",
+    name: "Loi 25 & Conformité",
+    title: "Loi 25 et conformité pour mieux encadrer vos pratiques numériques",
+    description: "Aide à structurer les mesures, les accès et la documentation liés aux renseignements personnels.",
+    intro:
+      "Evolution Cloud vous aide à mieux organiser les aspects technologiques liés à la protection des renseignements personnels, à la gestion des accès et à la documentation utile à vos pratiques internes.",
+    problem:
+      "Quand les outils, les accès et les processus sont dispersés, il devient plus difficile de démontrer un encadrement cohérent des renseignements personnels. Une approche simple et documentée réduit ce risque.",
+    whyEvolution:
+      "Nous travaillons de façon pragmatique: faire le tri, clarifier les responsabilités techniques et rendre les pratiques plus faciles à maintenir dans le temps.",
+    seoTitle: "Loi 25 et conformité TI | Evolution Cloud",
+    seoDescription:
+      "Aide à structurer les mesures techniques, les accès, la documentation et les pratiques liées à la conformité.",
+    icon: "shield",
+    accent: "fuchsia",
+    summaryPoints: ["Mesures techniques", "Gestion des accès", "Documentation", "Rétention", "Processus internes", "Conformité"],
+    solutions: [
+      "Revue des outils et des flux de données",
+      "Encadrement des accès et des privilèges",
+      "Appui à la documentation technique utile",
+      "Soutien aux mesures de protection et de rétention",
+      "Recommandations pragmatiques pour les équipes",
+      "Alignement avec les pratiques de cybersécurité"
+    ],
+    benefits: [
+      "Pratiques plus claires à appliquer",
+      "Meilleur contrôle des accès et des outils",
+      "Documentation plus facile à maintenir",
+      "Approche technologique mieux structurée"
+    ]
+  }
 ];
 
 export const servicesOverview = [
@@ -255,50 +287,57 @@ export const servicesOverview = [
     title: "Services TI gérés",
     description: "Support, maintenance et supervision proactive pour garder vos opérations stables.",
     icon: "monitor",
-    points: ["Support informatique", "Supervision proactive", "Gestion des incidents"],
+    points: ["Support informatique", "Supervision proactive", "Gestion des incidents"]
   },
   {
     slug: "microsoft-365",
     title: "Microsoft 365 & Collaboration",
     description: "Courriel, Teams et partage de fichiers bien structurés.",
     icon: "cloud",
-    points: ["Teams", "SharePoint", "Licences"],
+    points: ["Teams", "SharePoint", "Licences"]
   },
   {
     slug: "materiel-licences",
     title: "Matériel informatique & licences",
     description: "Ordinateurs, écrans, accessoires et licences pour garder vos équipes bien outillées.",
     icon: "devices",
-    points: ["Ordinateurs", "Écrans", "Logiciels"],
+    points: ["Ordinateurs", "Écrans", "Logiciels"]
   },
   {
     slug: "cybersecurite",
     title: "Cybersécurité",
     description: "Protection concrète des postes, des accès et du réseau.",
     icon: "shield",
-    points: ["MFA", "EDR", "Audits"],
+    points: ["MFA", "EDR", "Audits"]
   },
   {
     slug: "sauvegarde-continuite",
     title: "Sauvegarde & Continuité",
     description: "Préparez la restauration et la reprise avant le problème.",
     icon: "backup",
-    points: ["3-2-1", "NAS", "Restauration"],
+    points: ["3-2-1", "NAS", "Restauration"]
   },
   {
     slug: "cloud-infrastructure",
     title: "Cloud & Infrastructure",
     description: "Serveurs, virtualisation et modernisation des fondations TI.",
     icon: "server",
-    points: ["Virtualisation", "Migration", "Hybride"],
+    points: ["Virtualisation", "Migration", "Hybride"]
   },
   {
     slug: "reseau-telecommunications",
     title: "Réseau & Télécommunications",
     description: "Wi-Fi, VPN, téléphonie IP et connectivité sécurisée.",
     icon: "network",
-    points: ["Wi-Fi", "VPN", "Téléphonie IP"],
+    points: ["Wi-Fi", "VPN", "Téléphonie IP"]
   },
+  {
+    slug: "loi-25",
+    title: "Loi 25 & Conformité",
+    description: "Encadrement technique et documentation pour mieux structurer vos pratiques.",
+    icon: "shield",
+    points: ["Accès", "Documentation", "Rétention"]
+  }
 ];
 
 export const servicesNavLinks = [
@@ -310,4 +349,5 @@ export const servicesNavLinks = [
   { href: "/services/sauvegarde-continuite/", label: "Sauvegarde & Continuité" },
   { href: "/services/cloud-infrastructure/", label: "Cloud & Infrastructure" },
   { href: "/services/reseau-telecommunications/", label: "Réseau & Télécommunications" },
+  { href: "/services/loi-25/", label: "Loi 25 & Conformité" }
 ];

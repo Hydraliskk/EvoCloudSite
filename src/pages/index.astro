@@ -47,44 +47,63 @@ const accentBySlug: Record<
     text: "text-cyan-300",
     hoverBorder: "hover:border-cyan-100/60",
     soft: "bg-cyan-300/12"
+  },
+  "loi-25": {
+    border: "border-fuchsia-300/45",
+    text: "text-fuchsia-300",
+    hoverBorder: "hover:border-fuchsia-100/60",
+    soft: "bg-fuchsia-300/12"
   }
 };
 
-const projects = [
+const serviceHighlights = [
   {
-    title: "Clinique médicale d'Alma",
-    description: "Soutien à un milieu où la continuité est essentielle.",
-    image: "/images/Clinique_medical.jpg",
-    anchor: "/realisations",
+    title: "Services TI gérés",
+    description: "Support, maintenance et supervision proactive pour garder vos opérations stables.",
+    href: "/services/services-ti-geres/"
   },
   {
-    title: "Alma Toyota",
-    description: "Une présence technique stable et accessible.",
-    image: "/images/Toyota.jpg",
-    anchor: "/realisations",
+    title: "Microsoft 365 & Collaboration",
+    description: "Courriels, Teams et partage de fichiers bien structurés.",
+    href: "/services/microsoft-365/"
   },
   {
-    title: "Pièces Auto Choc",
-    description: "Un environnement simple à maintenir et à faire évoluer.",
-    image: "/images/PieceAuto.png",
-    anchor: "/realisations",
+    title: "Matériel informatique & licences",
+    description: "Ordinateurs, écrans, accessoires et licences pour soutenir vos équipes.",
+    href: "/services/materiel-licences/"
   },
   {
-    title: "BlackBurn et Fils",
-    description: "Des outils robustes pour les opérations quotidiennes.",
-    image: "/images/ConstructionBlackBurn.jpg",
-    anchor: "/realisations",
+    title: "Cybersécurité",
+    description: "Protection concrète des postes, des accès et du réseau.",
+    href: "/services/cybersecurite/"
   },
   {
-    title: "Service financier du Lac",
-    description: "Une infrastructure claire, fiable et bien cadrée.",
-    image: "/images/CFDL.png",
-    anchor: "/realisations",
+    title: "Sauvegarde & Continuité",
+    description: "Préparez la restauration et la reprise avant le problème.",
+    href: "/services/sauvegarde-continuite/"
   },
+  {
+    title: "Cloud & Infrastructure",
+    description: "Serveurs, virtualisation et modernisation des fondations TI.",
+    href: "/services/cloud-infrastructure/"
+  },
+  {
+    title: "Réseau & Télécommunications",
+    description: "Wi-Fi, VPN, téléphonie IP et connectivité sécurisée.",
+    href: "/services/reseau-telecommunications/"
+  },
+  {
+    title: "Loi 25 & Conformité",
+    description: "Encadrement technique et documentation pour mieux structurer vos pratiques.",
+    href: "/services/loi-25/"
+  }
 ];
 ---
 
-<BaseLayout title="Accueil | Evolution Cloud">
+<BaseLayout
+  title="Services TI gérés et cybersécurité à Alma | Evolution Cloud"
+  description="Evolution Cloud accompagne les PME d'Alma et du Saguenay–Lac-Saint-Jean avec des services TI gérés, Microsoft 365, cybersécurité, sauvegarde, réseau, matériel et cloud."
+>
   <main class="overflow-hidden">
     <section class="px-4 pt-4 md:px-6 md:pt-6">
       <div class="mx-auto max-w-[1360px]">
@@ -100,25 +119,27 @@ const projects = [
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_28%,rgba(34,211,238,0.06),transparent_18%),linear-gradient(135deg,rgba(34,211,238,0.045),transparent_34%,rgba(59,130,246,0.03),transparent_68%,rgba(34,211,238,0.045))]"></div>
           <div class="relative z-10 flex h-full flex-col">
             <div class="max-w-3xl pt-3 md:pt-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">
+                Services TI pour les PME du Saguenay–Lac-Saint-Jean
+              </p>
               <h1 class="mt-6 max-w-2xl text-4xl font-semibold leading-[1.02] tracking-tight text-white md:text-6xl">
-                Des solutions IT solides pour un avenir <span class="text-cyan-300">sans limites</span>.
+                Des solutions TI solides pour <span class="text-cyan-300">protéger</span> et faire avancer votre entreprise.
               </h1>
               <p class="mt-6 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
-                Cybersécurité, cloud, conformité et support technique réunis dans une approche claire,
-                concrète et durable pour vos opérations.
+                Cybersécurité, cloud, conformité, matériel, sauvegarde et support technique réunis dans une approche claire, concrète et durable pour vos opérations.
               </p>
               <p class="mt-4 max-w-xl text-sm leading-6 text-slate-400 md:text-[0.98rem]">
-                Notre équipe accompagne les entreprises du Saguenay-Lac-Saint-Jean avec des services bien cadrés, utiles et simples à faire vivre.
+                Notre équipe accompagne les entreprises d'Alma et du Saguenay–Lac-Saint-Jean avec des services bien cadrés, utiles et simples à faire vivre.
               </p>
               <div class="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="/services"
+                  href="/services/"
                   class="inline-flex rounded-full border border-cyan-300/35 bg-[linear-gradient(135deg,rgba(34,211,238,0.2),rgba(59,130,246,0.18))] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_36px_-18px_rgba(34,211,238,0.58)] transition hover:-translate-y-0.5 hover:border-cyan-100/60 hover:bg-[linear-gradient(135deg,rgba(34,211,238,0.28),rgba(59,130,246,0.28))]"
                 >
                   Découvrir nos services
                 </a>
                 <a
-                  href="/contact"
+                  href="/contact/"
                   class="inline-flex rounded-full border border-cyan-300/25 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 backdrop-blur transition hover:border-cyan-100/60 hover:text-cyan-100"
                 >
                   Nous contacter
@@ -136,17 +157,18 @@ const projects = [
           Nos services
         </p>
         <h2 class="mt-2 text-xl font-medium tracking-tight text-slate-200 md:text-[1.65rem]">
-          Une expertise complète pour vos opérations.
+          L'ensemble de nos services, en un seul endroit.
         </h2>
       </div>
 
       <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {servicesOverview.map((service) => {
-          const accent = accentBySlug[service.slug] ?? accentBySlug["services-ti-geres"];
+        {serviceHighlights.map((service) => {
+          const slug = service.href.split("/")[2];
+          const accent = accentBySlug[slug] ?? accentBySlug["services-ti-geres"];
 
           return (
             <a
-              href={`/services/${service.slug}/`}
+              href={service.href}
               class:list={[
                 "group rounded-[1.75rem] border bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(6,14,30,0.98))] p-6 shadow-[0_28px_72px_-40px_rgba(14,165,233,0.48)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_34px_82px_-34px_rgba(34,211,238,0.54)]",
                 accent.border,
@@ -162,13 +184,6 @@ const projects = [
               <p class="mt-3 text-sm leading-7 text-slate-300">
                 {service.description}
               </p>
-              <div class="mt-5 flex flex-wrap gap-2">
-                {service.points.map((point) => (
-                  <span class={`rounded-full border px-3 py-1 text-xs font-medium text-slate-200 ${accent.border} ${accent.soft}`}>
-                    {point}
-                  </span>
-                ))}
-              </div>
               <div class="mt-6 flex justify-end">
                 <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-100/28 bg-slate-950/45 text-cyan-100 transition group-hover:border-cyan-100/60 group-hover:bg-cyan-300/12 group-hover:text-white">
                   →
@@ -177,33 +192,6 @@ const projects = [
             </a>
           );
         })}
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-[1360px] px-4 pb-20 md:px-6 md:pb-28">
-      <div class="text-center">
-        <p class="text-lg font-extrabold uppercase tracking-[0.38em] text-cyan-200 md:text-[1.5rem]">
-          Réalisations
-        </p>
-        <h2 class="mt-2 text-xl font-medium tracking-tight text-slate-200 md:text-[1.65rem]">
-          Des projets concrets. Des résultats réels.
-        </h2>
-      </div>
-
-      <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
-        {projects.map((project) => (
-          <a
-            href={project.anchor}
-            class="ec-card-image group relative min-h-[235px] overflow-hidden rounded-[1.75rem] border border-cyan-300/35 bg-[linear-gradient(180deg,rgba(4,10,24,0.94),rgba(6,14,30,0.98))] shadow-[0_28px_72px_-40px_rgba(14,165,233,0.48)] transition duration-300 hover:-translate-y-1 hover:border-cyan-100/65 hover:shadow-[0_34px_82px_-34px_rgba(34,211,238,0.54)]"
-          >
-            <img src={project.image} alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]" />
-            <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.22),rgba(2,6,23,0.9))]"></div>
-            <div class="relative z-10 flex h-full flex-col justify-end p-5">
-              <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">{project.title}</p>
-              <p class="mt-3 text-sm leading-6 text-slate-200">{project.description}</p>
-            </div>
-          </a>
-        ))}
       </div>
     </section>
 
@@ -219,7 +207,7 @@ const projects = [
           </p>
           <div class="mt-6">
             <a
-              href="/contact"
+              href="/contact/"
               class="inline-flex rounded-full border border-cyan-300/30 bg-[linear-gradient(135deg,rgba(34,211,238,0.2),rgba(59,130,246,0.18))] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-cyan-100/60 hover:bg-[linear-gradient(135deg,rgba(34,211,238,0.28),rgba(59,130,246,0.28))]"
             >
               Nous contacter
@@ -235,7 +223,7 @@ const projects = [
             </a>
           </div>
           <a
-            href="/contact"
+            href="/contact/"
             class="inline-flex rounded-full border border-cyan-300/28 bg-white/5 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:border-cyan-100/60 hover:bg-cyan-300/10"
           >
             Nous écrire

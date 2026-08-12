@@ -6,8 +6,7 @@ const pathname = Astro.url.pathname;
 const mainNav = [
   { href: "/services/", label: "Nos Services" },
   { href: "/a-propos", label: "Notre équipe" },
-  { href: "/realisations", label: "Réalisations" },
-  { href: "/videos", label: "Vidéos" },
+  { href: "/realisations", label: "Réalisations" }
 ];
 
 const isActive = (href: string) =>
@@ -48,6 +47,11 @@ const serviceAccentByHref: Record<string, { text: string; bg: string; border: st
     text: "text-cyan-200",
     bg: "hover:bg-cyan-300/10",
     border: "border-cyan-300/20"
+  },
+  "/services/loi-25/": {
+    text: "text-fuchsia-200",
+    bg: "hover:bg-fuchsia-300/10",
+    border: "border-fuchsia-300/20"
   }
 };
 ---
@@ -88,7 +92,7 @@ const serviceAccentByHref: Record<string, { text: string; bg: string; border: st
                     >
                       {item.label}
                     </summary>
-                    <div class="absolute left-1/2 top-full z-20 mt-2 w-[19rem] -translate-x-1/2 overflow-hidden rounded-[1.25rem] border border-cyan-300/18 bg-[linear-gradient(180deg,rgba(4,10,24,0.98),rgba(2,6,23,0.98))] p-2 shadow-[0_24px_80px_-34px_rgba(14,165,233,0.6)]">
+                    <div class="absolute left-1/2 top-full z-20 mt-2 w-[20rem] -translate-x-1/2 overflow-hidden rounded-[1.25rem] border border-cyan-300/18 bg-[linear-gradient(180deg,rgba(4,10,24,0.98),rgba(2,6,23,0.98))] p-2 shadow-[0_24px_80px_-34px_rgba(14,165,233,0.6)]">
                       {servicesNavLinks.map((serviceItem) => {
                         const accent = serviceAccentByHref[serviceItem.href] ?? {
                           text: "text-slate-300",
@@ -97,20 +101,20 @@ const serviceAccentByHref: Record<string, { text: string; bg: string; border: st
                         };
 
                         return (
-                        <a
-                          href={serviceItem.href}
-                          class:list={[
-                            "block rounded-xl border-l-2 px-3 py-2 text-sm transition",
-                            accent.border,
-                            accent.text,
-                            accent.bg,
-                            pathname === serviceItem.href || pathname.startsWith(serviceItem.href)
-                              ? "bg-white/10"
-                              : "bg-transparent"
-                          ]}
-                        >
-                          {serviceItem.label}
-                        </a>
+                          <a
+                            href={serviceItem.href}
+                            class:list={[
+                              "block rounded-xl border-l-2 px-3 py-2 text-sm transition",
+                              accent.border,
+                              accent.text,
+                              accent.bg,
+                              pathname === serviceItem.href || pathname.startsWith(serviceItem.href)
+                                ? "bg-white/10"
+                                : "bg-transparent"
+                            ]}
+                          >
+                            {serviceItem.label}
+                          </a>
                         );
                       })}
                     </div>
