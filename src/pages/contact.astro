@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const sent = Astro.url.searchParams.get("sent") === "1";
 const error = Astro.url.searchParams.get("error");
 const errorId = Astro.url.searchParams.get("errorId");
+const errorCode = Astro.url.searchParams.get("errorCode");
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
@@ -30,7 +31,6 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
       <form
         method="post"
         action="/api/message"
-        enctype="multipart/form-data"
         data-contact-form
         class="rounded-[2.9rem] border border-cyan-300/50 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-8 shadow-[0_34px_96px_-34px_rgba(14,165,233,0.54)] ring-1 ring-cyan-200/26 md:p-11"
       >
@@ -47,16 +47,6 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         {error === "invalid" && (
           <div class="mb-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-200">
             Le formulaire contient une valeur invalide. Vérifiez vos champs et réessayez.
-          </div>
-        )}
-        {error === "type" && (
-          <div class="mb-5 rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-200">
-            Le format de la soumission est invalide. Actualisez la page et réessayez.
-          </div>
-        )}
-        {error === "too-large" && (
-          <div class="mb-5 rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-200">
-            La demande dépasse la taille permise. Réduisez le message et réessayez.
           </div>
         )}
         {error === "origin" && (
@@ -84,11 +74,6 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
             Trop de messages ont été envoyés depuis cette connexion. Réessayez plus tard.
           </div>
         )}
-        {error === "consent" && (
-          <div class="mb-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-200">
-            Vous devez accepter la politique de confidentialité avant d’envoyer ce formulaire.
-          </div>
-        )}
         {error === "smtp" && (
           <div class="mb-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-200">
             Le courriel n’est pas encore configuré côté serveur. Il faut ajouter les variables SMTP avant de mettre le site en ligne.
@@ -96,7 +81,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         )}
         {error === "send" && (
           <div class="mb-5 rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-200">
-            Une erreur est survenue pendant l’envoi. Réessayez dans un instant{errorId ? ` (réf. ${errorId})` : ""}.
+            Une erreur est survenue pendant l’envoi. Réessayez dans un instant{errorId ? ` (réf. ${errorId})` : ""}{errorCode ? ` - code ${errorCode}` : ""}.
           </div>
         )}
 
@@ -122,7 +107,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         <div class="sr-only" aria-hidden="true">
           <label>
             Site web
-            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" />
           </label>
         </div>
 
@@ -172,28 +157,6 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
           ></textarea>
         </label>
 
-        <label class="mt-5 flex gap-3 rounded-2xl border border-cyan-300/24 bg-white/5 p-4 text-sm leading-6 text-slate-200">
-          <input
-            type="checkbox"
-            name="privacyConsent"
-            value="1"
-            required
-            class="mt-1 h-4 w-4 shrink-0 rounded border-cyan-200/50 bg-slate-950 text-cyan-400 accent-cyan-400 focus:ring-cyan-300/60"
-          />
-          <span>
-            EvolutionCloud utilise les renseignements fournis dans ce formulaire afin de répondre à votre demande et de communiquer avec vous au sujet de ses services. Vos renseignements peuvent être traités par nos fournisseurs technologiques et de messagerie. Consultez notre
-            {" "}
-            <a
-              href="/politique-de-confidentialite/"
-              class="font-semibold text-cyan-200 underline decoration-cyan-200/50 underline-offset-4 transition hover:text-cyan-100 hover:decoration-cyan-100"
-            >
-              Politique de confidentialité
-            </a>
-            {" "}
-            pour connaître vos droits et nos pratiques.
-          </span>
-        </label>
-
         {turnstileSiteKey && (
           <div class="mt-5 rounded-2xl border border-cyan-300/30 bg-white/5 p-4">
             <div
@@ -201,7 +164,6 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
               data-sitekey={turnstileSiteKey}
               data-theme="dark"
               data-language="fr"
-              data-action="contact"
             ></div>
           </div>
         )}
@@ -235,7 +197,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     </section>
   </main>
   {turnstileSiteKey && (
-    <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   )}
   <script>
     const form = document.querySelector("[data-contact-form]");
