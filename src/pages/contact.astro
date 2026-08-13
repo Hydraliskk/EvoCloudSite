@@ -44,6 +44,11 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
             Merci de remplir au minimum votre nom, votre courriel et votre message.
           </div>
         )}
+        {error === "consent" && (
+          <div class="mb-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-200">
+            Vous devez accepter l’utilisation de vos renseignements afin d’envoyer votre demande.
+          </div>
+        )}
         {error === "invalid" && (
           <div class="mb-5 rounded-2xl border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-200">
             Le formulaire contient une valeur invalide. Vérifiez vos champs et réessayez.
@@ -155,6 +160,22 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
             required
             class="rounded-xl border border-cyan-300/22 bg-white/5 px-4 py-4 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-100/55"
           ></textarea>
+        </label>
+
+        <label class="mt-5 flex items-start gap-3 rounded-[1.4rem] border border-cyan-300/20 bg-white/5 px-4 py-4 text-sm leading-6 text-slate-200 transition hover:border-cyan-100/45">
+          <input
+            type="checkbox"
+            name="privacyConsent"
+            value="1"
+            required
+            class="mt-1 h-4 w-4 shrink-0 rounded border-cyan-300/35 bg-slate-950 text-cyan-400 accent-cyan-400 focus:ring-cyan-200"
+          />
+          <span>
+            J’accepte que les renseignements transmis soient utilisés par Evolution Cloud afin de répondre à ma demande.
+            <a href="/politique-de-confidentialite" class="font-semibold text-cyan-200 underline decoration-cyan-300/60 underline-offset-4 transition hover:text-cyan-100 hover:decoration-cyan-100">
+              Politique de confidentialité
+            </a>
+          </span>
         </label>
 
         {turnstileSiteKey && (
