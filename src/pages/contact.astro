@@ -31,6 +31,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
       <form
         method="post"
         action="/api/message"
+        enctype="multipart/form-data"
         data-contact-form
         class="rounded-[2.9rem] border border-cyan-300/50 bg-[linear-gradient(180deg,rgba(4,10,24,0.95),rgba(10,18,38,0.94))] p-8 shadow-[0_34px_96px_-34px_rgba(14,165,233,0.54)] ring-1 ring-cyan-200/26 md:p-11"
       >
@@ -54,6 +55,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
             Le formulaire contient une valeur invalide. Vérifiez vos champs et réessayez.
           </div>
         )}
+
         {error === "origin" && (
           <div class="mb-5 rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-200">
             La soumission a été refusée pour des raisons de sécurité.
@@ -185,6 +187,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
               data-sitekey={turnstileSiteKey}
               data-theme="dark"
               data-language="fr"
+              data-action="contact"
             ></div>
           </div>
         )}
@@ -220,36 +223,16 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
   {turnstileSiteKey && (
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   )}
+  
   <script>
-    const form = document.querySelector("[data-contact-form]");
-    const submitButton = document.querySelector("[data-contact-submit]");
+  const form = document.querySelector("[data-contact-form]");
+  const submitButton = document.querySelector("[data-contact-submit]");
 
-    if (form instanceof HTMLFormElement && submitButton instanceof HTMLButtonElement) {
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        const originalLabel = submitButton.textContent;
-        submitButton.disabled = true;
-        submitButton.textContent = "Envoi en cours...";
-
-        try {
-          const response = await fetch("/api/message", {
-            method: "POST",
-            body: new FormData(form),
-            credentials: "same-origin",
-            redirect: "follow"
-          });
-
-          window.location.assign(response.url || "/contact?error=send");
-        } catch {
-          window.location.assign("/contact?error=send");
-        } finally {
-          submitButton.disabled = false;
-          if (originalLabel) {
-            submitButton.textContent = originalLabel;
-          }
-        }
-      });
-    }
-  </script>
+  if (form instanceof HTMLFormElement && submitButton instanceof HTMLButtonElement) {
+    form.addEventListener("submit", () => {
+      submitButton.disabled = true;
+      submitButton.textContent = "Envoi en cours...";
+    });
+  }
+</script>
 </BaseLayout>
